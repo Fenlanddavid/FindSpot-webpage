@@ -69,14 +69,14 @@
     .logo-wrap {
       display: flex;
       align-items: center;
-      max-width: 200px; /* Increased to fix "tiny" look */
-      width: 100%;
+      width: auto; /* Changed from 100% to allow natural width */
+      height: 60px; /* Constrain by height to keep banner thin */
       line-height: 0;
     }
 
     .logo-wrap img {
-      width: 100%;
-      height: auto;
+      width: auto;
+      height: 100%;
       object-fit: contain;
     }
 
@@ -444,7 +444,7 @@
 
     @media (min-width: 760px) {
       .nav-inner { min-height: 100px; padding: 1rem 0; }
-      .logo-wrap { max-width: 580px; }
+      .logo-wrap { height: 80px; } /* Larger logo on desktop */
       .nav-links { display: flex; gap: 1.5rem; }
       .nav-links .btn { display: inline-flex; }
       .mobile-open { display: none; }
