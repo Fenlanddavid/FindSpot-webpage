@@ -14,6 +14,11 @@
   <meta property="og:image" content="https://findspot.uk/logo.png">
 
   <style>
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.5); opacity: 0.5; }
+      100% { transform: scale(1); opacity: 1; }
+    }
     :root {
       --bg: #0b0f12;
       --bg-soft: #10161a;
@@ -69,16 +74,27 @@
 
     .logo-wrap {
       display: flex;
-      align-items: center;
-      max-width: 260px; /* Clear title width on mobile */
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 300px; /* Adjusted for text */
       width: 100%;
-      line-height: 0;
+      line-height: 1.2;
     }
 
     .logo-wrap img {
       width: 100%;
       height: auto;
       object-fit: contain;
+    }
+
+    .brand-tag {
+        color: var(--accent);
+        font-size: 0.65rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        margin-top: -4px; /* Pull closer to logo */
+        opacity: 0.95;
     }
 
     .nav-links {
@@ -455,8 +471,8 @@
       <a class="brand" href="#top" aria-label="FindSpot home">
         <span class="logo-wrap">
           <img src="logo.png" alt="FindSpot | Detect Smarter" />
+          <span class="brand-tag">Made by detectorists. Designed for discovery</span>
         </span>
-        <div class="eyebrow">Professional Toolkit for UK Detectorists</div>
       </a>
 
       <a class="btn btn-primary mobile-open" href="#install">Install</a>
@@ -469,7 +485,14 @@
         <div>
           <div class="hero-note" style="margin-bottom: 1.5rem; margin-top: 0;"><span>🔒</span> <strong>Local-First Privacy.</strong> Your secrets stay yours.</div>
           <h1>Detect smarter.<br>Find what<br>others miss.</h1>
-          <p class="lead">The all-in-one app for logging finds, multispectral terrain scanning, and managing permissions.</p>
+          <p class="lead">The most advanced metal detecting app for researching land, mapping, recording, and analysing your finds.</p>
+          
+          <div class="bullet-list" style="margin-top: 1.5rem; gap: 0.8rem;">
+            <div class="bullet"><span class="bullet-dot"></span><span style="font-size: 0.95rem; font-weight: 600;">FieldGuide - The most advanced field analysis tool for detectorists</span></div>
+            <div class="bullet"><span class="bullet-dot"></span><span style="font-size: 0.95rem; font-weight: 600;">In-Field 14-Point Landowner Agreement & Signature Capture</span></div>
+            <div class="bullet"><span class="bullet-dot"></span><span style="font-size: 0.95rem; font-weight: 600;">Professional PAS-Ready Find Reporting with Precision GPS Mapping</span></div>
+          </div>
+
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://fenlanddavid.github.io/findspot/">Launch FindSpot App</a>
             <a class="btn btn-secondary" href="#features">Explore Features</a>
@@ -498,34 +521,34 @@
             <p>Your data never leaves your device. Total privacy with full JSON backup and CSV export portability. No cloud, no tracking.</p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon">➕</div>
-            <h3>Quick Capture</h3>
-            <p>Log a find in two taps with muddy hands. Save the GPS location now, fill in the details later at home.</p>
+            <div class="feature-icon">📡</div>
+            <h3>Multispectral Engine</h3>
+            <p>Consensus scanning combining 1m LiDAR (LRM), Slope Gradient, Hydrology, and historic drought-phase satellite imagery.</p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon">🔍</div>
-            <h3>Target ID & Signal</h3>
-            <p>Record your detector model, Target ID, and depth for every find to build a high-precision signal profile of your sites.</p>
+            <div class="feature-icon">📊</div>
+            <h3>Potential Scoring</h3>
+            <p>Smart engine calculates archaeological potential using nearby PAS finds, monument proximity, and the <b>Etymology Engine</b>.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">🛡️</div>
             <h3>Digital Proof Mode</h3>
-            <p>Professional authority certificate for landowners with one-tap access to signed PDF agreements and insurance.</p>
+            <p>Professional authority certificate for landowners with one-tap access to signed 14-point PDF agreements and insurance.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">🏛️</div>
-            <h3>Historic England & PAS</h3>
-            <p>Live PAS data sync and Historic England AIM integration. Instantly see scheduled monument boundaries and nearby historic finds.</p>
+            <h3>HE AIM & PAS</h3>
+            <p>Live PAS data sync and Historic England AIM integration. Instantly see verified monument boundaries and nearby historic finds.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">🧭</div>
             <h3>Gap Analysis</h3>
-            <p>Visualise exactly where you've walked. Spot undetected "gaps" in your coverage to ensure nothing is left behind.</p>
+            <p>Visualise coverage with real-time <b>Undetected %</b> calculation. Spot the gaps in your search area to ensure 100% recovery.</p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon">✍️</div>
-            <h3>In-Field Agreements</h3>
-            <p>Generate, sign, and store professional 14-point landowner agreements directly on your phone in the field.</p>
+            <div class="feature-icon">➕</div>
+            <h3>Quick Capture</h3>
+            <p>Log a find in two taps with muddy hands. Save the GPS location now, fill in the details later with the <b>Pending Finds Queue</b>.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">📋</div>
@@ -540,14 +563,17 @@
       <div class="container advantage">
         <div class="card">
           <div class="section-head" style="margin-bottom:0;">
-            <h2>The FieldGuide.</h2>
-            <p>Stop guessing where the features are. Use the most advanced mapping engine available to UK detectorists to see through the topsoil and connect with local history.</p>
+            <h2>FieldGuide.</h2>
+            <p>Stop guessing where the features are. Our multispectral consensus engine combines multiple data sources to see through the topsoil and connect with local history.</p>
           </div>
           <div class="bullet-list">
-            <div class="bullet"><span class="bullet-dot"></span><span>1m Resolution LiDAR & Local Relief Models (LRM).</span></div>
-            <div class="bullet"><span class="bullet-dot"></span><span>Live PAS Database integration showing nearby historic finds.</span></div>
-            <div class="bullet"><span class="bullet-dot"></span><span>Historic England AIM data for verified monument verification.</span></div>
-            <div class="bullet"><span class="bullet-dot"></span><span>Archaeological Potential Scoring engine for your search area.</span></div>
+            <div class="bullet"><span class="bullet-dot"></span><span><b>LRM (Local Relief Models)</b> subtract macro-terrain to isolate subtle archaeology.</span></div>
+            <div class="bullet"><span class="bullet-dot"></span><span><b>Consensus Scanning</b> combining LiDAR, Slope, Hydrology, and Historic mapping.</span></div>
+            <div class="bullet"><span class="bullet-dot"></span><span><b>Etymology Engine</b> scans nearby place names for historic settlement signals.</span></div>
+            <div class="bullet"><span class="bullet-dot"></span><span><b>Potential Scoring</b> calculates the archaeological likelihood of your site.</span></div>
+          </div>
+          <div class="hero-note" style="margin-top: 2rem; background: rgba(31,199,182,0.1); border-color: rgba(31,199,182,0.2);">
+            <strong style="color: var(--accent); font-size: 1.1rem;">87%</strong> &nbsp;Archaeological Potential Detected
           </div>
         </div>
 
@@ -594,12 +620,12 @@
         <div class="card">
           <div class="section-head" style="margin-bottom:0;">
             <h2>Manage Permissions.</h2>
-            <p>Manage the legal side of detecting with ease. Generate 14-point agreements, capture digital signatures, and keep your proof of permission in your pocket.</p>
+            <p>Manage the legal side of detecting with absolute certainty. Generate professional 14-point agreements, capture digital signatures, and keep your proof of permission in your pocket.</p>
           </div>
           <div class="bullet-list">
-            <div class="bullet"><span class="bullet-dot"></span><span>Generate signed PDF agreements in the field.</span></div>
-            <div class="bullet"><span class="bullet-dot"></span><span>Digital Proof certificate for quick landowner verification.</span></div>
-            <div class="bullet"><span class="bullet-dot"></span><span>Automated NCMD Insurance tracking and expiry alerts.</span></div>
+            <div class="bullet"><span class="bullet-dot"></span><span><b>14-Point Digital Agreements</b> generated and signed in the field.</span></div>
+            <div class="bullet"><span class="bullet-dot"></span><span><b>Digital Proof Mode</b> for instant landowner verification of authority.</span></div>
+            <div class="bullet"><span class="bullet-dot"></span><span><b>NCMD Insurance</b> tracking and automated renewal reminders.</span></div>
           </div>
         </div>
       </div>
@@ -688,6 +714,10 @@
           </div>
         </div>
 
+        <div style="margin-top: 3rem; text-align: center; opacity: 0.8; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.05em; color: var(--muted);">
+            <span style="color: var(--accent); animation: pulse 2s infinite;">●</span> JOIN <span id="install-count">...</span> DETECTORISTS IN THE FIELD
+        </div>
+
         <p style="text-align:center; margin-top: 2rem; color: var(--muted); font-size: 0.9rem;">
           <span style="color: var(--accent);">★</span> Tip: Once installed, FindSpot works perfectly offline in the field.
         </p>
@@ -714,6 +744,19 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Fetch Install Count
+    fetch("https://api.counterapi.dev/v1/findspot-uk/installs/")
+      .then(res => res.json())
+      .then(data => {
+        if (data && typeof data.count === 'number') {
+          document.getElementById('install-count').textContent = data.count.toLocaleString();
+        }
+      })
+      .catch(err => {
+        console.error("Stats fetch failed:", err);
+        document.getElementById('install-count').textContent = "850+"; // Fallback
+      });
   </script>
 </body>
 </html>
