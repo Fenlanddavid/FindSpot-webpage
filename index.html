@@ -8,10 +8,10 @@
   
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://fenlanddavid.github.io/findspot/">
+  <meta property="og:url" content="https://findspot.uk/">
   <meta property="og:title" content="FindSpot | Detect Smarter">
   <meta property="og:description" content="The professional tool for UK detectorists. LiDAR maps, Quick Capture finds, and Digital Permission Proof.">
-  <meta property="og:image" content="https://fenlanddavid.github.io/findspot/logo.png">
+  <meta property="og:image" content="https://findspot.uk/logo.png">
 
   <style>
     :root {
@@ -63,12 +63,13 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
+      padding: 0.5rem 0;
     }
 
     .logo-wrap {
       display: flex;
       align-items: center;
-      max-width: 420px; /* Base size */
+      max-width: 180px; /* Increased for mobile from 160px */
       width: 100%;
       line-height: 0;
     }
@@ -80,22 +81,24 @@
     }
 
     .nav-links {
-      display: none;
+      display: flex; /* Visible on mobile */
       align-items: center;
-      gap: 1.5rem;
+      gap: 0.75rem; /* Tightened from 1rem to fit more */
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.75rem; /* Slightly smaller for mobile */
       white-space: nowrap;
     }
+
+    .nav-links .btn { display: none; } /* Hide btn in nav-links on mobile */
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
-      min-height: 48px;
-      padding: 0 1.25rem;
-      border-radius: 16px;
+      min-height: 40px; /* Slimmer for mobile */
+      padding: 0 0.75rem; /* Tighter for mobile */
+      border-radius: 12px;
       border: 1px solid transparent;
       font-weight: 800;
       transition: 0.2s ease;
@@ -103,7 +106,7 @@
       text-align: center;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      font-size: 0.85rem;
+      font-size: 0.7rem; /* Smaller font for mobile btn */
     }
 
     .btn-primary {
@@ -128,18 +131,29 @@
       align-items: center;
     }
 
+    .brand {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      padding-bottom: 1rem; /* Lifts the tagline up from the bottom edge */
+    }
+
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0.45rem 0.75rem;
-      border-radius: 999px;
-      background: rgba(31,199,182,0.08);
-      border: 1px solid rgba(31,199,182,0.18);
-      color: #b9ffef;
-      font-size: 0.85rem;
-      margin-bottom: 1.5rem;
-      font-weight: 700;
+      gap: 0.3rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      background: rgba(31,199,182,0.1);
+      border: 1px solid rgba(31,199,182,0.25);
+      color: var(--accent);
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      margin-top: -40px; /* Stronger pull to move it significantly closer to the logo */
     }
 
     h1 {
@@ -165,10 +179,22 @@
     }
 
     .hero-note {
-      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 1rem;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      color: var(--text);
       font-size: 0.9rem;
-      margin: 0;
-      opacity: 0.6;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    .hero-note span {
+      color: var(--accent);
+      filter: drop-shadow(0 0 8px var(--accent));
     }
 
     .phone-card {
@@ -352,10 +378,81 @@
       font-size: 0.95rem;
     }
 
+    .install-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .install-card {
+      padding: 2rem;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .install-head {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .install-head .icon {
+      font-size: 2rem;
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+    }
+
+    .install-head h3 { margin: 0; font-size: 1.5rem; font-weight: 800; }
+
+    .steps {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .step {
+      display: flex;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .step-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-weight: 900;
+      font-size: 0.75rem;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+
+    .step b { color: var(--text); }
+
     @media (min-width: 760px) {
-      .logo-wrap { max-width: 520px; }
-      .nav-links { display: flex; }
+      .install-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (min-width: 760px) {
+      .logo-wrap { max-width: 580px; }
+      .nav-links { gap: 1.2rem; font-size: 0.95rem; }
+      .nav-links .btn { display: inline-flex; } /* Show btn in nav on desktop */
       .mobile-open { display: none; }
+      .btn { min-height: 48px; padding: 0 1.25rem; font-size: 0.85rem; border-radius: 16px; }
       .hero-grid { grid-template-columns: 1.2fr 0.8fr; gap: 4rem; }
       .hero-actions { grid-template-columns: auto auto; justify-content: start; }
       .feature-grid { grid-template-columns: repeat(2, 1fr); }
@@ -377,16 +474,16 @@
         <span class="logo-wrap">
           <img src="logo.png" alt="FindSpot | Detect Smarter" />
         </span>
+        <div class="eyebrow">Professional Toolkit for UK Detectorists</div>
       </a>
 
       <div class="nav-links">
         <a href="#features">Features</a>
         <a href="#fieldguide">FieldGuide</a>
-        <a href="#permissions">Permissions</a>
-        <a class="btn btn-primary" href="https://fenlanddavid.github.io/findspot/">Open App</a>
+        <a class="btn btn-primary" href="#install">Install App</a>
       </div>
 
-      <a class="btn btn-primary mobile-open" href="https://fenlanddavid.github.io/findspot/">Open App</a>
+      <a class="btn btn-primary mobile-open" href="#install">Install App</a>
     </div>
   </nav>
 
@@ -394,14 +491,13 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">Professional Toolkit for UK Detectorists</div>
+          <div class="hero-note" style="margin-bottom: 1.5rem; margin-top: 0;"><span>🔒</span> <strong>Local-First Privacy.</strong> Your secrets stay yours.</div>
           <h1>Detect smarter.<br>Find what<br>others miss.</h1>
-          <p class="lead">The all-in-one PWA for logging finds, scanning terrain with LiDAR, and managing permissions with professional digital proof.</p>
+          <p class="lead">The all-in-one app for logging finds, multispectral terrain scanning, and managing permissions.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://fenlanddavid.github.io/findspot/">Launch FindSpot App</a>
             <a class="btn btn-secondary" href="#features">Explore Features</a>
           </div>
-          <p class="hero-note">Local-First Privacy. No Cloud. No Servers. Your secrets stay yours.</p>
         </div>
 
         <div class="phone-card">
@@ -421,8 +517,13 @@
 
         <div class="feature-grid">
           <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Strictly Local-First</h3>
+            <p>Your data never leaves your device. Total privacy with full JSON backup and CSV export portability. No cloud, no tracking.</p>
+          </div>
+          <div class="feature-card">
             <div class="feature-icon">➕</div>
-            <h3>Quick Find FAB</h3>
+            <h3>Quick Capture</h3>
             <p>Log a find in two taps with muddy hands. Save the GPS location now, fill in the details later at home.</p>
           </div>
           <div class="feature-card">
@@ -437,8 +538,8 @@
           </div>
           <div class="feature-card">
             <div class="feature-icon">🏛️</div>
-            <h3>PAS Data Sync</h3>
-            <p>Live PAS (Portable Antiquities Scheme) data integration in the FieldGuide to see what's been found nearby.</p>
+            <h3>Historic England & PAS</h3>
+            <p>Live PAS data sync and Historic England AIM integration. Instantly see scheduled monument boundaries and nearby historic finds.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">🧭</div>
@@ -455,11 +556,6 @@
             <h3>Report to PAS</h3>
             <p>Instantly generate professional find reports with all necessary data ready for your local Finds Liaison Officer.</p>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon">🔒</div>
-            <h3>Strictly Local-First</h3>
-            <p>Your data never leaves your device. Total privacy with full JSON backup and CSV export portability.</p>
-          </div>
         </div>
       </div>
     </section>
@@ -468,7 +564,7 @@
       <div class="container advantage">
         <div class="card">
           <div class="section-head" style="margin-bottom:0;">
-            <h2>The V12.8 FieldGuide.</h2>
+            <h2>The FieldGuide.</h2>
             <p>Stop guessing where the features are. Use the most advanced mapping engine available to UK detectorists to see through the topsoil and connect with local history.</p>
           </div>
           <div class="bullet-list">
@@ -521,7 +617,7 @@
 
         <div class="card">
           <div class="section-head" style="margin-bottom:0;">
-            <h2>The Permission Wallet.</h2>
+            <h2>Manage Permissions.</h2>
             <p>Manage the legal side of detecting with ease. Generate 14-point agreements, capture digital signatures, and keep your proof of permission in your pocket.</p>
           </div>
           <div class="bullet-list">
@@ -536,7 +632,7 @@
     <section id="finds">
       <div class="container">
         <div class="section-head">
-          <h2>Built for real finds, not just tidy demos.</h2>
+          <h2>Built for real finds.</h2>
           <p>FindSpot is designed around what actually matters when you’re out detecting: speed, coverage, privacy, and accurate recording.</p>
         </div>
 
@@ -559,14 +655,14 @@
     <section>
       <div class="container">
         <div class="section-head">
-          <h2>Live App Preview.</h2>
-          <p>Real screenshots from the multispectral engine and quick capture workflow.</p>
+          <h2>Screenshots.</h2>
+          <p>A glimpse into the FindSpot interface and field workflow.</p>
         </div>
 
         <div class="screens-grid">
           <div class="mini-screen">
             <div class="mini-inner">
-              <img src="Screenshot_20260321-233241.png" alt="V12.8 FieldGuide" />
+              <img src="Screenshot_20260321-233241.png" alt="FieldGuide" />
             </div>
           </div>
           <div class="mini-screen">
@@ -580,6 +676,45 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="install">
+      <div class="container">
+        <div class="section-head">
+          <h2>Get FindSpot on your Phone.</h2>
+          <p>FindSpot is a Progressive Web App (PWA). No App Store required—just install directly from your browser for full offline capability.</p>
+        </div>
+
+        <div class="install-grid">
+          <!-- Android -->
+          <div class="install-card">
+            <div class="install-head">
+              <h3>Android</h3>
+            </div>
+            <ul class="steps">
+              <li class="step"><span class="step-num">1</span><span><b>Open</b> <a href="https://findspot.uk" style="color:var(--accent); text-decoration:underline;">findspot.uk</a> in <b>Chrome</b>.</span></li>
+              <li class="step"><span class="step-num">2</span><span><b>Tap</b> the menu icon (⋮) or look for the "Install" banner.</span></li>
+              <li class="step"><span class="step-num">3</span><span><b>Select</b> "Install App" or "Add to Home Screen."</span></li>
+            </ul>
+          </div>
+
+          <!-- iOS -->
+          <div class="install-card">
+            <div class="install-head">
+              <h3>iPhone & iPad</h3>
+            </div>
+            <ul class="steps">
+              <li class="step"><span class="step-num">1</span><span><b>Open</b> <a href="https://findspot.uk" style="color:var(--accent); text-decoration:underline;">findspot.uk</a> in <b>Safari</b>.</span></li>
+              <li class="step"><span class="step-num">2</span><span><b>Tap</b> the "Share" icon (square with an up arrow).</span></li>
+              <li class="step"><span class="step-num">3</span><span><b>Scroll</b> down and tap "Add to Home Screen."</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <p style="text-align:center; margin-top: 2rem; color: var(--muted); font-size: 0.9rem;">
+          <span style="color: var(--accent);">★</span> Tip: Once installed, FindSpot works perfectly offline in the field.
+        </p>
       </div>
     </section>
 
