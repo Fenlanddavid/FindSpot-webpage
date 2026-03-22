@@ -76,7 +76,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      max-width: 300px; /* Adjusted for text */
+      max-width: 400px; /* Increased to prevent line breaks */
       width: 100%;
       line-height: 1.2;
       padding-left: 15px; /* Push away from left edge */
@@ -94,8 +94,9 @@
         font-weight: 800;
         text-transform: uppercase;
         letter-spacing: 0.02em;
-        margin-top: -60px; /* Half of the previous aggressive adjustment */
+        margin-top: -50px; /* Moved down slightly from -60px */
         opacity: 0.95;
+        white-space: nowrap; /* Prevent line breaks */
     }
 
     .nav-links {
