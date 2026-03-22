@@ -58,27 +58,26 @@
     }
 
     .nav-inner {
-      min-height: auto;
+      min-height: 80px;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      justify-content: center;
-      gap: 0.1rem; /* Extremely tight gap */
+      justify-content: space-between;
+      gap: 1rem;
       padding: 0.5rem 0;
     }
 
     .logo-wrap {
       display: flex;
       align-items: center;
-      width: auto;
-      height: 120px; /* Reduced from 220px */
+      max-width: 260px; /* Clear title width on mobile */
+      width: 100%;
       line-height: 0;
-      margin-bottom: -5px;
     }
 
     .logo-wrap img {
-      width: auto;
-      height: 100%;
+      width: 100%;
+      height: auto;
       object-fit: contain;
     }
 
@@ -123,7 +122,7 @@
       color: var(--text);
     }
 
-    .mobile-open { flex: 0 0 auto; }
+    .mobile-open { flex: 0 0 auto; display: inline-flex; }
 
     .hero { padding: 2rem 0 4rem; }
     .hero-grid {
@@ -135,26 +134,11 @@
 
     .brand {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0;
+      align-items: center;
     }
 
     .eyebrow {
-      display: none; /* Hide tagline on mobile for a cleaner look */
-      align-items: center;
-      gap: 0.3rem;
-      padding: 0.2rem 0.5rem;
-      border-radius: 6px;
-      background: rgba(31,199,182,0.1);
-      border: 1px solid rgba(31,199,182,0.25);
-      color: var(--accent);
-      font-size: 0.65rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      white-space: nowrap;
-      margin-top: -40px; /* Pulls it closer to the logo on desktop */
+      display: none; /* Hidden for now */
     }
 
     h1 {
@@ -445,13 +429,11 @@
     .step b { color: var(--text); }
 
     @media (min-width: 760px) {
-      .nav-inner { min-height: auto; padding: 1.5rem 0; flex-direction: column; justify-content: center; gap: 0.25rem; }
-      .logo-wrap { height: 220px; margin-bottom: -15px; } /* Clean desktop title */
-      .nav-links { display: flex; gap: 1.5rem; margin-top: 0; }
-      .nav-links .btn { display: inline-flex; }
-      .mobile-open { display: none; }
-      .eyebrow { display: inline-flex; margin-top: -10px; } /* Tight fit */
-      .btn { min-height: 48px; padding: 0 1.25rem; font-size: 0.85rem; border-radius: 16px; }
+      .nav-inner { min-height: 100px; padding: 1rem 0; flex-direction: row; justify-content: space-between; }
+      .logo-wrap { max-width: 580px; }
+      .nav-links { display: none; }
+      .mobile-open { display: inline-flex; }
+      .btn { min-height: 48px; padding: 0 1.5rem; font-size: 0.85rem; border-radius: 16px; }
       .hero-grid { grid-template-columns: 1.2fr 0.8fr; gap: 4rem; }
       .hero-actions { grid-template-columns: auto auto; justify-content: start; }
       .feature-grid { grid-template-columns: repeat(2, 1fr); }
@@ -477,13 +459,7 @@
         <div class="eyebrow">Professional Toolkit for UK Detectorists</div>
       </a>
 
-      <div class="nav-links">
-        <a href="#features">Features</a>
-        <a href="#fieldguide">FieldGuide</a>
-        <a class="btn btn-primary" href="#install">Install App</a>
-      </div>
-
-      <a class="btn btn-primary mobile-open" href="#install">Install App</a>
+      <a class="btn btn-primary mobile-open" href="#install">Install</a>
     </div>
   </nav>
 
