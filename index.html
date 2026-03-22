@@ -444,6 +444,21 @@
       flex: 0 0 auto;
     }
 
+    .step-num-large {
+      width: 64px;
+      height: 64px;
+      font-size: 1.5rem;
+      margin: 0 auto 1.5rem;
+      background: rgba(31,199,182,0.1);
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      box-shadow: 0 0 24px rgba(31,199,182,0.2);
+    }
+
     .step b { color: var(--text); }
 
     @media (min-width: 760px) {
@@ -497,13 +512,42 @@
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://fenlanddavid.github.io/findspot/">Launch FindSpot App</a>
-            <a class="btn btn-secondary" href="#features">Explore Features</a>
+            <a class="btn btn-secondary" href="#how-it-works">How it works</a>
           </div>
         </div>
 
         <div class="phone-card">
           <div class="phone-screen">
             <img src="hero-screenshot.jpg" alt="FindSpot App Dashboard" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" style="background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+      <div class="container">
+        <div class="section-head" style="text-align: center; margin: 0 auto 4rem;">
+          <h2 style="font-size: clamp(2rem, 8vw, 3.5rem);">How it works.</h2>
+          <p style="margin: 0 auto; max-width: 600px;">Stop guessing and start discovering. FindSpot turns your field sessions into actionable archaeological data in three simple steps.</p>
+        </div>
+
+        <div class="feature-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem;">
+          <div style="text-align: center;">
+            <div class="step-num-large">1</div>
+            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 800;">Set your permission</h3>
+            <p style="font-size: 1rem; line-height: 1.6; color: var(--muted);">Draw your field boundary and <b>sign professional agreements</b> directly in the field.</p>
+          </div>
+
+          <div style="text-align: center;">
+            <div class="step-num-large">2</div>
+            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 800;">Analyse your land</h3>
+            <p style="font-size: 1rem; line-height: 1.6; color: var(--muted);">Reveal hidden features with powerful <b>multispectral mapping</b>—LiDAR, terrain, and historic imagery combined.</p>
+          </div>
+
+          <div style="text-align: center;">
+            <div class="step-num-large">3</div>
+            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 800;">Detect as normal</h3>
+            <p style="font-size: 1rem; line-height: 1.6; color: var(--muted);">Quick-capture precision GPS points in two taps. <b>Detect now, fill in the find details later</b> when you're home.</p>
           </div>
         </div>
       </div>
