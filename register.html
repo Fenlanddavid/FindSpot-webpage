@@ -65,10 +65,10 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      max-width: 300px;
-      width: 100%;
-      line-height: 1.2;
+      flex-shrink: 0;
+      width: 260px;
       padding-left: 15px;
+      overflow: hidden;
     }
     .logo-wrap img { width: 100%; height: auto; object-fit: contain; }
     .brand-tag {
@@ -77,11 +77,31 @@
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.02em;
-      margin-top: -50px;
+      margin-top: 3px;
       opacity: 0.95;
       white-space: nowrap;
     }
     .brand { display: flex; align-items: center; }
+    .btn-ghost {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 0.5rem 0.85rem;
+      border: 1px solid rgba(16,185,129,0.3);
+      border-radius: 10px;
+      white-space: nowrap;
+      transition: background 0.2s ease;
+    }
+    .btn-ghost:hover { background: rgba(16,185,129,0.1); }
+    @media (max-width: 600px) {
+      .logo-wrap { width: 180px; padding-left: 8px; }
+      .brand-tag { font-size: 0.55rem; }
+      .btn-ghost { font-size: 0.6rem; padding: 0.4rem 0.55rem; }
+      .btn.btn-primary { padding: 0.55rem 0.85rem; font-size: 0.75rem; }
+    }
 
     .btn {
       display: inline-flex;
@@ -291,11 +311,14 @@
     <div class="container nav-inner">
       <a class="brand" href="https://findspot.uk" aria-label="FindSpot home">
         <span class="logo-wrap">
-          <img src="logo.png" alt="FindSpot" />
+          <img src="logo-2.png" alt="FindSpot" />
           <span class="brand-tag">Made by detectorists</span>
         </span>
       </a>
-      <a class="btn btn-primary" href="https://fenlanddavid.github.io/findspot/">Open App</a>
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <a href="https://findspot.uk" class="btn-ghost">← Home</a>
+        <a class="btn btn-primary" href="https://fenlanddavid.github.io/findspot/">Open App</a>
+      </div>
     </div>
   </nav>
 

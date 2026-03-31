@@ -6,12 +6,35 @@
   <title>FindSpot | Stop Walking Past History</title>
   <meta name="description" content="Find hidden features. Record like a professional. Prove your permission. The most powerful metal detecting app for UK detectorists." />
   
+  <link rel="icon" href="logo.png" type="image/png" />
+
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://findspot.uk/">
   <meta property="og:title" content="FindSpot | See What's Hidden">
   <meta property="og:description" content="Most detectorists walk straight past history. FindSpot shows you where it is. LiDAR, Historic data search, and professional recording.">
   <meta property="og:image" content="https://findspot.uk/logo.png">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FindSpot | See What's Hidden">
+  <meta name="twitter:description" content="Most detectorists walk straight past history. FindSpot shows you where it is. LiDAR, Historic data search, and professional recording.">
+  <meta name="twitter:image" content="https://findspot.uk/logo.png">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "FindSpot",
+    "operatingSystem": "Android, iOS",
+    "applicationCategory": "UtilitiesApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+    "url": "https://findspot.uk",
+    "description": "The professional metal detecting app for UK detectorists. LiDAR terrain analysis, find recording, permission management, and local clubs and rallies.",
+    "author": { "@type": "Organization", "name": "FindSpot UK" }
+  }
+  </script>
 
   <style>
     @keyframes pulse-glow {
@@ -72,7 +95,7 @@
     }
 
     .nav-inner {
-      min-height: 80px;
+      min-height: 88px;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -85,10 +108,10 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      max-width: 400px; /* Increased to prevent line breaks */
-      width: 100%;
-      line-height: 1.2;
-      padding-left: 15px; /* Push away from left edge */
+      flex-shrink: 0;
+      width: 260px;
+      padding-left: 15px;
+      overflow: hidden;
     }
 
     .logo-wrap img {
@@ -103,9 +126,9 @@
         font-weight: 800;
         text-transform: uppercase;
         letter-spacing: 0.02em;
-        margin-top: -50px; /* Moved down slightly from -60px */
+        margin-top: 3px;
         opacity: 0.95;
-        white-space: nowrap; /* Prevent line breaks */
+        white-space: nowrap;
     }
 
     .brand {
@@ -114,6 +137,21 @@
     }
 
     .mobile-open { flex: 0 0 auto; display: inline-flex; margin-right: 0; }
+
+    .btn-ghost {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 0.5rem 0.85rem;
+      border: 1px solid rgba(16,185,129,0.3);
+      border-radius: 10px;
+      white-space: nowrap;
+      transition: background 0.2s ease;
+    }
+    .btn-ghost:hover { background: rgba(16,185,129,0.1); }
 
     .btn {
       display: inline-flex;
@@ -336,7 +374,23 @@
     .diff-table td { padding: 1.5rem; border-bottom: 1px solid var(--border); font-weight: 700; }
     .diff-table .check { color: var(--accent); font-size: 1.2rem; }
 
-    /* MOBILE ADJUSTMENTS */
+    /* MOBILE NAV */
+    @media (max-width: 600px) {
+      .nav-inner { min-height: 72px; }
+      .logo-wrap { width: 180px; padding-left: 8px; }
+      .brand-tag { font-size: 0.55rem; margin-top: 2px; }
+      .btn-ghost {
+        font-size: 0.6rem;
+        padding: 0.4rem 0.55rem;
+        letter-spacing: 0.02em;
+      }
+      .btn.mobile-open {
+        padding: 0.55rem 0.85rem;
+        font-size: 0.75rem;
+      }
+    }
+
+    /* TABLET/DESKTOP ADJUSTMENTS */
     @media (min-width: 768px) {
         .grid-2 { grid-template-columns: 1fr 1fr; }
         .hero-actions { flex-direction: row; }
@@ -358,13 +412,13 @@
     <div class="container nav-inner">
       <a class="brand" href="#top" aria-label="FindSpot home">
         <span class="logo-wrap">
-          <img src="logo.png" alt="FindSpot | Detect Smarter" />
+          <img src="logo-2.png" alt="FindSpot | Detect Smarter" />
           <span class="brand-tag">Made by detectorists</span>
         </span>
       </a>
 
       <div style="display: flex; align-items: center; gap: 0.75rem;">
-        <a href="https://fenlanddavid.github.io/findspot/discover" style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); text-decoration: none; padding: 0.5rem 0.85rem; border: 1px solid rgba(16,185,129,0.3); border-radius: 10px; white-space: nowrap; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(16,185,129,0.1)'" onmouseout="this.style.background='transparent'">Clubs &amp; Rallies</a>
+        <a href="register.html" class="btn-ghost">Clubs &amp; Rallies</a>
         <a class="btn btn-primary mobile-open" href="https://fenlanddavid.github.io/findspot/">Install</a>
       </div>
     </div>
@@ -544,7 +598,7 @@
             </div>
             <div class="mockup-frame" style="max-width: 320px; margin: 0 auto;">
                 <div class="mockup-screen">
-                    <img src="quick-capture.jpg" alt="Quick Capture Interface" style="width:100%;">
+                    <img src="quick-capture.jpg" alt="Quick Capture Interface" style="width:100%;" loading="lazy">
                 </div>
             </div>
         </div>
@@ -557,7 +611,7 @@
         <div class="grid grid-2">
             <div class="mockup-frame">
                 <div class="mockup-screen">
-                    <img src="proof.png" alt="Digital Permission Proof" style="width:100%;">
+                    <img src="proof.png" alt="Digital Permission Proof" style="width:100%;" loading="lazy">
                 </div>
             </div>
             <div>
@@ -602,7 +656,7 @@
 
         <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
             <div class="museum-card">
-                <img src="find-card.jpg" alt="Find Record" class="museum-img">
+                <img src="find-card.jpg" alt="Find Record" class="museum-img" loading="lazy">
             </div>
             <div class="card" style="display:flex; flex-direction:column; justify-content:center;">
                 <ul class="feature-list">
@@ -662,6 +716,36 @@
       </div>
     </section>
 
+    <!-- SECTION — CLUBS & RALLIES -->
+    <section id="clubs-rallies">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: 3.5rem;">
+          <span class="hero-eyebrow">Community</span>
+          <h2 class="section-headline">Find a rally. <span>Join a club.</span></h2>
+          <p class="section-lead" style="margin: 0 auto;">FindSpot's Discover tab shows local clubs and upcoming rallies across the UK — filtered to your area.</p>
+        </div>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin-bottom: 3.5rem;">
+          <div class="card" style="text-align:center;">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">📍</div>
+            <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem;">Nearby Clubs</h3>
+            <p style="color: var(--muted); font-size: 0.95rem;">Find detecting clubs within your chosen radius and see when they meet.</p>
+          </div>
+          <div class="card" style="text-align:center;">
+            <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem;">Upcoming Rallies</h3>
+            <p style="color: var(--muted); font-size: 0.95rem;">Browse verified rallies and club digs with dates, locations, and booking links.</p>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">✅</div>
+            <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem;">Get Listed Free</h3>
+            <p style="color: var(--muted); font-size: 0.95rem;">Running a club or rally? Submit your details and reach detectorists near you.</p>
+          </div>
+        </div>
+        <div style="text-align:center;">
+          <a href="register.html" class="btn btn-primary">List Your Club or Rally</a>
+        </div>
+      </div>
+    </section>
+
     <div style="text-align: center; padding: 100px 0 0; background: var(--bg-soft);">
         <p style="font-size: 1.5rem; color: var(--muted); margin-bottom: 0.5rem;">You’re not detecting more.</p>
         <p style="font-size: 2rem; font-weight: 900; color: white; margin-bottom: 2rem;">You’re detecting smarter.</p>
@@ -687,7 +771,8 @@
   <footer>
     <div class="container">
         <p>© <span id="year"></span> FindSpot UK. Built by detectorists. Designed for discovery.</p>
-        <p style="font-size: 0.7rem; opacity: 0.5; margin-top: 1rem;">JOIN <span id="install-count">...</span> DETECTORISTS IN THE FIELD</p>
+        <p style="font-size: 0.7rem; opacity: 0.5; margin-top: 1rem;" id="install-count-wrap">JOIN <span id="install-count">...</span> DETECTORISTS IN THE FIELD</p>
+        <p style="margin-top: 1rem;"><a href="register.html" style="color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 700;">List your club or rally →</a></p>
     </div>
   </footer>
 
@@ -704,7 +789,7 @@
       })
       .catch(err => {
         console.error("Stats fetch failed:", err);
-        document.getElementById('install-count').textContent = "1,200+"; // Fallback
+        document.getElementById('install-count-wrap').style.display = 'none';
       });
   </script>
 </body>
