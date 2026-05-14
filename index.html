@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FindSpot | Stop Guessing Where to Detect</title>
-  <meta name="description" content="FindSpot scans terrain, LiDAR and historic data to show you exactly where to start detecting — before you step into the field. Completely free. No account needed." />
+  <title>FindSpot | Detect Smarter with FieldGuide</title>
+  <meta name="description" content="FindSpot reads terrain, LiDAR and historic map evidence to help UK detectorists choose smarter starting points before they step into the field. Completely free. No account needed." />
 
   <link rel="icon" href="logo.png" type="image/png" />
 
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://findspot.uk/">
-  <meta property="og:title" content="FindSpot | Stop Guessing Where to Detect">
-  <meta property="og:description" content="FindSpot shows you exactly where to start detecting. The field intelligence engine for UK detectorists — completely free.">
+  <meta property="og:title" content="FindSpot | Detect Smarter with FieldGuide">
+  <meta property="og:description" content="FindSpot helps UK detectorists turn terrain, historic routes, permissions and finds into practical field intelligence — completely free.">
   <meta property="og:image" content="https://findspot.uk/logo.png">
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="FindSpot | Stop Guessing Where to Detect">
-  <meta name="twitter:description" content="FindSpot shows you exactly where to start detecting. The field intelligence engine for UK detectorists — completely free.">
+  <meta name="twitter:title" content="FindSpot | Detect Smarter with FieldGuide">
+  <meta name="twitter:description" content="FindSpot helps UK detectorists turn terrain, historic routes, permissions and finds into practical field intelligence — completely free.">
   <meta name="twitter:image" content="https://findspot.uk/logo.png">
 
   <!-- Structured Data -->
@@ -27,11 +27,12 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "FindSpot",
-    "operatingSystem": "Android, iOS",
+    "operatingSystem": "Web, Android, iOS",
     "applicationCategory": "UtilitiesApplication",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
     "url": "https://findspot.uk",
-    "description": "The field intelligence engine for UK metal detectorists. Terrain analysis, find recording, permission management, and local clubs and rallies.",
+    "installUrl": "https://findspot.uk/app/",
+    "description": "The field intelligence engine for UK metal detectorists. Terrain analysis, evidence-backed hotspots, find recording, permission management, and local clubs and rallies.",
     "author": { "@type": "Organization", "name": "FindSpot UK" }
   }
   </script>
@@ -72,7 +73,7 @@
     }
 
     h1, h2, h3, .headline {
-        letter-spacing: -0.04em;
+        letter-spacing: 0;
         line-height: 1.1;
         font-weight: 900;
         margin: 0;
@@ -266,6 +267,10 @@
         margin-bottom: 1.5rem;
     }
 
+    .section-headline span {
+        color: var(--accent);
+    }
+
     .section-lead {
         font-size: 1.2rem;
         color: var(--muted);
@@ -304,6 +309,55 @@
         box-shadow: 0 0 15px var(--accent);
         z-index: 10;
         animation: scan-line 4s linear infinite;
+    }
+
+    .hero-proof-shell {
+        max-width: 860px;
+        margin: 0 auto;
+    }
+
+    .hero-proof-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .proof-panel {
+        margin: 0;
+    }
+
+    .proof-panel figcaption {
+        font-size: 0.75rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        margin: 0 0 0.75rem;
+    }
+
+    .proof-panel.highlight figcaption {
+        color: var(--accent);
+    }
+
+    .proof-panel img {
+        width: 100%;
+        display: block;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+    }
+
+    .proof-panel.highlight img {
+        border: 2px solid var(--accent);
+        box-shadow: 0 0 30px rgba(16,185,129,0.15);
+    }
+
+    .proof-note {
+        color: var(--muted);
+        font-size: 0.85rem;
+        font-style: italic;
+        line-height: 1.7;
+        margin: 1.25rem 0 0;
+        text-align: center;
     }
 
     /* LISTS */
@@ -393,6 +447,7 @@
     /* TABLET/DESKTOP ADJUSTMENTS */
     @media (min-width: 768px) {
         .grid-2 { grid-template-columns: 1fr 1fr; }
+        .hero-proof-grid { grid-template-columns: 1fr 1fr; }
         .hero-actions { flex-direction: row; }
         .hero { padding: 220px 0 140px; }
     }
@@ -419,7 +474,7 @@
 
       <div style="display: flex; align-items: center; gap: 0.75rem;">
         <a href="register.html" class="btn-ghost">Clubs &amp; Rallies</a>
-        <a class="btn btn-primary mobile-open" href="https://fenlanddavid.github.io/findspot/">Install</a>
+        <a class="btn btn-primary mobile-open" href="https://findspot.uk/app/">Install</a>
       </div>
     </div>
   </nav>
@@ -431,25 +486,33 @@
       <div class="container hero-content">
         <span class="hero-eyebrow">Free &nbsp;·&nbsp; No account &nbsp;·&nbsp; No subscriptions</span>
         <h1>Stop <span>guessing.</span></h1>
-        <p style="font-size: clamp(1.2rem, 3.5vw, 1.6rem); font-weight: 700; color: var(--text); margin: 0 0 1.25rem; line-height: 1.3;">See where people were — before you step into the field.</p>
-        <p class="hero-lead" style="margin-bottom: 1.5rem;">FindSpot shows you exactly where to start detecting.</p>
-        <p style="font-size: 1.15rem; font-weight: 800; color: var(--text); margin: 0 0 1.25rem; letter-spacing: -0.01em;">Not just a map.<br>This is a field intelligence engine.</p>
+        <p style="font-size: clamp(1.2rem, 3.5vw, 1.6rem); font-weight: 700; color: var(--text); margin: 0 0 1.25rem; line-height: 1.3;">Read the evidence before you step into the field.</p>
+        <p class="hero-lead" style="margin-bottom: 1.5rem;">FindSpot turns terrain, water, historic routes and your own find history into smarter starting points.</p>
+        <p style="font-size: 1.15rem; font-weight: 800; color: var(--text); margin: 0 0 1.25rem; letter-spacing: 0;">Not just a map.<br>This is a field intelligence engine.</p>
         <p style="font-size: 0.95rem; color: var(--muted); margin: 0 0 1.25rem; line-height: 2;">Terrain morphology.&nbsp; Hydrology.&nbsp; Historic movement.&nbsp; Landscape convergence.&nbsp; Modern disturbance suppression.</p>
-        <p style="font-size: 1rem; font-weight: 800; color: var(--text); margin: 0 0 3rem;">It prioritises converging independent evidence — not isolated anomalies.</p>
+        <p style="font-size: 1rem; font-weight: 800; color: var(--text); margin: 0 0 3rem;">It prioritises converging independent evidence — so you start with context, not hunches.</p>
 
         <div class="hero-actions">
           <div style="display: flex; flex-direction: column; align-items: center; gap: 0.6rem;">
-            <a href="https://fenlanddavid.github.io/findspot/" class="btn btn-primary">Start detecting smarter</a>
+            <a href="https://findspot.uk/app/" class="btn btn-primary">Start detecting smarter</a>
             <span style="font-size: 0.8rem; color: var(--muted); font-weight: 700; letter-spacing: 0.05em;">Completely free. No account needed.</span>
           </div>
           <a href="#fieldguide" class="btn btn-secondary" style="height: fit-content;">Read the landscape before you dig</a>
         </div>
 
-        <!-- HERO IMAGE -->
-        <div class="mockup-frame" style="max-width: 700px; margin: 0 auto;">
-          <div class="mockup-screen">
-            <img src="homepage-start.jpg" alt="FindSpot Dashboard" style="width:100%;">
+        <!-- HERO PROOF -->
+        <div class="hero-proof-shell">
+          <div class="hero-proof-grid">
+            <figure class="proof-panel">
+              <figcaption>Plain field view</figcaption>
+              <img src="proof1.png" alt="A plain field scan showing one isolated target without landscape context" decoding="async">
+            </figure>
+            <figure class="proof-panel highlight">
+              <figcaption>FieldGuide context</figcaption>
+              <img src="proof2.png" alt="A FieldGuide hotspot card showing multiple signals supporting the same location" decoding="async">
+            </figure>
           </div>
+          <p class="proof-note">FieldGuide highlights areas of past activity and potential. It helps you focus your search; it does not guarantee finds.</p>
         </div>
 
         <!-- DIFFERENTIATION TWO-LINER -->
@@ -471,16 +534,16 @@
         <div class="grid grid-2">
           <div class="mockup-frame">
             <div class="mockup-screen">
-              <video autoplay muted loop playsinline style="width:100%; display:block;">
+              <video autoplay muted loop playsinline preload="metadata" poster="fieldguide-poster.jpg" style="width:100%; display:block;">
                 <source src="fieldguide-engine2.mp4" type="video/mp4">
               </video>
             </div>
           </div>
           <div>
             <p style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin: 0 0 1rem;">Built using archaeological landscape principles</p>
-            <h2 class="section-headline">FieldGuide shows you where to detect <span>before you even arrive.</span></h2>
-            <p class="section-lead">It reads the land — terrain, water, routes, and history — and highlights where people were most active.</p>
-            <p style="font-size: 1.15rem; font-weight: 800; color: var(--text); margin-bottom: 2rem;">You don't wander. You start in the right place.</p>
+            <h2 class="section-headline">FieldGuide helps you choose where to detect <span>before you even arrive.</span></h2>
+            <p class="section-lead">It reads the land — terrain, water, routes, and history — and highlights where past activity is most likely.</p>
+            <p style="font-size: 1.15rem; font-weight: 800; color: var(--text); margin-bottom: 2rem;">Less wandering. More evidence before you start.</p>
 
             <ul class="feature-list">
               <li class="feature-item">
@@ -501,20 +564,20 @@
                 <div class="feature-dot"></div>
                 <div class="feature-text">
                   <b>Highlights movement corridors and convergence zones</b>
-                  <span>Where Roman roads, droveways and trackways meet, people gathered. FieldGuide highlights these convergence zones automatically.</span>
+                  <span>Roman roads, droveways and trackways can concentrate activity. FieldGuide highlights these convergence zones automatically.</span>
                 </div>
               </li>
               <li class="feature-item">
                 <div class="feature-dot"></div>
                 <div class="feature-text">
                   <b>Protected landscape awareness built into every scan</b>
-                  <span>Scheduled monument boundaries overlaid so you always know what's protected — before you're standing on it.</span>
+                  <span>Scheduled monument boundaries overlaid so protected areas are visible before you're standing on them.</span>
                 </div>
               </li>
             </ul>
 
             <p style="margin-top: 2rem; font-size: 1.1rem; font-weight: 800; color: var(--accent);">Field intelligence for detectorists.</p>
-            <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--muted); font-style: italic; border-top: 1px solid var(--border); padding-top: 1.25rem;">FieldGuide highlights areas of past activity and potential — helping you focus your search, not guarantee finds.</p>
+            <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--muted); font-style: italic; border-top: 1px solid var(--border); padding-top: 1.25rem;">FieldGuide highlights areas of past activity and potential — helping you focus your search, not guaranteeing finds.</p>
           </div>
         </div>
       </div>
@@ -562,27 +625,6 @@
       </div>
     </section>
 
-    <!-- SECTION — PROOF (BEFORE / AFTER) -->
-    <section id="proof" style="padding: 80px 0; background: var(--bg-soft);">
-      <div class="container">
-        <div class="grid grid-2" style="gap: 1.5rem; margin-bottom: 3rem;">
-          <div>
-            <p style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); margin: 0 0 0.75rem;">What you see</p>
-            <img src="proof1.png" alt="Standard field view — a single target, no context" style="width: 100%; border-radius: 16px; border: 1px solid var(--border);">
-          </div>
-          <div>
-            <p style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin: 0 0 0.75rem;">What FindSpot sees</p>
-            <img src="proof2.png" alt="FieldGuide hotspot card — multiple signals, same location" style="width: 100%; border-radius: 16px; border: 2px solid var(--accent); box-shadow: 0 0 30px rgba(16,185,129,0.15);">
-          </div>
-        </div>
-        <div style="text-align: center; max-width: 480px; margin: 0 auto;">
-          <p style="font-size: 1.5rem; font-weight: 900; color: white; margin: 0 0 0.5rem;">Most detectorists would miss this.</p>
-          <p style="font-size: 1.5rem; font-weight: 900; color: var(--accent); margin: 0 0 1.75rem;">FindSpot didn't.</p>
-          <p style="color: var(--muted); font-size: 1.05rem; line-height: 1.9; margin: 0;">Multiple signals. Same location.<br><strong style="color: var(--text);">That's where you start.</strong></p>
-        </div>
-      </div>
-    </section>
-
     <!-- SECTION — BUILT TO REJECT WEAK SIGNALS -->
     <section style="padding: 100px 0;">
       <div class="container">
@@ -591,7 +633,7 @@
             <h2 class="section-headline">Built to <span>reject weak signals</span></h2>
             <p class="section-lead">Most apps show everything — inflating confidence and overwhelming users with noise. FieldGuide is designed differently.</p>
             <p style="font-size: 1rem; color: var(--muted); line-height: 1.9; margin: 0 0 2rem;">The aim is not to highlight everything.<br>The aim is to help you focus on the signals that matter.</p>
-            <p style="font-size: 1rem; font-weight: 800; color: var(--text);">This is one of FindSpot's core strengths — and most other apps don't do it at all.</p>
+            <p style="font-size: 1rem; font-weight: 800; color: var(--text);">This is one of FindSpot's core strengths: it is selective by design.</p>
           </div>
           <div>
             <p style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); margin: 0 0 1.5rem;">FieldGuide suppresses:</p>
@@ -607,7 +649,7 @@
                 <div class="feature-dot"></div>
                 <div class="feature-text">
                   <b>Drainage patterns</b>
-                  <span>Modern field drainage looks like historic hydrology. FieldGuide separates the two.</span>
+                  <span>Modern field drainage can look like historic hydrology. FieldGuide helps separate the two.</span>
                 </div>
               </li>
               <li class="feature-item">
@@ -621,7 +663,7 @@
                 <div class="feature-dot"></div>
                 <div class="feature-text">
                   <b>Misleading terrain noise</b>
-                  <span>Not every terrain feature is archaeologically meaningful. FieldGuide is calibrated to tell the difference.</span>
+                  <span>Not every terrain feature is archaeologically meaningful. FieldGuide is designed to reduce false confidence.</span>
                 </div>
               </li>
             </ul>
@@ -644,7 +686,7 @@
               <div class="feature-dot"></div>
               <div class="feature-text">
                 <b>Your finds become part of the landscape picture</b>
-                <span>Your recorded finds show up as a layer in FieldGuide — see exactly where you've been finding across your land.</span>
+                <span>Your recorded finds show up as a layer in FieldGuide — see where patterns are building across your land.</span>
               </div>
             </li>
             <li class="feature-item">
@@ -684,7 +726,7 @@
           <div class="card" style="padding: 2.5rem; border-color: rgba(255,255,255,0.03); text-align: center;">
             <div style="font-size: 1.5rem; font-weight: 900; color: var(--accent); margin-bottom: 0.75rem;">2</div>
             <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.75rem;">Scan the ground</h3>
-            <p style="color: var(--muted); font-size: 0.9rem;">FieldGuide analyses the landscape and surfaces your best starting points.</p>
+            <p style="color: var(--muted); font-size: 0.9rem;">FieldGuide analyses the landscape and surfaces stronger starting points.</p>
           </div>
           <div class="card" style="padding: 2.5rem; border-color: rgba(255,255,255,0.03); text-align: center;">
             <div style="font-size: 1.5rem; font-weight: 900; color: var(--accent); margin-bottom: 0.75rem;">3</div>
@@ -845,7 +887,7 @@
             </div>
           </div>
           <p style="font-size: 1.15rem; font-weight: 800; color: var(--text); margin-bottom: 2rem;">Everyone detects. One combined report.</p>
-          <a href="https://fenlanddavid.github.io/findspot/" class="btn btn-primary">Try it free</a>
+          <a href="https://findspot.uk/app/" class="btn btn-primary">Try it free</a>
         </div>
       </div>
     </section>
@@ -936,10 +978,10 @@
     <!-- FINAL CTA -->
     <section style="padding: 120px 0; text-align: center; background: var(--panel); border-top: 1px solid var(--border);">
       <div class="container">
-        <h2 class="section-headline" style="font-size: clamp(2.5rem, 8vw, 4rem);">See where activity happened. <span>Start in the right place.</span></h2>
+        <h2 class="section-headline" style="font-size: clamp(2.5rem, 8vw, 4rem);">See where the evidence points. <span>Start with context.</span></h2>
 
         <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 3rem;">
-          <a href="https://fenlanddavid.github.io/findspot/" class="btn btn-primary" style="padding: 1.2rem 3rem; font-size: 1.1rem;">Install FindSpot — completely free</a>
+          <a href="https://findspot.uk/app/" class="btn btn-primary" style="padding: 1.2rem 3rem; font-size: 1.1rem;">Install FindSpot — completely free</a>
           <span style="font-size: 0.85rem; color: var(--muted); font-weight: 700; letter-spacing: 0.05em;">No account. No subscriptions. Works on any phone.</span>
         </div>
       </div>
@@ -949,26 +991,13 @@
   <footer>
     <div class="container">
         <p>© <span id="year"></span> FindSpot UK. Built by detectorists. Designed for discovery.</p>
-        <p style="font-size: 0.7rem; opacity: 0.5; margin-top: 1rem;" id="install-count-wrap">JOIN <span id="install-count">...</span> DETECTORISTS IN THE FIELD</p>
+        <p style="font-size: 0.7rem; opacity: 0.5; margin-top: 1rem;" id="install-count-wrap">JOIN <span id="install-count">1,000+</span> DETECTORISTS IN THE FIELD</p>
         <p style="margin-top: 1rem;"><a href="register.html" style="color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 700;">List your club or rally →</a></p>
     </div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Fetch Install Count
-    fetch("https://api.counterapi.dev/v1/findspot-uk/installs/")
-      .then(res => res.json())
-      .then(data => {
-        if (data && typeof data.count === 'number') {
-          document.getElementById('install-count').textContent = data.count.toLocaleString();
-        }
-      })
-      .catch(err => {
-        console.error("Stats fetch failed:", err);
-        document.getElementById('install-count-wrap').style.display = 'none';
-      });
   </script>
 </body>
 </html>
