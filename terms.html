@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Use | FindSpot</title>
+  <meta name="description" content="FindSpot terms of use, intellectual property notice, and ownership information." />
+  <meta name="copyright" content="FindSpot">
+  <meta property="og:site_name" content="FindSpot">
+  <link rel="icon" href="logo.png" type="image/png" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #0f172a;
+      --panel: #1e293b;
+      --accent: #10b981;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --border: rgba(255,255,255,0.06);
+      --shadow: 0 20px 50px rgba(0,0,0,0.5);
+      --radius: 24px;
+      --max: 760px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    h1, h2, h3 {
+      letter-spacing: 0;
+      line-height: 1.15;
+      font-weight: 900;
+      margin: 0;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(11,15,18,0.94);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.5rem 0;
+    }
+
+    .logo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex-shrink: 0;
+      width: 200px;
+      padding-left: 10px;
+      overflow: hidden;
+    }
+
+    .logo-wrap img { width: 100%; height: auto; object-fit: contain; }
+
+    .brand-tag {
+      color: var(--accent);
+      font-size: 0.6rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-top: 3px;
+      opacity: 0.9;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.65rem 1.1rem;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      background: var(--accent);
+      color: #064e3b;
+      border: none;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { background: #34d399; transform: translateY(-1px); }
+
+    main {
+      padding: 4rem 0 6rem;
+    }
+
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2rem, 6vw, 3rem);
+      margin-bottom: 0.75rem;
+    }
+
+    .page-header p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section h2 {
+      font-size: 1.2rem;
+      color: var(--text);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0 0 0.75rem;
+      line-height: 1.7;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 580px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    .ownership-box {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+
+    .ownership-box h3 {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .ownership-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .ownership-box li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .ownership-box li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .user-box { border-color: rgba(16,185,129,0.2); }
+    .user-box h3 { color: var(--accent); }
+
+    footer {
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" aria-label="FindSpot home">
+        <span class="logo-wrap">
+          <img src="logo-2.png" alt="FindSpot" />
+          <span class="brand-tag">Built by detectorists</span>
+        </span>
+      </a>
+      <a href="https://findspot.uk/app/" class="btn-primary">Install</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <div class="page-header">
+        <span class="eyebrow">Legal</span>
+        <h1>Terms of Use</h1>
+        <p>Last updated: May 2026</p>
+      </div>
+
+      <div class="section">
+        <h2>About FindSpot</h2>
+        <p>FindSpot is a free fieldwork and recording platform for UK metal detectorists. It includes FieldGuide™, a proprietary landscape intelligence engine, permission management, find recording, and club and rally tools.</p>
+        <p>FindSpot is provided free of charge. No account is required. Your finds, permissions and landowner details are stored locally on your own device and never transmitted to our servers.</p>
+      </div>
+
+      <div class="section">
+        <h2>Ownership</h2>
+        <p>FindSpot and FieldGuide™ are proprietary technologies. The following assets remain the intellectual property of FindSpot.</p>
+
+        <div class="two-col">
+          <div class="ownership-box">
+            <h3>FindSpot owns</h3>
+            <ul>
+              <li>The FindSpot application and branding</li>
+              <li>The FieldGuide engine and scoring methods</li>
+              <li>Website content and design</li>
+              <li>Generated landscape interpretation</li>
+              <li>Report layouts and templates</li>
+              <li>Agreement templates</li>
+              <li>Export formats and classifications</li>
+              <li>Workflow and interface design</li>
+            </ul>
+          </div>
+          <div class="ownership-box user-box">
+            <h3>You own</h3>
+            <ul>
+              <li>Your finds and find records</li>
+              <li>Your photographs</li>
+              <li>Your permission details</li>
+              <li>Your notes and session records</li>
+              <li>All locally stored content you create</li>
+              <li>Any imported content</li>
+            </ul>
+          </div>
+        </div>
+
+        <p style="margin-top: 1.25rem;">Use of FindSpot does not grant rights to reproduce, copy or recreate any proprietary systems, methods or outputs.</p>
+      </div>
+
+      <div class="section">
+        <h2>Restrictions</h2>
+        <p>Without written permission from FindSpot, you may not:</p>
+        <div class="ownership-box" style="margin-top: 0.5rem;">
+          <ul>
+            <li>Reverse engineer or decompile any part of FindSpot or FieldGuide</li>
+            <li>Copy, scrape or reproduce FieldGuide outputs or hotspot analysis</li>
+            <li>Reproduce report layouts or agreement templates commercially</li>
+            <li>Recreate FieldGuide methods or classification systems</li>
+            <li>Use FindSpot outputs to train or build competing systems</li>
+            <li>Copy workflows, interface design or export formats for competing tools</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>FieldGuide</h2>
+        <p>FieldGuide™ uses proprietary methods to support landscape interpretation. It combines terrain, LiDAR, satellite imagery, historic mapping, environmental data, hydrology and archaeological context to help identify areas of likely past activity.</p>
+        <p>FindSpot does not claim ownership of any third-party source datasets. The selection, combination, sequencing, transformation, weighting, scoring, classification and generated interpretation of those datasets within FieldGuide remain the intellectual property of FindSpot.</p>
+        <p>FieldGuide outputs are provided for field research support only. They highlight areas of potential, not guaranteed finds.</p>
+      </div>
+
+      <div class="section">
+        <h2>Report Use</h2>
+        <p>Generated FindSpot reports — including field visit reports, find cards and permission agreements — may be shared freely for personal detecting records, landowner communications, club reporting and heritage recording purposes.</p>
+        <p>Commercial reproduction of report layouts or generated interpretation without written permission is not permitted.</p>
+      </div>
+
+      <div class="section">
+        <h2>Data and Privacy</h2>
+        <p>FindSpot is local-first. Your find spots, permissions and landowner details are stored on your device only and are never uploaded to our servers.</p>
+        <p>Club and rally dig data is only transmitted when you choose to send it, using the in-app export feature. See our <a href="privacy.html" style="color: var(--accent); text-decoration: none; font-weight: 700;">Privacy page</a> for full details.</p>
+      </div>
+
+      <div class="section">
+        <h2>Contact</h2>
+        <p>Questions about these terms or intellectual property matters can be directed through the contact form on this website or via the FindSpot app.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> FindSpot. All rights reserved.</p>
+      <p style="font-size: 0.75rem; opacity: 0.55; margin: 0.4rem 0 0;">FindSpot™ and FieldGuide™ are proprietary technologies developed by FindSpot.</p>
+      <div style="margin-top: 1.25rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.5rem; font-size: 0.8rem; font-weight: 700;">
+        <a href="index.html" style="color: var(--accent); text-decoration: none;">← Back to FindSpot</a>
+        <a href="privacy.html" style="color: var(--muted); text-decoration: none; opacity: 0.65;">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

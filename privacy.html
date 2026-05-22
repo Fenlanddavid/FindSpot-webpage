@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy | FindSpot</title>
+  <meta name="description" content="FindSpot is local-first. Your finds, permissions and landowner details never leave your device." />
+  <meta name="copyright" content="FindSpot">
+  <meta property="og:site_name" content="FindSpot">
+  <link rel="icon" href="logo.png" type="image/png" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #0f172a;
+      --panel: #1e293b;
+      --accent: #10b981;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --border: rgba(255,255,255,0.06);
+      --shadow: 0 20px 50px rgba(0,0,0,0.5);
+      --radius: 24px;
+      --max: 760px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    h1, h2, h3 {
+      letter-spacing: 0;
+      line-height: 1.15;
+      font-weight: 900;
+      margin: 0;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(11,15,18,0.94);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.5rem 0;
+    }
+
+    .logo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex-shrink: 0;
+      width: 200px;
+      padding-left: 10px;
+      overflow: hidden;
+    }
+
+    .logo-wrap img { width: 100%; height: auto; object-fit: contain; }
+
+    .brand-tag {
+      color: var(--accent);
+      font-size: 0.6rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-top: 3px;
+      opacity: 0.9;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.65rem 1.1rem;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      background: var(--accent);
+      color: #064e3b;
+      border: none;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { background: #34d399; transform: translateY(-1px); }
+
+    main {
+      padding: 4rem 0 6rem;
+    }
+
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2rem, 6vw, 3rem);
+      margin-bottom: 0.75rem;
+    }
+
+    .page-header p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section h2 {
+      font-size: 1.2rem;
+      color: var(--text);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0 0 0.75rem;
+      line-height: 1.7;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+
+    .highlight-box {
+      background: rgba(16,185,129,0.07);
+      border: 1px solid rgba(16,185,129,0.2);
+      border-radius: 16px;
+      padding: 1.5rem 1.75rem;
+      margin: 1.25rem 0;
+    }
+
+    .highlight-box p {
+      color: var(--text);
+      font-weight: 700;
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .info-box {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.25rem 1.5rem;
+      margin: 0.75rem 0;
+    }
+
+    .info-box h3 {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .info-box p {
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    footer {
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" aria-label="FindSpot home">
+        <span class="logo-wrap">
+          <img src="logo-2.png" alt="FindSpot" />
+          <span class="brand-tag">Built by detectorists</span>
+        </span>
+      </a>
+      <a href="https://findspot.uk/app/" class="btn-primary">Install</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <div class="page-header">
+        <span class="eyebrow">Privacy</span>
+        <h1>Your data stays yours.</h1>
+        <p>Last updated: May 2026</p>
+      </div>
+
+      <div class="highlight-box">
+        <p>FindSpot is local-first. Your find spots, permissions and landowner details are stored on your device only and are never uploaded to our servers.</p>
+      </div>
+
+      <div class="section" style="margin-top: 2.5rem;">
+        <h2>What we collect</h2>
+        <p>FindSpot does not collect personal data. There is no account, no login, and no profile. You can use the full application without providing any personal information.</p>
+        <p>All data you create in FindSpot — finds, permissions, session records, photos, notes — is stored in your device's own local database (IndexedDB). It does not leave your device.</p>
+      </div>
+
+      <div class="section">
+        <h2>Local storage only</h2>
+        <div class="info-box">
+          <h3>Stored on your device</h3>
+          <p>Finds, permissions, boundaries, landowner details, detector settings, photos, session records, agreements, coverage tracks.</p>
+        </div>
+        <div class="info-box">
+          <h3>Never transmitted</h3>
+          <p>Find locations, landowner names and contact details, permission status, field boundaries, photos, your detecting history.</p>
+        </div>
+        <p style="margin-top: 1rem;">We have no access to any of this data. We cannot see where you detect, what you find, or who your landowners are.</p>
+      </div>
+
+      <div class="section">
+        <h2>Club and rally data</h2>
+        <p>FindSpot includes a Club Day and Rally mode that allows organisers to collect finds from members at the end of a dig. This is the only scenario where data leaves your device — and only when you explicitly choose to send it.</p>
+        <p>When a member taps "Send to Organiser", their session export is transmitted via <a href="https://web3forms.com" style="color: var(--accent); text-decoration: none;">Web3Forms</a> to the organiser's email address. No data is stored on FindSpot servers. The organiser's email is the destination.</p>
+        <p>Club and rally listings submitted via the registration form are also transmitted through Web3Forms for manual review before publication.</p>
+      </div>
+
+      <div class="section">
+        <h2>No tracking or analytics</h2>
+        <p>FindSpot does not use analytics, tracking pixels, session recording tools or advertising networks. We do not track your location, behaviour or usage patterns.</p>
+        <p>The website uses no third-party tracking scripts.</p>
+      </div>
+
+      <div class="section">
+        <h2>Data backups and export</h2>
+        <p>FindSpot provides full backup and export tools. You can export all your data as a JSON backup file at any time from the Settings screen. You remain in complete control of your records.</p>
+        <p>If you uninstall the app, your local data will be removed along with it. We recommend keeping regular backups.</p>
+      </div>
+
+      <div class="section">
+        <h2>External data sources</h2>
+        <p>FieldGuide analyses your permission area using publicly available datasets — OS terrain tiles, historic maps, LiDAR data, OpenStreetMap and the National Heritage List for England. These requests are made from your device directly to the relevant data providers. FindSpot does not intercept or store these requests.</p>
+      </div>
+
+      <div class="section">
+        <h2>Contact</h2>
+        <p>Questions about privacy can be directed through the contact form on this website or via the FindSpot app. We're happy to clarify anything.</p>
+        <p>See also our <a href="terms.html" style="color: var(--accent); text-decoration: none; font-weight: 700;">Terms of Use</a>.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> FindSpot. All rights reserved.</p>
+      <p style="font-size: 0.75rem; opacity: 0.55; margin: 0.4rem 0 0;">FindSpot™ and FieldGuide™ are proprietary technologies developed by FindSpot.</p>
+      <div style="margin-top: 1.25rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.5rem; font-size: 0.8rem; font-weight: 700;">
+        <a href="index.html" style="color: var(--accent); text-decoration: none;">← Back to FindSpot</a>
+        <a href="terms.html" style="color: var(--muted); text-decoration: none; opacity: 0.65;">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
