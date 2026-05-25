@@ -15,14 +15,14 @@
   <meta property="og:url" content="https://findspot.uk/">
   <meta property="og:site_name" content="FindSpot">
   <meta property="og:title" content="FindSpot | Detect Smarter with FieldGuide">
-  <meta property="og:description" content="FindSpot helps UK detectorists turn terrain, historic routes, permissions and finds into practical field intelligence — completely free.">
-  <meta property="og:image" content="https://findspot.uk/logo.png">
+  <meta property="og:description" content="FindSpot reads terrain, LiDAR and historic map evidence to help UK detectorists choose smarter starting points — completely free, no account needed.">
+  <meta property="og:image" content="https://findspot.uk/logo-2.png">
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="FindSpot | Detect Smarter with FieldGuide">
-  <meta name="twitter:description" content="FindSpot helps UK detectorists turn terrain, historic routes, permissions and finds into practical field intelligence — completely free.">
-  <meta name="twitter:image" content="https://findspot.uk/logo.png">
+  <meta name="twitter:description" content="FindSpot reads terrain, LiDAR and historic map evidence to help UK detectorists choose smarter starting points — completely free, no account needed.">
+  <meta name="twitter:image" content="https://findspot.uk/logo-2.png">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -528,7 +528,7 @@
 
     <!-- TRUST SIGNAL STRIP -->
     <div style="background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.25rem 0; text-align: center;">
-      <p style="margin: 0; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted);">Used by 1,000+ detectorists in the field right now</p>
+      <p style="margin: 0; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted);">Trusted by 1,000+ detectorists across the UK</p>
     </div>
 
     <!-- SECTION 1 — FIELD GUIDE (THE INTELLIGENCE ENGINE) -->
@@ -981,6 +981,81 @@
       </div>
     </section>
 
+    <!-- FAQ -->
+    <section style="padding: 80px 0; border-top: 1px solid var(--border);" id="faq">
+      <div class="container">
+        <div style="max-width: 680px; margin: 0 auto;">
+          <h2 class="section-headline" style="text-align: center; margin-bottom: 0.75rem;">Common <span>questions</span></h2>
+          <p style="text-align: center; color: var(--muted); font-size: 1rem; margin: 0 0 3rem;">Everything you need to know before you install.</p>
+
+          <style>
+            .faq-item { border-bottom: 1px solid var(--border); }
+            .faq-item:first-of-type { border-top: 1px solid var(--border); }
+            .faq-q {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 1rem;
+              padding: 1.25rem 0;
+              cursor: pointer;
+              font-weight: 700;
+              font-size: 1rem;
+              color: var(--text);
+              list-style: none;
+              user-select: none;
+            }
+            .faq-q::-webkit-details-marker { display: none; }
+            .faq-q::after {
+              content: '+';
+              font-size: 1.4rem;
+              font-weight: 300;
+              color: var(--accent);
+              flex-shrink: 0;
+              transition: transform 0.2s;
+            }
+            details[open] .faq-q::after { transform: rotate(45deg); }
+            .faq-a {
+              color: var(--muted);
+              font-size: 0.95rem;
+              line-height: 1.75;
+              padding-bottom: 1.25rem;
+              margin: 0;
+            }
+          </style>
+
+          <details class="faq-item">
+            <summary class="faq-q">Does it work on iPhone and Android?</summary>
+            <p class="faq-a">Yes — FindSpot is a Progressive Web App (PWA), which means it works on any modern phone browser, iPhone or Android, without going through the App Store or Google Play. On iPhone, open the site in Safari and tap <em>Share → Add to Home Screen</em>. On Android, your browser will usually prompt you to install automatically.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">Do I need to create an account?</summary>
+            <p class="faq-a">No. There's no account, no login, no email required. Everything is stored locally on your device. You can start using FindSpot immediately after installing it.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">Does it use mobile data in the field?</summary>
+            <p class="faq-a">Find recording, permission management and coverage tracking all work offline with no signal. FieldGuide scanning needs a connection to fetch landscape data for a new area, but once loaded the results are cached. Map tiles are also cached after your first visit to an area.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">Is it really free? What's the catch?</summary>
+            <p class="faq-a">Completely free. No subscription, no locked features, no chargable tier. FindSpot is built by detectorists and is free to use in full. There is no catch.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">What is FieldGuide and how does it work?</summary>
+            <p class="faq-a">FieldGuide is FindSpot's landscape intelligence engine. It analyses terrain shape, water features, historic movement corridors, and archaeological context to highlight areas of likely past activity on your permission. It then suppresses weak or modern signals so you're left with converging evidence, not noise. It won't guarantee finds, but it gives you a much better starting point than guesswork.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">Will it work on my permission even if it's small?</summary>
+            <p class="faq-a">Yes. FieldGuide works on any size field. Smaller permissions will naturally have fewer signals to converge, but the analysis still runs across terrain, hydrology, historic routes and disturbance data — and highlights what it finds.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- FINAL CTA -->
     <section style="padding: 120px 0; text-align: center; background: var(--panel); border-top: 1px solid var(--border);">
       <div class="container">
@@ -1003,6 +1078,7 @@
           <a href="register.html" style="color: var(--accent); text-decoration: none;">List your club or rally →</a>
           <a href="terms.html" style="color: var(--muted); text-decoration: none; opacity: 0.65;">Terms of Use</a>
           <a href="privacy.html" style="color: var(--muted); text-decoration: none; opacity: 0.65;">Privacy</a>
+          <a href="contact.html" style="color: var(--muted); text-decoration: none; opacity: 0.65;">Contact</a>
         </div>
     </div>
   </footer>
