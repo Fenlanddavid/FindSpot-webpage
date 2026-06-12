@@ -5,12 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FindSpot | UK Metal Detecting App</title>
   <meta name="description" content="FindSpot is a free UK metal detecting app for reading the landscape, recording finds, managing permissions, planning rallies and handling significant discoveries responsibly." />
-
   <link rel="icon" href="logo.png" type="image/png" />
-
   <meta name="copyright" content="FindSpot">
 
-  <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://findspot.uk/">
   <meta property="og:site_name" content="FindSpot">
@@ -19,13 +16,11 @@
   <meta property="og:image" content="https://findspot.uk/proof.png">
   <meta property="og:image:alt" content="FindSpot app showing fieldwork and permission tools">
 
-  <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="FindSpot | UK Metal Detecting App">
   <meta name="twitter:description" content="Read the landscape, record finds, manage permissions, plan rallies and handle significant discoveries responsibly. Free, private and account-free.">
   <meta name="twitter:image" content="https://findspot.uk/proof.png">
 
-  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -42,1123 +37,1393 @@
   </script>
 
   <style>
-    @keyframes pulse-glow {
-      0% { box-shadow: 0 0 5px rgba(16,185,129,0.2); }
-      50% { box-shadow: 0 0 20px rgba(16,185,129,0.5); }
-      100% { box-shadow: 0 0 5px rgba(16,185,129,0.2); }
-    }
-    @keyframes scan-line {
-      0% { top: 0%; }
-      100% { top: 100%; }
-    }
     :root {
-      --bg: #020617; /* Deep Slate/Black */
-      --bg-soft: #0f172a;
-      --panel: #1e293b;
-      --accent: #10b981; /* Emerald */
-      --accent-dark: #059669;
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --border: rgba(255,255,255,0.06);
-      --shadow: 0 20px 50px rgba(0,0,0,0.5);
-      --radius: 24px;
-      --max: 1200px;
+      --bg: #070a0b;
+      --bg-soft: #101513;
+      --bg-mid: #171b17;
+      --panel: #18211d;
+      --panel-raised: #202a25;
+      --accent: #35d07f;
+      --accent-strong: #19b96f;
+      --accent-dim: rgba(53,208,127,0.12);
+      --accent-border: rgba(53,208,127,0.28);
+      --gold: #f0b44c;
+      --gold-dim: rgba(240,180,76,0.11);
+      --gold-border: rgba(240,180,76,0.28);
+      --blue: #5ab7e8;
+      --blue-dim: rgba(90,183,232,0.1);
+      --blue-border: rgba(90,183,232,0.25);
+      --red: #f87171;
+      --red-dim: rgba(248,113,113,0.1);
+      --red-border: rgba(248,113,113,0.25);
+      --text: #f5f7f2;
+      --muted: #94a097;
+      --muted-bright: #c8d2c9;
+      --border: rgba(255,255,255,0.08);
+      --border-mid: rgba(255,255,255,0.14);
+      --shadow: 0 24px 58px rgba(0,0,0,0.32);
+      --radius: 8px;
+      --max: 1180px;
+      --mob-nav-h: 64px;
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      margin: 0;
-      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
-      background-color: var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        linear-gradient(180deg, rgba(53,208,127,0.055) 0%, transparent 26rem),
+        linear-gradient(180deg, var(--bg) 0%, #0a0d0c 48%, var(--bg) 100%);
       color: var(--text);
       line-height: 1.5;
       overflow-x: hidden;
     }
 
-    h1, h2, h3, .headline {
-        letter-spacing: 0;
-        line-height: 1.1;
-        font-weight: 900;
-        margin: 0;
-    }
-
-    .serif { font-family: Georgia, serif; font-style: italic; }
-
-    .container {
-      width: min(var(--max), calc(100% - 2.5rem));
-      margin: 0 auto;
-    }
+    img, video { max-width: 100%; }
+    h1, h2, h3, h4 { line-height: 1.05; letter-spacing: 0; }
+    a { color: inherit; }
+    .container { width: min(var(--max), calc(100% - 2.5rem)); margin: 0 auto; }
 
     .nav {
       position: sticky;
       top: 0;
-      z-index: 50;
-      background: rgba(11,15,18,0.94);
+      z-index: 100;
+      background: rgba(7,10,11,0.92);
       border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(18px);
     }
 
     .nav-inner {
-      min-height: 88px;
+      min-height: 74px;
       display: flex;
-      flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      padding: 0.5rem 0;
-    }
-
-    .logo-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      flex-shrink: 0;
-      width: 260px;
-      padding-left: 15px;
-      overflow: hidden;
-    }
-
-    .logo-wrap img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .brand-tag {
-        color: var(--accent);
-        font-size: 0.65rem;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 0.02em;
-        margin-top: 3px;
-        opacity: 0.95;
-        white-space: nowrap;
+      gap: 1.25rem;
     }
 
     .brand {
-      display: flex;
-      align-items: center;
-    }
-
-    .mobile-open { flex: 0 0 auto; display: inline-flex; margin-right: 0; }
-
-    .nav-actions {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 0.75rem;
+      text-decoration: none;
       min-width: 0;
     }
 
-    .nav-clubs { display: inline-flex; }
-
-    .btn-ghost {
-      font-size: 0.75rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--accent);
-      text-decoration: none;
-      padding: 0.5rem 0.85rem;
-      border: 1px solid rgba(16,185,129,0.3);
-      border-radius: 10px;
-      white-space: nowrap;
-      transition: background 0.2s ease;
+    .brand-mark {
+      width: 182px;
+      max-width: 44vw;
+      display: block;
     }
-    .btn-ghost:hover { background: rgba(16,185,129,0.1); }
+
+    .brand-sub {
+      display: block;
+      color: var(--accent);
+      font-size: 0.58rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 0.25rem;
+      white-space: nowrap;
+    }
+
+    .nav-links { display: none; align-items: center; gap: 0.15rem; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 750;
+      letter-spacing: 0.02em;
+      padding: 0.48rem 0.82rem;
+      border-radius: var(--radius);
+      transition: color 0.18s, background 0.18s;
+    }
+    .nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+    .nav-links a.nav-link-clubs {
+      color: var(--gold);
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+    }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.8rem 1.2rem; /* Reduced from 1.8rem for mobile fit */
-      border-radius: 14px;
-      font-weight: 800;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      transition: all 0.2s ease;
-      cursor: pointer;
+      gap: 0.45rem;
+      min-height: 44px;
+      padding: 0.82rem 1.18rem;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      font-weight: 850;
+      font-size: 0.86rem;
+      letter-spacing: 0.03em;
       text-decoration: none;
-      border: none;
+      cursor: pointer;
+      transition: transform 0.18s, filter 0.18s, background 0.18s, border-color 0.18s;
     }
 
     .btn-primary {
-      background: var(--accent);
-      color: #064e3b;
-      box-shadow: 0 10px 25px rgba(16,185,129,0.2);
+      background: linear-gradient(135deg, var(--accent), #87efac);
+      color: #04110b;
+      box-shadow: 0 14px 34px rgba(53,208,127,0.16);
     }
-    .btn-primary:hover {
-        background: #34d399;
-        transform: translateY(-2px);
-        box-shadow: 0 15px 30px rgba(16,185,129,0.3);
+    .btn-primary:hover { transform: translateY(-1px); filter: brightness(1.06); }
+    .btn-outline {
+      color: var(--text);
+      background: rgba(255,255,255,0.035);
+      border-color: var(--border-mid);
     }
+    .btn-outline:hover { background: rgba(255,255,255,0.07); }
+    .btn-gold {
+      color: var(--gold);
+      background: var(--gold-dim);
+      border-color: var(--gold-border);
+    }
+    .btn-gold:hover { background: rgba(240,180,76,0.16); }
+    .nav-cta-short { display: none; }
 
-    .btn-secondary {
-      background: rgba(255,255,255,0.05);
-      color: white;
-      border: 1px solid var(--border);
+    section { padding: 76px 0; }
+    .section-intro { text-align: center; max-width: 720px; margin: 0 auto 2.75rem; }
+    .section-tag {
+      display: block;
+      color: var(--accent);
+      font-size: 0.68rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 0.8rem;
     }
-    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+    .section-tag.gold { color: var(--gold); }
+    .section-tag.blue { color: var(--blue); }
+    .section-title {
+      font-size: clamp(2rem, 4.5vw, 3.1rem);
+      font-weight: 950;
+      margin-bottom: 0.9rem;
+    }
+    .section-title span { color: var(--accent); }
+    .section-title .gold-text { color: var(--gold); }
+    .section-lead {
+      color: var(--muted);
+      font-size: 1.03rem;
+      line-height: 1.7;
+      max-width: 660px;
+    }
+    .section-intro .section-lead { margin: 0 auto; }
 
-    /* HERO */
     .hero {
-      padding: 160px 0 100px;
       position: relative;
       overflow: hidden;
+      padding: 74px 0 58px;
+      border-bottom: 1px solid var(--border);
     }
-
-    .hero::before {
-        content: '';
-        position: absolute;
-        top: -10%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-        height: 600px;
-        background: radial-gradient(circle at center, rgba(16,185,129,0.15) 0%, transparent 70%);
-        pointer-events: none;
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(135deg, rgba(53,208,127,0.11) 0%, transparent 34%),
+        linear-gradient(180deg, rgba(240,180,76,0.045), transparent 45%);
     }
-
-    .hero-content {
-      max-width: 850px;
-      margin: 0 auto;
-      text-align: center;
+    .hero-lines {
+      position: absolute;
+      inset: 0;
+      opacity: 0.1;
+      pointer-events: none;
+      background: repeating-linear-gradient(172deg, transparent, transparent 42px, rgba(255,255,255,0.04) 42px, rgba(255,255,255,0.04) 43px);
     }
-
+    .hero-shell {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(290px, 0.86fr);
+      align-items: center;
+      gap: clamp(2rem, 6vw, 5rem);
+    }
+    .hero-copy { max-width: 730px; }
     .hero-eyebrow {
-        display: inline-block;
-        font-weight: 900;
-        text-transform: uppercase;
-        letter-spacing: 0.2em;
-        font-size: 0.75rem;
-        color: var(--accent);
-        margin-bottom: 1.5rem;
-        background: rgba(16,185,129,0.1);
-        padding: 0.5rem 1rem;
-        border-radius: 100px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      border-radius: 999px;
+      padding: 0.38rem 0.86rem;
+      font-size: 0.68rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 1.35rem;
     }
-
+    .hero-eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
     .hero h1 {
-      font-size: clamp(2.5rem, 8vw, 5.5rem);
-      margin-bottom: 1.5rem;
+      font-size: clamp(3.1rem, 8.4vw, 6rem);
+      font-weight: 950;
+      line-height: 0.96;
+      margin-bottom: 0.8rem;
     }
-
     .hero h1 span { color: var(--accent); }
-
+    .hero-tagline {
+      color: var(--muted-bright);
+      font-size: clamp(1.15rem, 2.3vw, 1.62rem);
+      font-weight: 850;
+      margin-bottom: 1.2rem;
+    }
     .hero-lead {
-      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      color: var(--muted-bright);
+      font-size: clamp(1rem, 1.6vw, 1.15rem);
+      line-height: 1.72;
+      max-width: 620px;
+      margin-bottom: 1.6rem;
+    }
+    .hero-support {
       color: var(--muted);
-      margin-bottom: 3rem;
-      font-weight: 500;
-      line-height: 1.4;
+      border-left: 3px solid var(--accent-border);
+      padding-left: 1rem;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      max-width: 560px;
+      margin-bottom: 1.65rem;
     }
-
-    .hero-actions {
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center; margin-bottom: 0.9rem; }
+    .hero-note {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 750;
+      letter-spacing: 0.04em;
+    }
+    .hero-visual {
+      position: relative;
+      min-height: 510px;
       display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      align-items: center;
       justify-content: center;
-      margin-bottom: 2.5rem;
+    }
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 4% 0 8% 12%;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.014));
+      transform: rotate(2deg);
     }
 
-    .hero-strapline {
-        margin-top: 3rem;
-        font-size: 0.8rem;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: var(--muted);
-        opacity: 0.6;
+    .screen-card {
+      position: relative;
+      width: min(100%, 356px);
+      background: #030504;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .screen-card.hero-shot { width: min(100%, 372px); }
+    .screen-media { background: #050706; overflow: hidden; }
+    .screen-media.tall { aspect-ratio: 9 / 18.6; }
+    .screen-media.square { aspect-ratio: 1; }
+    .screen-media img, .screen-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .screen-media.fit img, .screen-media.fit video { object-fit: contain; }
+    .screen-caption {
+      border-top: 1px solid var(--border);
+      padding: 1rem 1.1rem 1.1rem;
+      background: var(--panel);
+    }
+    .screen-caption b {
+      display: block;
+      color: var(--text);
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+      font-weight: 850;
+    }
+    .screen-caption span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.55;
     }
 
-    /* SECTIONS */
-    section { padding: 100px 0; }
-
-    .section-headline {
-        font-size: clamp(2rem, 6vw, 3.5rem);
-        margin-bottom: 1.5rem;
+    .proof-strip {
+      background: rgba(16,21,19,0.88);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1.15rem 0;
+    }
+    .proof-items {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem 1.9rem;
+    }
+    .proof-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .proof-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
     }
 
-    .section-headline span {
-        color: var(--accent);
+    .workflow-section { background: var(--bg-soft); border-bottom: 1px solid var(--border); }
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+    .step-card {
+      position: relative;
+      min-height: 100%;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.55rem;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.16);
+    }
+    .step-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+    }
+    .step-number {
+      position: absolute;
+      top: 0.95rem;
+      right: 1.15rem;
+      color: var(--accent-border);
+      font-size: 2.8rem;
+      line-height: 1;
+      font-weight: 950;
+    }
+    .card-label {
+      color: var(--accent);
+      font-size: 0.65rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 0.65rem;
+    }
+    .step-card h3, .feature-card h3, .route-card h3 {
+      color: var(--text);
+      font-size: 1.04rem;
+      font-weight: 850;
+      margin-bottom: 0.55rem;
+      padding-right: 2.2rem;
+    }
+    .step-card p, .feature-card p, .route-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.62;
     }
 
-    .section-lead {
-        font-size: 1.2rem;
-        color: var(--muted);
-        max-width: 700px;
-        margin-bottom: 3rem;
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
     }
-
-    /* GRID SYSTEM */
-    .grid {
-        display: grid;
-        gap: 2rem;
-        align-items: center;
-    }
-
-    .grid-2 { grid-template-columns: 1fr; }
-
-    /* MOCKUP FRAME */
-    .mockup-frame {
-        position: relative;
-        background: #000;
-        border-radius: 32px;
-        padding: 12px;
-        border: 1px solid var(--border);
-        box-shadow: var(--shadow);
-        overflow: hidden;
-    }
-    .mockup-screen {
-        border-radius: 22px;
-        overflow: hidden;
-        position: relative;
-    }
-    .scanner-overlay {
-        position: absolute;
-        top: 0; left: 0; width: 100%; height: 2px;
-        background: var(--accent);
-        box-shadow: 0 0 15px var(--accent);
-        z-index: 10;
-        animation: scan-line 4s linear infinite;
-    }
-
-    .hero-proof-shell {
-        max-width: 860px;
-        margin: 2.5rem auto 0;
-    }
-
-    .hero-workflows {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 0.75rem;
-        margin: 2.5rem auto 1rem;
-        max-width: 920px;
-        text-align: left;
-    }
-
-    .hero-workflow-card {
-        background: rgba(15,23,42,0.72);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 1rem;
-    }
-
-    .hero-workflow-card b {
-        display: block;
-        color: var(--text);
-        font-size: 0.9rem;
-        margin-bottom: 0.25rem;
-    }
-
-    .hero-workflow-card span {
-        color: var(--muted);
-        font-size: 0.85rem;
-        line-height: 1.5;
-    }
-
-    .section-kicker {
-        font-size: 0.8rem;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: var(--accent);
-        margin: 0 0 1rem;
-    }
-
-    .job-card {
-        text-align: left;
-        padding: 2rem;
-        min-height: 100%;
-    }
-
-    .job-card b {
-        display: block;
-        color: var(--accent);
-        font-size: 0.75rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        margin-bottom: 0.65rem;
-    }
-
-    .hero-proof-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .proof-panel {
-        margin: 0;
-    }
-
-    .proof-panel figcaption {
-        font-size: 0.75rem;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: var(--muted);
-        margin: 0 0 0.75rem;
-    }
-
-    .proof-panel.highlight figcaption {
-        color: var(--accent);
-    }
-
-    .proof-panel img {
-        width: 100%;
-        display: block;
-        border-radius: 16px;
-        border: 1px solid var(--border);
-    }
-
-    .proof-panel.highlight img {
-        border: 2px solid var(--accent);
-        box-shadow: 0 0 30px rgba(16,185,129,0.15);
-    }
-
-    .proof-note {
-        color: var(--muted);
-        font-size: 0.85rem;
-        font-style: italic;
-        line-height: 1.7;
-        margin: 1.25rem 0 0;
-        text-align: center;
-    }
-
-    /* LISTS */
     .feature-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: grid;
-        gap: 1.5rem;
+      list-style: none;
+      display: grid;
+      gap: 1.05rem;
+      margin-top: 1.55rem;
     }
     .feature-item {
-        display: flex;
-        gap: 1.25rem;
-        align-items: flex-start;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
     }
     .feature-dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 3px;
-        background: var(--accent);
-        margin-top: 0.5rem;
-        flex-shrink: 0;
-        box-shadow: 0 0 10px var(--accent);
+      width: 8px;
+      height: 8px;
+      margin-top: 0.47rem;
+      border-radius: 2px;
+      background: var(--accent);
+      flex-shrink: 0;
+      box-shadow: 0 0 16px rgba(53,208,127,0.3);
     }
-    .feature-text b { display: block; font-size: 1.1rem; margin-bottom: 0.25rem; color: white; }
-    .feature-text span { color: var(--muted); font-size: 0.95rem; }
-
-    /* CARD STYLE */
-    .card {
-        background: var(--bg-soft);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 2.5rem;
+    .feature-dot.gold { background: var(--gold); box-shadow: 0 0 16px rgba(240,180,76,0.22); }
+    .feature-dot.blue { background: var(--blue); box-shadow: 0 0 16px rgba(90,183,232,0.22); }
+    .feature-text b {
+      display: block;
+      color: var(--text);
+      font-size: 0.97rem;
+      margin-bottom: 0.18rem;
+      font-weight: 850;
     }
-
-    /* PROOF MOCKUP */
-    .proof-badge {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding: 1.5rem;
-        background: rgba(16,185,129,0.1);
-        border: 2px solid var(--accent);
-        border-radius: 20px;
-        animation: pulse-glow 3s infinite;
+    .feature-text span {
+      color: var(--muted);
+      font-size: 0.87rem;
+      line-height: 1.58;
     }
 
-    /* RECORD STYLE */
-    .museum-card {
-        background: #0a0a0a;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: var(--shadow);
+    .fieldguide-section {
+      background: linear-gradient(170deg, rgba(53,208,127,0.055), var(--bg-soft) 58%);
+      border-top: 1px solid var(--accent-border);
+      border-bottom: 1px solid var(--border);
     }
-    .museum-img {
-        width: 100%;
-        aspect-ratio: 1;
-        object-fit: cover;
+    .fieldguide-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
     }
-
-    /* DIFF TABLE */
-    .diff-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 2rem;
+    .video-frame {
+      width: min(100%, 430px);
+      margin: 0 auto;
+      background: #030504;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 10px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
-    .diff-table th { text-align: left; padding: 1.5rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); border-bottom: 1px solid var(--border); }
-    .diff-table td { padding: 1.5rem; border-bottom: 1px solid var(--border); font-weight: 700; }
-    .diff-table .check { color: var(--accent); font-size: 1.2rem; }
-
-    /* MOBILE NAV */
-    @media (max-width: 600px) {
-      .container { width: min(var(--max), calc(100% - 1.5rem)); }
-      .nav-inner { min-height: 70px; gap: 0.5rem; }
-      .logo-wrap { width: 154px; padding-left: 0; }
-      .brand-tag { font-size: 0.55rem; margin-top: 2px; }
-      .nav-actions { gap: 0.5rem; }
-      .nav-clubs { display: none; }
-      .btn-ghost {
-        font-size: 0.6rem;
-        padding: 0.4rem 0.55rem;
-        letter-spacing: 0.02em;
-      }
-      .btn.mobile-open {
-        padding: 0.55rem 0.85rem;
-        font-size: 0.75rem;
-      }
-      .hero {
-        padding: 68px 0 76px;
-      }
-      .hero h1 {
-        font-size: clamp(2.15rem, 10vw, 3rem);
-      }
-      section { padding: 72px 0; }
+    .video-screen {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #050706;
+    }
+    .video-screen::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 2px;
+      background: var(--accent);
+      box-shadow: 0 0 18px var(--accent);
+      animation: scan-line 4.2s linear infinite;
+    }
+    @keyframes scan-line {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(520px); }
     }
 
-    /* TABLET/DESKTOP ADJUSTMENTS */
-    @media (min-width: 768px) {
-        .grid-2 { grid-template-columns: 1fr 1fr; }
-        .hero-proof-grid { grid-template-columns: 1fr 1fr; }
-        .hero-workflows { grid-template-columns: repeat(4, 1fr); }
-        .hero-actions { flex-direction: row; }
-        .hero { padding: 125px 0 115px; }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .proof-panel { margin: 0; }
+    .proof-panel figcaption {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.65rem;
+    }
+    .proof-panel.highlight figcaption { color: var(--accent); }
+    .proof-panel img {
+      display: block;
+      width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--panel);
+    }
+    .proof-panel.highlight img {
+      border-color: var(--accent-border);
+      box-shadow: 0 20px 48px rgba(53,208,127,0.12);
+    }
+    .small-note {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.62;
+      font-style: italic;
+      margin-top: 1.1rem;
+    }
+
+    .jobs-section { background: var(--bg); border-bottom: 1px solid var(--border); }
+    .jobs-grid, .route-grid, .privacy-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .feature-card, .route-card, .privacy-item {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.45rem;
+      min-height: 100%;
+    }
+    .feature-card.gold { border-color: var(--gold-border); background: linear-gradient(145deg, var(--gold-dim), var(--panel) 62%); }
+    .feature-card.blue { border-color: var(--blue-border); background: linear-gradient(145deg, var(--blue-dim), var(--panel) 62%); }
+    .feature-card.red { border-color: var(--red-border); background: linear-gradient(145deg, var(--red-dim), var(--panel) 62%); }
+    .feature-card h3 { padding-right: 0; }
+
+    .fieldwork-section { background: var(--bg-soft); }
+    .fieldwork-media {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .compact-screens {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .compact-screens .screen-card { width: 100%; border-radius: var(--radius); }
+    .compact-screens .screen-media { aspect-ratio: 1; }
+
+    .permissions-section {
+      background: linear-gradient(170deg, rgba(240,180,76,0.06), var(--bg) 55%);
+      border-top: 1px solid var(--gold-border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .routes-section { background: var(--bg-soft); }
+    .route-card.stop { border-color: var(--red-border); }
+    .route-card.scatter { border-color: var(--gold-border); }
+    .route-card.notable { border-color: var(--accent-border); }
+    .route-tag {
+      display: inline-flex;
+      color: var(--muted-bright);
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .route-card.stop .route-tag { color: var(--red); }
+    .route-card.scatter .route-tag { color: var(--gold); }
+    .route-card.notable .route-tag { color: var(--accent); }
+
+    .clubs-section {
+      background: linear-gradient(170deg, rgba(90,183,232,0.065), var(--bg-soft) 55%);
+      border-top: 1px solid var(--blue-border);
+      border-bottom: 1px solid var(--border);
+    }
+    .club-panel {
+      background: linear-gradient(145deg, rgba(90,183,232,0.1), var(--panel) 65%);
+      border: 1px solid var(--blue-border);
+      border-radius: var(--radius);
+      padding: 1.65rem;
+    }
+    .club-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .privacy-section { background: var(--bg); }
+    .privacy-box {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+    .privacy-grid { margin-top: 1.5rem; }
+    .privacy-item b {
+      display: block;
+      color: var(--text);
+      font-size: 0.92rem;
+      margin-bottom: 0.25rem;
+    }
+    .privacy-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.55;
+    }
+
+    .free-section {
+      background: var(--bg-soft);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      padding: 62px 0;
+    }
+    .free-line {
+      color: var(--text);
+      font-size: clamp(1.55rem, 4.6vw, 2.2rem);
+      font-weight: 950;
+      line-height: 1.45;
+      margin-bottom: 1rem;
+    }
+    .free-tag {
+      color: var(--accent);
+      font-size: 0.86rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .faq-section { background: var(--bg); border-top: 1px solid var(--border); }
+    .faq-wrap { max-width: 720px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:first-of-type { border-top: 1px solid var(--border); }
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.12rem 0;
+      cursor: pointer;
+      color: var(--text);
+      font-size: 0.96rem;
+      font-weight: 850;
+      list-style: none;
+      user-select: none;
+    }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q::after {
+      content: "+";
+      color: var(--accent);
+      font-size: 1.35rem;
+      font-weight: 400;
+      line-height: 1;
+      transition: transform 0.18s;
+      flex-shrink: 0;
+    }
+    details[open] .faq-q::after { transform: rotate(45deg); }
+    .faq-a {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.76;
+      padding-bottom: 1.15rem;
+    }
+
+    .cta-section {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      background: var(--panel-raised);
+      border-top: 1px solid var(--border);
+      padding: 92px 0;
+    }
+    .cta-section::before {
+      content: "";
+      position: absolute;
+      inset: -40% auto auto 50%;
+      width: min(760px, 90vw);
+      height: 420px;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, rgba(53,208,127,0.12), transparent 72%);
+      pointer-events: none;
+    }
+    .cta-section .container { position: relative; }
+    .cta-section h2 {
+      font-size: clamp(2.3rem, 7vw, 4rem);
+      font-weight: 950;
+      max-width: 900px;
+      margin: 0 auto 1rem;
+    }
+    .cta-section p {
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 2rem;
+      line-height: 1.65;
     }
 
     footer {
-        padding: 4rem 0;
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem 1.5rem;
+      margin-top: 1.2rem;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+    .footer-links a { color: var(--muted); text-decoration: none; opacity: 0.72; }
+    .footer-links a:first-child { color: var(--accent); opacity: 1; }
+
+    @media (min-width: 640px) {
+      .jobs-grid, .route-grid, .privacy-grid { grid-template-columns: repeat(2, 1fr); }
+      .proof-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+      .nav-inner { min-height: 78px; }
+      .two-col { grid-template-columns: 1fr 1fr; }
+      .fieldguide-grid { grid-template-columns: minmax(280px, 0.82fr) 1fr; }
+      .jobs-grid { grid-template-columns: repeat(4, 1fr); }
+      .route-grid { grid-template-columns: repeat(3, 1fr); }
+      .privacy-grid { grid-template-columns: repeat(4, 1fr); }
+      .fieldwork-media { grid-template-columns: 0.9fr 1.1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .container { width: min(var(--max), calc(100% - 1.5rem)); }
+      body { padding-bottom: var(--mob-nav-h); }
+      .nav-inner { min-height: 58px; gap: 0.7rem; }
+      .brand-mark { width: 144px; max-width: 47vw; }
+      .brand-sub { display: none; }
+      .nav-cta { min-height: 38px; padding: 0.48rem 0.68rem; font-size: 0.73rem; white-space: nowrap; }
+      .nav-cta-full { display: none; }
+      .nav-cta-short { display: inline; }
+
+      .mob-page { display: none; }
+      .mob-page.mob-active { display: block; }
+      .mob-page-inner { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+      .mob-page section { padding: 38px 0; }
+
+      .hero { padding: 32px 0 26px; text-align: center; }
+      .hero-shell { display: block; }
+      .hero-copy { max-width: none; }
+      .hero h1 { font-size: clamp(2.2rem, 11vw, 3rem); }
+      .hero-tagline { font-size: 1.02rem; }
+      .hero-lead { font-size: 0.95rem; line-height: 1.58; margin-left: auto; margin-right: auto; }
+      .hero-support { border-left: 0; padding-left: 0; font-size: 0.84rem; margin-left: auto; margin-right: auto; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; }
+      .hero-visual { min-height: auto; margin-top: 1.2rem; }
+      .hero-visual::before { display: none; }
+      .screen-card.hero-shot { width: min(100%, 300px); }
+      .screen-caption { padding: 0.75rem 0.85rem 0.85rem; }
+      .screen-caption b { font-size: 0.82rem; }
+      .screen-caption span { font-size: 0.74rem; }
+
+      .proof-strip { padding: 0.82rem 0; }
+      .proof-items { justify-content: flex-start; gap: 0.58rem 0.85rem; }
+      .proof-item { font-size: 0.61rem; letter-spacing: 0.05em; }
+
+      .section-intro { margin-bottom: 1.45rem; }
+      .section-title { font-size: clamp(1.65rem, 8.4vw, 2.25rem); }
+      .section-lead { font-size: 0.93rem; line-height: 1.58; }
+      .workflow-grid, .jobs-grid, .route-grid, .privacy-grid { gap: 0.85rem; }
+      .step-card, .feature-card, .route-card, .privacy-item, .privacy-box, .club-panel { padding: 1.12rem; }
+      .step-number { font-size: 2.2rem; right: 0.9rem; }
+      .step-card h3, .feature-card h3, .route-card h3 { font-size: 0.98rem; }
+      .two-col, .fieldguide-grid, .fieldwork-media { gap: 1.35rem; }
+      .video-frame { padding: 7px; border-radius: var(--radius); }
+      .video-frame { width: min(100%, 330px); }
+      .video-screen { max-height: 440px; }
+      .video-screen video { width: 100%; max-height: 440px; object-fit: cover; object-position: top center; display: block; }
+      .compact-screens { gap: 0.75rem; }
+      .route-grid .route-card:nth-child(n+3), .privacy-grid .privacy-item:nth-child(n+4) { margin-bottom: 0.4rem; }
+      .free-section { padding: 42px 0; }
+      .cta-section { padding: 52px 0; }
+      .cta-section .btn { width: 100%; }
+      footer { padding: 2rem 0; }
+
+      .mob-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        height: var(--mob-nav-h);
+        display: flex;
+        background: rgba(7,10,11,0.97);
         border-top: 1px solid var(--border);
-        text-align: center;
+        backdrop-filter: blur(18px);
+      }
+      .mob-nav-btn {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        padding: 0;
+        border: 0;
+        background: transparent;
         color: var(--muted);
-        font-size: 0.9rem;
+        font-family: inherit;
+        font-size: 0.59rem;
+        font-weight: 850;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        cursor: pointer;
+      }
+      .mob-nav-icon {
+        width: 22px;
+        height: 22px;
+        display: block;
+        stroke: currentColor;
+        stroke-width: 2.2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+      .mob-nav-btn.active { color: var(--accent); }
+      .mob-nav-btn.digs-btn.active { color: var(--blue); }
+      .mob-nav-btn.info-btn.active { color: var(--gold); }
+    }
+
+    @media (min-width: 601px) {
+      .mob-nav { display: none; }
+      .mob-page { display: block !important; }
     }
   </style>
 </head>
 <body>
-
   <nav class="nav">
     <div class="container nav-inner">
       <a class="brand" href="#top" aria-label="FindSpot home">
-        <span class="logo-wrap">
-          <img src="logo-2.png" alt="FindSpot | Detect Smarter" />
-          <span class="brand-tag">Built by detectorists</span>
+        <span>
+          <img class="brand-mark" src="logo-2.png" alt="FindSpot | Detect Smarter" />
+          <span class="brand-sub">Built by detectorists</span>
         </span>
       </a>
-
-      <div class="nav-actions">
-        <a href="register.html" class="btn-ghost nav-clubs">Clubs &amp; Rallies</a>
-        <a class="btn btn-primary mobile-open" href="https://findspot.uk/app/">Open App</a>
+      <div class="nav-links" aria-label="Primary navigation">
+        <a href="#fieldguide">FieldGuide</a>
+        <a href="#fieldwork">Fieldwork</a>
+        <a href="#permissions">Permissions</a>
+        <a class="nav-link-clubs" href="#clubs-rallies">Clubs &amp; Rallies</a>
+        <a href="#faq">FAQ</a>
       </div>
+      <a class="btn btn-primary nav-cta" href="https://findspot.uk/app/">
+        <span class="nav-cta-full">Open FindSpot</span>
+        <span class="nav-cta-short">Open App</span>
+      </a>
     </div>
   </nav>
 
-  <main>
+  <main id="top">
+    <div class="mob-page mob-active" id="mob-page-overview">
+      <div class="mob-page-inner">
+        <section class="hero">
+          <div class="hero-bg" aria-hidden="true"></div>
+          <div class="hero-lines" aria-hidden="true"></div>
+          <div class="container hero-shell">
+            <div class="hero-copy">
+              <span class="hero-eyebrow"><span class="hero-eyebrow-dot" aria-hidden="true"></span>Free UK detecting app</span>
+              <h1><span>FindSpot</span> reads the landscape.</h1>
+              <p class="hero-tagline">Make better choices before you step into the field.</p>
+              <p class="hero-lead">Use FieldGuide to scan land, record finds properly, manage permissions and plan club or rally days from one private, account-free app.</p>
+              <p class="hero-support">Built for detectorists who want evidence before guesswork, clean records after a signal, and less admin around the land they detect.</p>
+              <div class="hero-actions">
+                <a href="https://findspot.uk/app/" class="btn btn-primary">Open FindSpot free</a>
+                <a href="#fieldguide" class="btn btn-outline">See FieldGuide</a>
+              </div>
+              <p class="hero-note">No account &middot; No subscriptions &middot; Local-first records &middot; Works on any modern phone</p>
+            </div>
+            <div class="hero-visual">
+              <article class="screen-card hero-shot">
+                <div class="screen-media square fit">
+                  <img src="proof2.png" alt="FindSpot FieldGuide hotspot card showing evidence for a stronger starting point" loading="eager" decoding="async" />
+                </div>
+                <div class="screen-caption">
+                  <b>FieldGuide context</b>
+                  <span>Landscape evidence, nearby signals and recorded history brought together before you search.</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
 
-    <!-- HERO SECTION -->
-    <section class="hero" id="top">
-      <div class="container hero-content">
-        <span class="hero-eyebrow">Free &nbsp;·&nbsp; No account &nbsp;·&nbsp; No subscriptions</span>
-        <h1><span>FindSpot</span> for UK detectorists.</h1>
-        <p style="font-size: clamp(1.2rem, 3.5vw, 1.6rem); font-weight: 700; color: var(--text); margin: 0 0 1.25rem; line-height: 1.3;">Read the landscape before you step into the field.</p>
-        <p class="hero-lead" style="margin-bottom: 2rem;">Scan land with FieldGuide, record finds, manage permissions, plan rallies and handle significant discoveries responsibly.</p>
+        <div class="proof-strip">
+          <div class="container">
+            <div class="proof-items" aria-label="FindSpot attributes">
+              <div class="proof-item"><span class="proof-dot"></span><span class="live-count">3,000+</span> detectorists</div>
+              <div class="proof-item"><span class="proof-dot"></span>Free to use</div>
+              <div class="proof-item"><span class="proof-dot"></span>No account</div>
+              <div class="proof-item"><span class="proof-dot"></span>Offline recording</div>
+              <div class="proof-item"><span class="proof-dot"></span>Private by default</div>
+            </div>
+          </div>
+        </div>
 
-        <div class="hero-actions">
-          <div style="display: flex; flex-direction: column; align-items: center; gap: 0.6rem;">
+        <section class="workflow-section" id="how-it-works">
+          <div class="container">
+            <div class="section-intro">
+              <span class="section-tag">How FindSpot works</span>
+              <h2 class="section-title">Four field jobs. <span>One app.</span></h2>
+              <p class="section-lead">FindSpot is arranged around the jobs detectorists actually do before, during and after a dig.</p>
+            </div>
+            <div class="workflow-grid">
+              <article class="step-card">
+                <div class="step-number">1</div>
+                <div class="card-label">Scan land</div>
+                <h3>Read the evidence first</h3>
+                <p>FieldGuide compares terrain, water, historic routes and landscape context to surface stronger starting points.</p>
+              </article>
+              <article class="step-card">
+                <div class="step-number">2</div>
+                <div class="card-label">Record finds</div>
+                <h3>Log quickly, finish properly</h3>
+                <p>Capture GPS in the field, then add photos, material, period, depth, detector data and notes when you have time.</p>
+              </article>
+              <article class="step-card">
+                <div class="step-number">3</div>
+                <div class="card-label">Manage land</div>
+                <h3>Protect your permissions</h3>
+                <p>Keep boundaries, proof, agreements, landowner details, coverage and visit reports together.</p>
+              </article>
+              <article class="step-card">
+                <div class="step-number">4</div>
+                <div class="card-label">Plan digs</div>
+                <h3>Clubs, rallies and days out</h3>
+                <p>Find nearby events, mark yourself as going, or run a QR-based club day with a combined review.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="jobs-section">
+          <div class="container">
+            <div class="section-intro">
+              <span class="section-tag gold">Why it feels different</span>
+              <h2 class="section-title">Less wandering. <span class="gold-text">More context.</span></h2>
+              <p class="section-lead">FindSpot is not just a finds notebook. It connects the place, the search, the permission and the record.</p>
+            </div>
+            <div class="jobs-grid">
+              <article class="feature-card">
+                <div class="card-label">Landscape</div>
+                <h3>Evidence before the first signal</h3>
+                <p>Terrain shape, water, old routes and protected-area awareness help you choose where to start.</p>
+              </article>
+              <article class="feature-card gold">
+                <div class="card-label" style="color: var(--gold);">Field use</div>
+                <h3>Fast enough for muddy hands</h3>
+                <p>Quick capture records the location immediately, then lets you complete the record later.</p>
+              </article>
+              <article class="feature-card blue">
+                <div class="card-label" style="color: var(--blue);">Landowners</div>
+                <h3>Proof and reports in one place</h3>
+                <p>Show permission, track coverage and produce field visit reports landowners can understand.</p>
+              </article>
+              <article class="feature-card red">
+                <div class="card-label" style="color: var(--red);">Responsibility</div>
+                <h3>Guidance when context matters</h3>
+                <p>Significant-find workflows help preserve spatial context before details are lost.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="mob-page" id="mob-page-fieldguide">
+      <div class="mob-page-inner">
+        <section class="fieldguide-section" id="fieldguide">
+          <div class="container fieldguide-grid">
+            <div class="video-frame">
+              <div class="video-screen">
+                <video autoplay muted loop playsinline preload="metadata" poster="fieldguide-poster.jpg">
+                  <source src="fieldguide-engine2.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div>
+              <span class="section-tag">FieldGuide</span>
+              <h2 class="section-title">Choose where to detect <span>before you arrive.</span></h2>
+              <p class="section-lead">FieldGuide reads terrain, water, routes, historic mapping and nearby context to highlight areas where past activity is more plausible.</p>
+              <ul class="feature-list">
+                <li class="feature-item">
+                  <span class="feature-dot"></span>
+                  <span class="feature-text"><b>Reads terrain morphology</b><span>Surface shape and micro-topography are analysed for clues that are easy to miss from ground level.</span></span>
+                </li>
+                <li class="feature-item">
+                  <span class="feature-dot"></span>
+                  <span class="feature-text"><b>Reveals lost boundaries and routes</b><span>Historic Ordnance Survey mapping helps you spot vanished tracks, old field edges and settlement clues.</span></span>
+                </li>
+                <li class="feature-item">
+                  <span class="feature-dot"></span>
+                  <span class="feature-text"><b>Highlights convergence zones</b><span>Water, routes and landscape edges are stronger when they point to the same area.</span></span>
+                </li>
+                <li class="feature-item">
+                  <span class="feature-dot"></span>
+                  <span class="feature-text"><b>Includes protected landscape awareness</b><span>Scheduled monument boundaries are visible before you are standing on them.</span></span>
+                </li>
+              </ul>
+              <p class="small-note">FieldGuide highlights potential and helps focus your search. It does not guarantee finds.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="jobs-section">
+          <div class="container">
+            <div class="section-intro">
+              <span class="section-tag">Evidence in context</span>
+              <h2 class="section-title">A plain field becomes a <span>landscape picture.</span></h2>
+              <p class="section-lead">The proof view stays compact, so the page shows the difference without asking visitors to scroll through another long pitch.</p>
+            </div>
+            <div class="proof-grid">
+              <figure class="proof-panel">
+                <figcaption>Plain field view</figcaption>
+                <img src="proof1.png" alt="A plain field scan showing an isolated target without broader landscape context" loading="lazy" decoding="async" />
+              </figure>
+              <figure class="proof-panel highlight">
+                <figcaption>FieldGuide context</figcaption>
+                <img src="proof2.png" alt="A FieldGuide hotspot card showing multiple signals supporting the same location" loading="lazy" decoding="async" />
+              </figure>
+            </div>
+            <p class="small-note" style="text-align:center;">Your recorded finds can also appear as a layer in FieldGuide, so patterns start to build across the land over time.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="mob-page" id="mob-page-fieldwork">
+      <div class="mob-page-inner">
+        <section class="fieldwork-section" id="fieldwork">
+          <div class="container two-col">
+            <div>
+              <span class="section-tag">Real fieldwork</span>
+              <h2 class="section-title">Mud, rain, gloves on. <span>Still works.</span></h2>
+              <p class="section-lead">FindSpot is built for quick decisions in the field and fuller records when you are back at the car or home.</p>
+              <ul class="feature-list">
+                <li class="feature-item">
+                  <span class="feature-dot"></span>
+                  <span class="feature-text"><b>One-tap Quick Find</b><span>Capture GPS instantly so you never lose the find spot, then complete the details later.</span></span>
+                </li>
+                <li class="feature-item">
+                  <span class="feature-dot"></span>
+                  <span class="feature-text"><b>Coverage tracking</b><span>See where you have walked and what ground has not been covered yet.</span></span>
+                </li>
+                <li class="feature-item">
+                  <span class="feature-dot"></span>
+                  <span class="feature-text"><b>Offline first</b><span>Recording, permissions and field tracking work without signal.</span></span>
+                </li>
+              </ul>
+            </div>
+            <article class="screen-card">
+              <div class="screen-media tall fit">
+                <img src="quick-capture.jpg" alt="FindSpot quick capture interface for recording a find in the field" loading="lazy" decoding="async" />
+              </div>
+              <div class="screen-caption">
+                <b>Quick capture</b>
+                <span>Record the point first. Add the full find details when it is practical.</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="jobs-section">
+          <div class="container fieldwork-media">
+            <article class="screen-card">
+              <div class="screen-media square">
+                <img src="find-card.jpg" alt="FindSpot find record card with photos and find metadata" loading="lazy" decoding="async" />
+              </div>
+              <div class="screen-caption">
+                <b>Find records</b>
+                <span>Location, depth, material, period, detector context and photos in one structured record.</span>
+              </div>
+            </article>
+            <div>
+              <span class="section-tag">Record like it matters</span>
+              <h2 class="section-title">Your finds deserve <span>better than a notebook.</span></h2>
+              <p class="section-lead">Every find can become a useful record, not just a memory tied to a photo roll or a paper note.</p>
+              <div class="jobs-grid" style="margin-top:1.5rem;">
+                <article class="feature-card">
+                  <h3>Archaeological-quality fields</h3>
+                  <p>Keep grid position, material, depth, period and context together.</p>
+                </article>
+                <article class="feature-card gold">
+                  <h3>Detector metrics</h3>
+                  <p>Store target ID, signal notes and detection context with the find.</p>
+                </article>
+                <article class="feature-card blue">
+                  <h3>Shareable cards</h3>
+                  <p>Generate clean find cards for club sharing, landowner updates or reporting support.</p>
+                </article>
+                <article class="feature-card red">
+                  <h3>Significant finds</h3>
+                  <p>Use guided routes when a discovery needs more care than a standard record.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="permissions-section" id="permissions">
+          <div class="container two-col">
+            <article class="screen-card">
+              <div class="screen-media tall fit">
+                <img src="proof.png" alt="FindSpot digital permission proof screen" loading="lazy" decoding="async" />
+              </div>
+              <div class="screen-caption">
+                <b>Permission proof</b>
+                <span>Clear information when you need to show you are allowed to be there.</span>
+              </div>
+            </article>
+            <div>
+              <span class="section-tag gold">Permissions</span>
+              <h2 class="section-title">Protect your permissions. <span class="gold-text">Earn more land.</span></h2>
+              <p class="section-lead">Professional landowner management, from first contact to field visit reports.</p>
+              <ul class="feature-list">
+                <li class="feature-item">
+                  <span class="feature-dot gold"></span>
+                  <span class="feature-text"><b>Proof of permission</b><span>Show a clear digital permission screen if challenged in the field.</span></span>
+                </li>
+                <li class="feature-item">
+                  <span class="feature-dot gold"></span>
+                  <span class="feature-text"><b>Agreements and boundaries</b><span>Keep landowner details, signed agreements and mapped fields together.</span></span>
+                </li>
+                <li class="feature-item">
+                  <span class="feature-dot gold"></span>
+                  <span class="feature-text"><b>Field visit reports</b><span>Summarise time on site, area covered and finds recorded for the person who gave permission.</span></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="mob-page" id="mob-page-clubs">
+      <div class="mob-page-inner">
+        <section class="routes-section">
+          <div class="container">
+            <div class="section-intro">
+              <span class="section-tag">Significant finds</span>
+              <h2 class="section-title">When context matters, <span>choose the right route.</span></h2>
+              <p class="section-lead">Some moments in the field need more than a normal find record. FindSpot keeps the next step clear.</p>
+            </div>
+            <div class="route-grid">
+              <article class="route-card stop">
+                <span class="route-tag">Stop &amp; Secure</span>
+                <h3>Something may still be in the ground</h3>
+                <p>Stop digging, protect the spot, record the position and preserve context before further disturbance.</p>
+              </article>
+              <article class="route-card scatter">
+                <span class="route-tag">Map Scatter</span>
+                <h3>Finds spread across an area</h3>
+                <p>Log each point before the pattern is lost and build a clearer picture of the scatter.</p>
+              </article>
+              <article class="route-card notable">
+                <span class="route-tag">Notable Find</span>
+                <h3>One exceptional object recovered</h3>
+                <p>Record photos, location, context and follow-up details before they are forgotten.</p>
+              </article>
+            </div>
+            <p class="small-note" style="text-align:center;">Supports responsible recording. Does not constitute legal or reporting advice.</p>
+          </div>
+        </section>
+
+        <section class="clubs-section" id="clubs-rallies">
+          <div class="container">
+            <div class="section-intro">
+              <span class="section-tag blue">Clubs &amp; Rallies</span>
+              <h2 class="section-title">Run a club or rally dig <span>without the admin.</span></h2>
+              <p class="section-lead">One QR code, no accounts, no installs, and a combined review when the day is done.</p>
+            </div>
+            <div class="club-panel">
+              <div class="club-grid">
+                <article class="feature-card blue">
+                  <div class="card-label" style="color: var(--blue);">Organisers</div>
+                  <h3>Create the dig</h3>
+                  <p>Share a single QR code and import members' finds into a full day review.</p>
+                </article>
+                <article class="feature-card">
+                  <div class="card-label">Members</div>
+                  <h3>Scan and record</h3>
+                  <p>Join quickly, record finds and export the session to the organiser in one tap.</p>
+                </article>
+                <article class="feature-card gold">
+                  <div class="card-label" style="color: var(--gold);">Discover</div>
+                  <h3>Find local events</h3>
+                  <p>Browse clubs, rallies and club digs filtered to your area, then plan the session.</p>
+                </article>
+              </div>
+              <div class="hero-actions" style="margin-top:1.6rem;">
+                <a href="register.html" class="btn btn-gold">List your club or rally</a>
+                <a href="https://findspot.uk/app/" class="btn btn-primary">Open FindSpot free</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="mob-page" id="mob-page-more">
+      <div class="mob-page-inner">
+        <section class="privacy-section">
+          <div class="container">
+            <div class="privacy-box">
+              <div class="section-intro" style="margin-bottom:0;">
+                <span class="section-tag">Privacy</span>
+                <h2 class="section-title">Your data stays yours. <span>Always.</span></h2>
+                <p class="section-lead">Saved finds, GPS coordinates, photos, permissions and landowner details stay on this device unless you choose to export, share or submit them.</p>
+              </div>
+              <div class="privacy-grid">
+                <article class="privacy-item"><b>Local-first</b><span>Your private records are stored in your device's own database.</span></article>
+                <article class="privacy-item"><b>No automatic uploads</b><span>Finds are not synced to a FindSpot account in the background.</span></article>
+                <article class="privacy-item"><b>No location analytics</b><span>No advertising trackers or analytics on saved find spots, tracks or permissions.</span></article>
+                <article class="privacy-item"><b>Export control</b><span>Export records as CSV or JSON whenever you need a copy.</span></article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="free-section">
+          <div class="container">
+            <p class="free-line">No subscriptions.<br>No accounts.<br>No locked features.</p>
+            <p class="free-tag">Everything. Free. Always.</p>
+          </div>
+        </section>
+
+        <section class="faq-section" id="faq">
+          <div class="container faq-wrap">
+            <div class="section-intro">
+              <span class="section-tag">FAQ</span>
+              <h2 class="section-title">Common <span>questions</span></h2>
+              <p class="section-lead">Everything you need to know before you install.</p>
+            </div>
+
+            <details class="faq-item">
+              <summary class="faq-q">Does it work on iPhone and Android?</summary>
+              <p class="faq-a">Yes. FindSpot is a Progressive Web App, so it works in a modern phone browser. On iPhone, open it in Safari and use Add to Home Screen. On Android, your browser will usually offer to install it.</p>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-q">Do I need to create an account?</summary>
+              <p class="faq-a">No. There is no account, login or email required. You can start using FindSpot immediately.</p>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-q">Does it use mobile data in the field?</summary>
+              <p class="faq-a">Find recording, permission management and coverage tracking work offline. FieldGuide needs a connection to fetch landscape data for a new area, but loaded results and map tiles can be cached.</p>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-q">Is it really free?</summary>
+              <p class="faq-a">Yes. FindSpot is free to use in full, with no subscription, locked tier or account requirement.</p>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-q">What is FieldGuide?</summary>
+              <p class="faq-a">FieldGuide is FindSpot's landscape intelligence engine. It analyses terrain, water features, historic movement corridors and archaeological context to suggest stronger starting points. It helps focus a search, but it does not guarantee finds.</p>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-q">What if I find something important?</summary>
+              <p class="faq-a">FindSpot includes guided workflows for Stop &amp; Secure, Map Scatter and Notable Find records. They help preserve context and support responsible recording, but they do not replace professional or legal advice.</p>
+            </details>
+          </div>
+        </section>
+
+        <section class="cta-section">
+          <div class="container">
+            <h2>See where the evidence points. <span style="color:var(--accent);">Start with context.</span></h2>
+            <p>Open FindSpot on your phone and keep FieldGuide, finds, permissions and club days in one local-first workspace.</p>
             <a href="https://findspot.uk/app/" class="btn btn-primary">Open FindSpot free</a>
-            <span style="font-size: 0.8rem; color: var(--muted); font-weight: 700; letter-spacing: 0.05em;">Completely free. No account needed.</span>
           </div>
-          <a href="#fieldguide" class="btn btn-secondary" style="height: fit-content;">See FieldGuide</a>
-        </div>
-
-        <!-- HERO PROOF -->
-        <div class="hero-proof-shell">
-          <div class="hero-proof-grid">
-            <figure class="proof-panel">
-              <figcaption>Plain field view</figcaption>
-              <img src="proof1.png" alt="A plain field scan showing one isolated target without landscape context" decoding="async">
-            </figure>
-            <figure class="proof-panel highlight">
-              <figcaption>FieldGuide context</figcaption>
-              <img src="proof2.png" alt="A FieldGuide hotspot card showing multiple signals supporting the same location" decoding="async">
-            </figure>
-          </div>
-          <p class="proof-note">FieldGuide highlights areas of past activity and potential. It helps you focus your search; it does not guarantee finds.</p>
-        </div>
-
-        <div class="hero-workflows" aria-label="FindSpot core workflows">
-          <div class="hero-workflow-card">
-            <b>Scan land</b>
-            <span>FieldGuide surfaces stronger starting points from landscape evidence.</span>
-          </div>
-          <div class="hero-workflow-card">
-            <b>Record finds</b>
-            <span>Quick GPS capture in the field, detailed records later.</span>
-          </div>
-          <div class="hero-workflow-card">
-            <b>Manage permissions</b>
-            <span>Boundaries, proof, agreements and landowner reports in one place.</span>
-          </div>
-          <div class="hero-workflow-card">
-            <b>Plan digs</b>
-            <span>Discover clubs and rallies, or run a QR-based club day.</span>
-          </div>
-        </div>
-
-        <!-- DIFFERENTIATION TWO-LINER -->
-        <div style="max-width: 520px; margin: 4rem auto 0; text-align: center; border-top: 1px solid var(--border); padding-top: 3rem;">
-          <p style="font-size: 1.4rem; font-weight: 800; color: var(--muted); margin: 0 0 0.5rem;">Most detectorists search fields.</p>
-          <p style="font-size: 1.4rem; font-weight: 800; color: var(--accent); margin: 0;">FindSpot reads the landscape.</p>
-        </div>
+        </section>
       </div>
-    </section>
-
-    <!-- TRUST SIGNAL STRIP -->
-    <div style="background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.25rem 0; text-align: center;">
-      <p style="margin: 0; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted);">Trusted by <span class="live-count">3,000+</span> detectorists across the UK</p>
     </div>
-
-    <!-- SECTION 1 — FIELD GUIDE (THE INTELLIGENCE ENGINE) -->
-    <section id="fieldguide" style="background: var(--bg-soft);">
-      <div class="container">
-        <div class="grid grid-2">
-          <div class="mockup-frame">
-            <div class="mockup-screen">
-              <video autoplay muted loop playsinline preload="metadata" poster="fieldguide-poster.jpg" style="width:100%; display:block;">
-                <source src="fieldguide-engine2.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div>
-            <p style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin: 0 0 1rem;">Built using archaeological landscape principles</p>
-            <h2 class="section-headline">FieldGuide™ helps you choose where to detect <span>before you even arrive.</span></h2>
-            <p class="section-lead">It reads the land — terrain, water, routes, and history — and highlights where past activity is most likely.</p>
-            <p style="font-size: 1.15rem; font-weight: 800; color: var(--text); margin-bottom: 2rem;">Less wandering. More evidence before you start.</p>
-
-            <ul class="feature-list">
-              <li class="feature-item">
-                <div class="feature-dot"></div>
-                <div class="feature-text">
-                  <b>Reads terrain morphology and hidden ground features</b>
-                  <span>Hidden terrain features most people never see — surface shape and micro-topography analysed for signs of past activity.</span>
-                </div>
-              </li>
-              <li class="feature-item">
-                <div class="feature-dot"></div>
-                <div class="feature-text">
-                  <b>Reveals lost boundaries and historic routes</b>
-                  <span>Switch between 1800s Ordnance Survey maps in the field — lost structures, boundaries and roads, still readable in the data.</span>
-                </div>
-              </li>
-              <li class="feature-item">
-                <div class="feature-dot"></div>
-                <div class="feature-text">
-                  <b>Highlights movement corridors and convergence zones</b>
-                  <span>Roman roads, droveways and trackways can concentrate activity. FieldGuide highlights these convergence zones automatically.</span>
-                </div>
-              </li>
-              <li class="feature-item">
-                <div class="feature-dot"></div>
-                <div class="feature-text">
-                  <b>Trace Signals — a second pass for subtle archaeology</b>
-                  <span>A dedicated engine reads buried ditches, terrace edges, crop patterns and other faint landscape traces that terrain analysis alone can miss.</span>
-                </div>
-              </li>
-              <li class="feature-item">
-                <div class="feature-dot"></div>
-                <div class="feature-text">
-                  <b>Protected landscape awareness built into every scan</b>
-                  <span>Scheduled monument boundaries overlaid so protected areas are visible before you're standing on them.</span>
-                </div>
-              </li>
-            </ul>
-
-            <p style="margin-top: 2rem; font-size: 1.1rem; font-weight: 800; color: var(--accent);">Field intelligence for detectorists.</p>
-            <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--muted); font-style: italic; border-top: 1px solid var(--border); padding-top: 1.25rem;">FieldGuide highlights areas of past activity and potential — helping you focus your search, not guaranteeing finds.</p>
-            <p style="margin-top: 0.6rem; font-size: 0.75rem; color: var(--muted); opacity: 0.55;">FieldGuide uses proprietary methods to support landscape interpretation. Intellectual property of FindSpot.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION — FINDS → INTELLIGENCE -->
-    <section style="background: var(--bg-soft);">
-      <div class="container">
-        <div style="max-width: 700px; margin: 0 auto; text-align: center;">
-          <h2 class="section-headline">Your finds start to <span>tell a story.</span></h2>
-          <p class="section-lead" style="margin: 0 auto 2.5rem;">Every find you record builds a picture across your land.</p>
-          <div style="text-align: left; margin-bottom: 2.5rem;">
-            <p style="font-size: 1.2rem; font-weight: 700; color: var(--text); line-height: 2; margin: 0;">Your finds on the map.<br>Your history on every hotspot card.<br>The picture starts to build.</p>
-          </div>
-          <ul class="feature-list" style="text-align: left; margin-bottom: 2.5rem;">
-            <li class="feature-item">
-              <div class="feature-dot"></div>
-              <div class="feature-text">
-                <b>Your finds become part of the landscape picture</b>
-                <span>Your recorded finds show up as a layer in FieldGuide — see where patterns are building across your land.</span>
-              </div>
-            </li>
-            <li class="feature-item">
-              <div class="feature-dot"></div>
-              <div class="feature-text">
-                <b>Hotspot cards show your history</b>
-                <span>When you tap a hotspot, FindSpot shows how many of your finds were recorded nearby — so you can see which signals are already paying off.</span>
-              </div>
-            </li>
-            <li class="feature-item">
-              <div class="feature-dot"></div>
-              <div class="feature-text">
-                <b>Build a picture over time</b>
-                <span>As your find log grows, the map builds a record of where you've been productive — turning experience into evidence.</span>
-              </div>
-            </li>
-          </ul>
-          <p style="font-size: 1.25rem; font-weight: 800; color: var(--accent);">The more you record, the clearer the picture gets.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 2 — CORE JOBS -->
-    <section id="how-it-works">
-      <div class="container">
-        <div style="text-align:center; margin-bottom: 5rem;">
-          <h2 class="section-headline">Four field jobs. <span>One app.</span></h2>
-          <p class="section-lead" style="margin: 0 auto;">FindSpot is built around the tasks detectorists actually do before, during and after a dig.</p>
-        </div>
-
-        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem;">
-          <div class="card job-card">
-            <b>Scan land</b>
-            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.75rem;">Read the evidence first</h3>
-            <p style="color: var(--muted); font-size: 0.92rem;">FieldGuide compares terrain, water, historic routes and landscape context to surface stronger starting points.</p>
-          </div>
-          <div class="card job-card">
-            <b>Record finds</b>
-            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.75rem;">Log quickly, finish properly</h3>
-            <p style="color: var(--muted); font-size: 0.92rem;">One-tap GPS capture in the field, then photos, period, material, depth, detector data and notes when you have time.</p>
-          </div>
-          <div class="card job-card">
-            <b>Manage permissions</b>
-            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.75rem;">Protect the land you can detect</h3>
-            <p style="color: var(--muted); font-size: 0.92rem;">Store boundaries, proof, landowner details, agreements, coverage and field visit reports.</p>
-          </div>
-          <div class="card job-card">
-            <b>Plan digs</b>
-            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.75rem;">Clubs, rallies and club days</h3>
-            <p style="color: var(--muted); font-size: 0.92rem;">Find nearby events, mark yourself as going, or run a QR-based club/rally dig with a combined day review.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 3 — REAL FIELDWORK (QUICK CAPTURE) -->
-    <section style="background: var(--bg-soft);">
-      <div class="container">
-        <div class="grid grid-2">
-          <div>
-            <h2 class="section-headline">Mud, rain, gloves on. <span>Still works.</span></h2>
-            <p class="section-lead">FindSpot is built for real detecting — not just desk research.</p>
-
-            <ul class="feature-list">
-              <li class="feature-item">
-                <div class="feature-dot"></div>
-                <div class="feature-text">
-                  <b>Never miss a find</b>
-                  <span>One-tap Quick Find logs GPS instantly. Add the full details when you're back home.</span>
-                </div>
-              </li>
-              <li class="feature-item">
-                <div class="feature-dot"></div>
-                <div class="feature-text">
-                  <b>See the gaps you're missing</b>
-                  <span>Coverage tracking shows exactly where you've walked — and what ground you haven't covered yet.</span>
-                </div>
-              </li>
-              <li class="feature-item">
-                <div class="feature-dot"></div>
-                <div class="feature-text">
-                  <b>Works without signal</b>
-                  <span>Recording, permissions and field tracking all work offline.</span>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="mockup-frame" style="max-width: 320px; margin: 0 auto;">
-            <div class="mockup-screen">
-              <img src="quick-capture.jpg" alt="Quick Capture Interface" style="width:100%;" loading="lazy">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 4 — PROOF & TRUST (PERMISSIONS) -->
-    <section>
-      <div class="container">
-        <div class="grid grid-2">
-          <div class="mockup-frame">
-            <div class="mockup-screen">
-              <img src="proof.png" alt="Digital Permission Proof" style="width:100%;" loading="lazy">
-            </div>
-          </div>
-          <div>
-            <p style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin: 0 0 1rem;">This is how you keep your permissions.</p>
-            <h2 class="section-headline">Protect your permissions. <span>Earn more land.</span></h2>
-            <p class="section-lead">Professional landowner management — from first contact to field visit reports.</p>
-
-            <ul class="feature-list">
-              <li class="feature-item">
-                <div class="feature-dot"></div>
-                <div class="feature-text">
-                  <b>Proof of permission, instantly</b>
-                  <span>Show a clear digital permission screen if you're challenged in the field.</span>
-                </div>
-              </li>
-              <li class="feature-item">
-                <div class="feature-dot"></div>
-                <div class="feature-text">
-                  <b>Sign agreements in the field</b>
-                  <span>Create and sign professional agreements right there on your phone.</span>
-                </div>
-              </li>
-              <li class="feature-item">
-                <div class="feature-dot"></div>
-                <div class="feature-text">
-                  <b>Field visit reports landowners keep</b>
-                  <span>End-of-session reports showing time on site, area covered and finds recorded.</span>
-                </div>
-              </li>
-            </ul>
-            <p style="margin-top: 2rem; font-size: 0.95rem; color: var(--accent); font-weight: 800; border-top: 1px solid var(--border); padding-top: 1.25rem;">This is how you earn the next season.</p>
-            <p style="margin-top: 0.6rem; font-size: 0.75rem; color: var(--muted); opacity: 0.55;">Report layouts and generated interpretation are proprietary to FindSpot.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 5 — RECORD LIKE IT MATTERS -->
-    <section style="background: var(--bg-soft);">
-      <div class="container">
-        <div style="text-align:center; margin-bottom: 4rem;">
-          <h2 class="section-headline">Your finds deserve <span>better than a notebook</span></h2>
-          <p class="section-lead" style="margin: 0 auto;">Turn every find into a proper record — location, depth, period, detector data and photos all in one place.</p>
-        </div>
-
-        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-          <div class="museum-card">
-            <img src="find-card.jpg" alt="Find Record" class="museum-img" loading="lazy">
-          </div>
-          <div class="card" style="display:flex; flex-direction:column; justify-content:center;">
-            <ul class="feature-list">
-              <li class="feature-item">
-                <div class="feature-dot"></div>
-                <div class="feature-text"><b>Archaeological-quality records</b> <span>Location, depth, material and period recorded accurately against grid position.</span></div>
-              </li>
-              <li class="feature-item">
-                <div class="feature-dot"></div>
-                <div class="feature-text"><b>Detector metrics</b> <span>Target ID, signal and detection context stored with every find.</span></div>
-              </li>
-              <li class="feature-item">
-                <div class="feature-dot"></div>
-                <div class="feature-text"><b>Shareable find cards</b> <span>Generate clean, professional find cards in one tap — for PAS reporting or sharing with your club.</span></div>
-              </li>
-              <li class="feature-item">
-                <div class="feature-dot"></div>
-                <div class="feature-text"><b>Significant-find workflows</b> <span>Guided three-path response for discoveries that need more than a standard record — Stop &amp; Secure, Map Scatter, or Notable Find.</span></div>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 6rem;">
-          <p class="lead" style="font-weight: 800; color: white;">Replace your notebook, maps, and guesswork — with one free app.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION — SIGNIFICANT FIND WORKFLOWS -->
-    <section style="padding: 100px 0;">
-      <div class="container">
-        <div style="text-align: center; margin-bottom: 4rem; max-width: 680px; margin-left: auto; margin-right: auto;">
-          <span class="hero-eyebrow">Significant Finds</span>
-          <h2 class="section-headline">Found something significant? <span>FindSpot guides the next step.</span></h2>
-          <p class="section-lead" style="margin: 0 auto;">Some moments in the field need more than a normal find record. FindSpot gives you three guided routes when context matters.</p>
-        </div>
-
-        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 4rem;">
-
-          <div class="card" style="border-top: 3px solid #ef4444; display: flex; flex-direction: column; gap: 0.75rem;">
-            <div style="display: flex; align-items: center; gap: 0.75rem;">
-              <div style="width: 10px; height: 10px; border-radius: 50%; background: #ef4444; flex-shrink: 0;"></div>
-              <h3 style="font-size: 1.1rem; font-weight: 800; margin: 0; color: var(--text);">Stop &amp; Secure</h3>
-            </div>
-            <p style="font-size: 0.85rem; font-weight: 700; color: #ef4444; margin: 0; text-transform: uppercase; letter-spacing: 0.06em;">For when something may still be in the ground</p>
-            <p style="color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin: 0;">Stop digging, protect the spot, record the position and preserve the context. The right response before any further disturbance.</p>
-          </div>
-
-          <div class="card" style="border-top: 3px solid #f59e0b; display: flex; flex-direction: column; gap: 0.75rem;">
-            <div style="display: flex; align-items: center; gap: 0.75rem;">
-              <div style="width: 10px; height: 10px; border-radius: 50%; background: #f59e0b; flex-shrink: 0;"></div>
-              <h3 style="font-size: 1.1rem; font-weight: 800; margin: 0; color: var(--text);">Map Scatter</h3>
-            </div>
-            <p style="font-size: 0.85rem; font-weight: 700; color: #f59e0b; margin: 0; text-transform: uppercase; letter-spacing: 0.06em;">For finds spread across an area</p>
-            <p style="color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin: 0;">Log each point before the pattern is lost and build a clearer picture of the scatter. Spatial context that a single record can never capture.</p>
-          </div>
-
-          <div class="card" style="border-top: 3px solid #10b981; display: flex; flex-direction: column; gap: 0.75rem;">
-            <div style="display: flex; align-items: center; gap: 0.75rem;">
-              <div style="width: 10px; height: 10px; border-radius: 50%; background: #10b981; flex-shrink: 0;"></div>
-              <h3 style="font-size: 1.1rem; font-weight: 800; margin: 0; color: var(--text);">Notable Find</h3>
-            </div>
-            <p style="font-size: 0.85rem; font-weight: 700; color: #10b981; margin: 0; text-transform: uppercase; letter-spacing: 0.06em;">For one exceptional object already recovered</p>
-            <p style="color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin: 0;">Record photos, location, context and follow-up details properly. Everything in one place before details are forgotten.</p>
-          </div>
-
-        </div>
-
-        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-          <p style="font-size: 1.2rem; font-weight: 800; color: var(--text); margin-bottom: 0.75rem;">Three paths. One aim.</p>
-          <p style="color: var(--muted); font-size: 1rem; line-height: 1.7; margin-bottom: 0.5rem;">Help detectorists respond responsibly when a find may matter. Like having an archaeologist in your pocket when the moment counts.</p>
-          <p style="font-size: 0.8rem; color: var(--muted); opacity: 0.6; margin-bottom: 2rem;">Supports responsible recording. Does not constitute legal or reporting advice.</p>
-          <a href="https://findspot.uk/app/" class="btn btn-primary">Open FindSpot free</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION — CLUB/RALLY DIG -->
-    <section style="padding: 80px 0;">
-      <div class="container">
-        <div style="max-width: 760px; margin: 0 auto; text-align: center;">
-          <span class="hero-eyebrow">Club &amp; Rally Digs</span>
-          <h2 class="section-headline">Run a club or rally dig — <span>without the admin.</span></h2>
-          <p class="section-lead" style="margin: 0 auto 2.5rem;">One QR code. No installs. No accounts. And a full day review when it's done.</p>
-          <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); text-align: left; gap: 1.5rem; margin-bottom: 2.5rem;">
-            <div class="card">
-              <div style="font-size: 2rem; margin-bottom: 0.75rem;">📋</div>
-              <h3 style="font-size: 1rem; font-weight: 800; margin-bottom: 0.5rem;">Organisers</h3>
-              <p style="color: var(--muted); font-size: 0.9rem; line-height: 1.7;">Create a dig and share a single QR code. Members are in instantly — no download, no account. Import everyone's finds at the end of the day.</p>
-            </div>
-            <div class="card">
-              <div style="font-size: 2rem; margin-bottom: 0.75rem;">📱</div>
-              <h3 style="font-size: 1rem; font-weight: 800; margin-bottom: 0.5rem;">Members</h3>
-              <p style="color: var(--muted); font-size: 0.9rem; line-height: 1.7;">Scan, record finds, and you're done. Export your session to the organiser in one tap when the day ends.</p>
-            </div>
-            <div class="card" style="border-color: rgba(16,185,129,0.2);">
-              <div style="font-size: 2rem; margin-bottom: 0.75rem;">📊</div>
-              <h3 style="font-size: 1rem; font-weight: 800; margin-bottom: 0.5rem;">Organiser Hub</h3>
-              <p style="color: var(--muted); font-size: 0.9rem; line-height: 1.7;">After the dig: review the full day's finds, see who found what, and generate a combined report — all in one place.</p>
-            </div>
-          </div>
-          <p style="font-size: 1.15rem; font-weight: 800; color: var(--text); margin-bottom: 2rem;">Everyone detects. One combined report. Full day review.</p>
-          <a href="https://findspot.uk/app/" class="btn btn-primary">Open FindSpot free</a>
-          <p style="margin-top: 1.5rem; font-size: 0.75rem; color: var(--muted); opacity: 0.55;">The Club Day and Rally Dig system — including QR join, organiser workflow, combined find import and Organiser Hub — is proprietary to FindSpot.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION — CLUBS & RALLIES -->
-    <section id="clubs-rallies" style="background: var(--bg-soft);">
-      <div class="container">
-        <div style="text-align:center; margin-bottom: 3.5rem;">
-          <span class="hero-eyebrow">Community</span>
-          <h2 class="section-headline">Find a rally. <span>Plan your session.</span></h2>
-          <p class="section-lead" style="margin: 0 auto;">FindSpot's Discover tab shows local clubs and upcoming rallies across the UK — filtered to your area. Mark yourself as going, plan your session, and go.</p>
-        </div>
-        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-bottom: 3.5rem;">
-          <div class="card" style="text-align:center;">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">📍</div>
-            <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem;">Nearby Clubs</h3>
-            <p style="color: var(--muted); font-size: 0.95rem;">Find detecting clubs within your chosen radius and see when they meet.</p>
-          </div>
-          <div class="card" style="text-align:center;">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🏟️</div>
-            <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem;">Upcoming Rallies</h3>
-            <p style="color: var(--muted); font-size: 0.95rem;">Browse rallies and club digs with dates, locations, and booking links. Tap "I'm Going" and it lands straight in your permissions.</p>
-          </div>
-          <div class="card" style="text-align:center;">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🗓️</div>
-            <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem;">Plan Your Session</h3>
-            <p style="color: var(--muted); font-size: 0.95rem;">Nearby events ranked by distance and date. Plan ahead — so the day you go, you're already ready.</p>
-          </div>
-          <div class="card" style="text-align:center;">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">✅</div>
-            <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem;">Get Listed Free</h3>
-            <p style="color: var(--muted); font-size: 0.95rem;">Running a club or rally? Submit your details and reach detectorists near you.</p>
-          </div>
-        </div>
-        <div style="text-align:center;">
-          <a href="register.html" class="btn btn-primary">List Your Club or Rally</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 6 — PRIVACY -->
-    <section>
-      <div class="container">
-        <div class="privacy-box" style="text-align:center; padding: 4rem 2rem; border: 1px solid var(--border); border-radius: 40px;">
-          <div style="font-size: 3rem; margin-bottom: 1.5rem;">🔒</div>
-          <h2 class="section-headline">Your data stays yours. <span>Always.</span></h2>
-          <p class="section-lead" style="margin: 0 auto 1.5rem;">Your saved finds, GPS coordinates, photos, permissions and landowner details stay on this device unless you choose to export, share or submit them.</p>
-          <p class="section-lead" style="margin: 0 auto 3rem; font-size: 1rem; color: var(--muted);">Online features may request map tiles, landscape data, club/rally listings or form details you enter.</p>
-
-          <div class="grid grid-2" style="text-align:left; gap: 4rem;">
-            <ul class="feature-list">
-              <li class="feature-item">
-                <div class="feature-dot"></div>
-                <div class="feature-text"><b>100% Local-First</b> <span>Everything stored in your device's own internal database.</span></div>
-              </li>
-              <li class="feature-item">
-                <div class="feature-dot"></div>
-                <div class="feature-text"><b>No automatic uploads</b> <span>Your private records are not synced to a FindSpot account or uploaded in the background.</span></div>
-              </li>
-            </ul>
-            <ul class="feature-list">
-              <li class="feature-item">
-                <div class="feature-dot"></div>
-                <div class="feature-text"><b>No location analytics</b> <span>No advertising trackers or analytics on your saved find spots, tracks or permissions.</span></div>
-              </li>
-              <li class="feature-item">
-                <div class="feature-dot"></div>
-                <div class="feature-text"><b>Full Data Control</b> <span>Export everything as CSV or JSON whenever you want.</span></div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div style="text-align: center; padding: 100px 0 0; background: var(--bg-soft);">
-      <p style="font-size: 1.5rem; color: var(--muted); margin-bottom: 0.5rem;">You're not detecting more.</p>
-      <p style="font-size: 2rem; font-weight: 900; color: white; margin-bottom: 2rem;">You're detecting smarter.</p>
-      <div style="height: 1px; width: 50px; background: var(--border); margin: 0 auto 3rem;"></div>
-      <p style="font-size: 1.5rem; color: var(--muted); margin-bottom: 0.5rem;">Most people rely on luck.</p>
-      <p style="font-size: 3rem; font-weight: 900; color: var(--accent);">You don't have to.</p>
-    </div>
-
-    <!-- SECTION — FREE POSITIONING -->
-    <section style="padding: 80px 0; text-align: center; border-top: 1px solid var(--border);">
-      <div class="container">
-        <div style="max-width: 460px; margin: 0 auto;">
-          <p style="font-size: clamp(1.6rem, 5vw, 2.2rem); font-weight: 900; color: white; line-height: 1.5; margin: 0 0 1.5rem;">No subscriptions.<br>No accounts.<br>No locked features.</p>
-          <p style="color: var(--accent); font-size: 1rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; margin: 0;">Everything. Free. Always.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section style="padding: 80px 0; border-top: 1px solid var(--border);" id="faq">
-      <div class="container">
-        <div style="max-width: 680px; margin: 0 auto;">
-          <h2 class="section-headline" style="text-align: center; margin-bottom: 0.75rem;">Common <span>questions</span></h2>
-          <p style="text-align: center; color: var(--muted); font-size: 1rem; margin: 0 0 3rem;">Everything you need to know before you install.</p>
-
-          <style>
-            .faq-item { border-bottom: 1px solid var(--border); }
-            .faq-item:first-of-type { border-top: 1px solid var(--border); }
-            .faq-q {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              gap: 1rem;
-              padding: 1.25rem 0;
-              cursor: pointer;
-              font-weight: 700;
-              font-size: 1rem;
-              color: var(--text);
-              list-style: none;
-              user-select: none;
-            }
-            .faq-q::-webkit-details-marker { display: none; }
-            .faq-q::after {
-              content: '+';
-              font-size: 1.4rem;
-              font-weight: 300;
-              color: var(--accent);
-              flex-shrink: 0;
-              transition: transform 0.2s;
-            }
-            details[open] .faq-q::after { transform: rotate(45deg); }
-            .faq-a {
-              color: var(--muted);
-              font-size: 0.95rem;
-              line-height: 1.75;
-              padding-bottom: 1.25rem;
-              margin: 0;
-            }
-          </style>
-
-          <details class="faq-item">
-            <summary class="faq-q">Does it work on iPhone and Android?</summary>
-            <p class="faq-a">Yes — FindSpot is a Progressive Web App (PWA), which means it works on any modern phone browser, iPhone or Android, without going through the App Store or Google Play. On iPhone, open the site in Safari and tap <em>Share → Add to Home Screen</em>. On Android, your browser will usually prompt you to install automatically.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-q">Do I need to create an account?</summary>
-            <p class="faq-a">No. There's no account, no login, no email required. Everything is stored locally on your device. You can start using FindSpot immediately after installing it.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-q">Does it use mobile data in the field?</summary>
-            <p class="faq-a">Find recording, permission management and coverage tracking all work offline with no signal. FieldGuide scanning needs a connection to fetch landscape data for a new area, but once loaded the results are cached. Map tiles are also cached after your first visit to an area.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-q">Is it really free? What's the catch?</summary>
-            <p class="faq-a">Completely free. No subscription, no locked features, no chargeable tier. FindSpot is built by detectorists and is free to use in full. There is no catch.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-q">What is FieldGuide and how does it work?</summary>
-            <p class="faq-a">FieldGuide is FindSpot's landscape intelligence engine. It analyses terrain shape, water features, historic movement corridors, and archaeological context to highlight areas of likely past activity on your permission. It then suppresses weak or modern signals so you're left with converging evidence, not noise. It won't guarantee finds, but it gives you a much better starting point than guesswork.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-q">Will it work on my permission even if it's small?</summary>
-            <p class="faq-a">Yes. FieldGuide works on any size field. Smaller permissions will naturally have fewer signals to converge, but the analysis still runs across terrain, hydrology, historic routes and disturbance data — and highlights what it finds.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-q">What if I find something important?</summary>
-            <p class="faq-a">FindSpot includes guided workflows for significant discoveries — Stop &amp; Secure, Map Scatter and Notable Find. These help you protect context, record accurately and take the next responsible step in the moment, before details are lost. They support responsible recording and do not substitute for professional advice.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section style="padding: 120px 0; text-align: center; background: var(--panel); border-top: 1px solid var(--border);">
-      <div class="container">
-        <h2 class="section-headline" style="font-size: clamp(2.5rem, 8vw, 4rem);">See where the evidence points. <span>Start with context.</span></h2>
-
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 3rem;">
-          <a href="https://findspot.uk/app/" class="btn btn-primary" style="padding: 1.2rem 3rem; font-size: 1.1rem;">Open FindSpot free</a>
-          <span style="font-size: 0.85rem; color: var(--muted); font-weight: 700; letter-spacing: 0.05em;">No account. No subscriptions. Works on any phone.</span>
-        </div>
-      </div>
-    </section>
   </main>
+
+  <nav class="mob-nav" aria-label="Mobile page navigation" role="navigation">
+    <button class="mob-nav-btn active" id="mbn-overview" onclick="showMobPage('overview', this)" aria-label="Home">
+      <svg class="mob-nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 11.5 12 4l9 7.5"></path>
+        <path d="M5.5 10.5V20h13v-9.5"></path>
+        <path d="M9.5 20v-5h5v5"></path>
+      </svg>
+      <span>Home</span>
+    </button>
+    <button class="mob-nav-btn" id="mbn-fieldguide" onclick="showMobPage('fieldguide', this)" aria-label="Scan land">
+      <svg class="mob-nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="7"></circle>
+        <circle cx="12" cy="12" r="2"></circle>
+        <path d="M12 2v3"></path>
+        <path d="M12 19v3"></path>
+        <path d="M2 12h3"></path>
+        <path d="M19 12h3"></path>
+      </svg>
+      <span>Scan</span>
+    </button>
+    <button class="mob-nav-btn" id="mbn-fieldwork" onclick="showMobPage('fieldwork', this)" aria-label="Record finds">
+      <svg class="mob-nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 21s6-5.1 6-11a6 6 0 0 0-12 0c0 5.9 6 11 6 11Z"></path>
+        <circle cx="12" cy="10" r="2"></circle>
+      </svg>
+      <span>Record</span>
+    </button>
+    <button class="mob-nav-btn digs-btn" id="mbn-clubs" onclick="showMobPage('clubs', this)" aria-label="Digs and rallies">
+      <svg class="mob-nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="4" y="5" width="16" height="15" rx="2"></rect>
+        <path d="M8 3v4"></path>
+        <path d="M16 3v4"></path>
+        <path d="M4 10h16"></path>
+        <path d="M8 14h3"></path>
+        <path d="M13 14h3"></path>
+      </svg>
+      <span>Digs</span>
+    </button>
+    <button class="mob-nav-btn info-btn" id="mbn-more" onclick="showMobPage('more', this)" aria-label="Info and FAQ">
+      <svg class="mob-nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="9"></circle>
+        <path d="M12 11v5"></path>
+        <path d="M12 8h.01"></path>
+      </svg>
+      <span>Info</span>
+    </button>
+  </nav>
 
   <footer>
     <div class="container">
-        <p>© <span id="year"></span> FindSpot. All rights reserved.</p>
-        <p style="font-size: 0.8rem; color: var(--muted); opacity: 0.65; margin: 0.4rem 0 0;">FindSpot™ and FieldGuide™ are proprietary technologies developed by FindSpot. &nbsp;·&nbsp; v3.0</p>
-        <p style="font-size: 0.7rem; opacity: 0.45; margin-top: 1rem;" id="install-count-wrap">JOIN <span class="live-count" id="install-count">3,000+</span> DETECTORISTS IN THE FIELD</p>
-        <div style="margin-top: 1.25rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.5rem; font-size: 0.8rem; font-weight: 700;">
-          <a href="register.html" style="color: var(--accent); text-decoration: none;">List your club or rally →</a>
-          <a href="terms.html" style="color: var(--muted); text-decoration: none; opacity: 0.65;">Terms of Use</a>
-          <a href="privacy.html" style="color: var(--muted); text-decoration: none; opacity: 0.65;">Privacy</a>
-          <a href="contact.html" style="color: var(--muted); text-decoration: none; opacity: 0.65;">Contact</a>
-        </div>
+      <p>&copy; <span id="year"></span> FindSpot. All rights reserved.</p>
+      <p style="font-size:0.78rem; opacity:0.66; margin-top:0.4rem;">FindSpot&trade; and FieldGuide&trade; are proprietary technologies developed by FindSpot. &middot; v4.0</p>
+      <p style="font-size:0.7rem; opacity:0.5; margin-top:0.8rem;">JOIN <span class="live-count" id="install-count">3,000+</span> DETECTORISTS IN THE FIELD</p>
+      <div class="footer-links">
+        <a href="register.html">List your club or rally</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="contact.html">Contact</a>
+      </div>
     </div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Live install counter — fetch from Cloudflare Worker, round down to nearest 500
+    function showMobPage(name, btn) {
+      if (!window.matchMedia('(max-width: 600px)').matches) {
+        return;
+      }
+      var pages = ['overview', 'fieldguide', 'fieldwork', 'clubs', 'more'];
+      pages.forEach(function (page) {
+        var el = document.getElementById('mob-page-' + page);
+        if (el) el.classList.toggle('mob-active', page === name);
+      });
+      document.querySelectorAll('.mob-nav-btn').forEach(function (button) {
+        button.classList.remove('active');
+      });
+      if (btn) btn.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+
+    (function setupMobileAnchors() {
+      var anchorMap = {
+        '#top': 'overview',
+        '#how-it-works': 'overview',
+        '#fieldguide': 'fieldguide',
+        '#fieldwork': 'fieldwork',
+        '#permissions': 'fieldwork',
+        '#clubs-rallies': 'clubs',
+        '#faq': 'more'
+      };
+      document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (!window.matchMedia('(max-width: 600px)').matches) return;
+          var page = anchorMap[link.getAttribute('href')];
+          if (!page) return;
+          var btn = document.getElementById('mbn-' + page);
+          showMobPage(page, btn);
+        });
+      });
+    })();
+
     (function () {
       function formatCount(n) {
         var rounded = Math.floor(n / 500) * 500;
@@ -1178,7 +1443,7 @@
             });
           }
         })
-        .catch(function () { /* keep fallback text */ });
+        .catch(function () {});
     })();
   </script>
 </body>
