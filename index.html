@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FindSpot | UK Metal Detecting App</title>
-  <meta name="description" content="Don't just detect the land — understand it. FieldGuide reads the landscape so you can understand your permission before the first swing. Record finds, manage permissions, run club digs. Private, no account." />
+  <meta name="description" content="Don't just detect the land — understand it. FindSpot brings FieldGuide, active visits, trails, find records and permissions into one free, private and account-free detecting system." />
   <link rel="icon" href="logo.png" type="image/png" />
   <link rel="canonical" href="https://findspot.uk/" />
   <meta name="copyright" content="FindSpot">
@@ -17,13 +17,13 @@
   <meta property="og:url" content="https://findspot.uk/">
   <meta property="og:site_name" content="FindSpot">
   <meta property="og:title" content="FindSpot | UK Metal Detecting App">
-  <meta property="og:description" content="Read the landscape, record finds, manage permissions, plan rallies and handle significant discoveries responsibly. Free, private and account-free.">
+  <meta property="og:description" content="Understand the land, work it in the field and return with the context you recorded. Free, private, offline and account-free.">
   <meta property="og:image" content="https://findspot.uk/proof.png">
   <meta property="og:image:alt" content="FindSpot app showing fieldwork and permission tools">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="FindSpot | UK Metal Detecting App">
-  <meta name="twitter:description" content="Read the landscape, record finds, manage permissions, plan rallies and handle significant discoveries responsibly. Free, private and account-free.">
+  <meta name="twitter:description" content="Understand the land, work it in the field and return with the context you recorded. Free, private, offline and account-free.">
   <meta name="twitter:image" content="https://findspot.uk/proof.png">
 
   <script type="application/ld+json">
@@ -36,7 +36,7 @@
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
     "url": "https://findspot.uk",
     "installUrl": "https://findspot.uk/app/",
-    "description": "A free UK metal detecting app. FieldGuide landscape scans show their evidence, draw on Portable Antiquities Scheme data and learn from your own recorded finds. Find recording, permission management, club digs and rallies.",
+    "description": "A free, private UK metal detecting system. FieldGuide explains landscape evidence, active visits provide a focused field workspace, and locally stored trails, finds and observations build useful context over time.",
     "author": { "@type": "Organization", "name": "FindSpot UK" }
   }
   </script>
@@ -64,7 +64,12 @@
       {
         "@type": "Question",
         "name": "Is FindSpot really free?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. FindSpot is completely free to use with no subscription, locked tier or account requirement." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. FindSpot is completely free to use with no adverts, subscription, locked tier or account requirement." }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if I lose or replace my phone?",
+        "acceptedAnswer": { "@type": "Answer", "text": "FindSpot supports explicit, user-controlled backups and reminds you when changing records need protection. Save the backup somewhere safe, then use FindSpot's validated restore tools on the replacement device. Recovery is not automatic cloud sync." }
       },
       {
         "@type": "Question",
@@ -225,7 +230,7 @@
     .btn-gold:hover { background: rgba(240,180,76,0.16); }
     .nav-cta-short { display: none; }
 
-    section { padding: 76px 0; }
+    section { padding: 68px 0; }
     .section-intro { text-align: center; max-width: 720px; margin: 0 auto 2.75rem; }
     .section-tag {
       display: block;
@@ -460,6 +465,92 @@
       letter-spacing: 0.04em;
     }
     .quote-attr span { color: var(--accent); }
+
+    .early-trust {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 1.15rem 0;
+    }
+    .early-trust-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem 1.35rem;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    .early-trust strong { color: var(--text); font-size: 0.9rem; }
+    .early-trust span { color: var(--muted); font-size: 0.82rem; }
+    .early-trust a { color: var(--accent); font-size: 0.78rem; font-weight: 850; text-decoration: none; }
+
+    .story-section { background: var(--bg-soft); border-bottom: 1px solid var(--border); }
+    .story-line {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      max-width: 900px;
+      margin: 2rem auto 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--panel);
+    }
+    .story-step { position: relative; padding: 1.05rem 0.7rem; text-align: center; color: var(--muted-bright); font-size: 0.76rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; }
+    .story-step:not(:last-child) { border-right: 1px solid var(--border); }
+    .story-step:not(:last-child)::after { content: ""; position: absolute; z-index: 2; right: -4px; top: calc(50% - 3px); width: 6px; height: 6px; transform: rotate(45deg); background: var(--accent); }
+
+    .active-section { background: linear-gradient(165deg, rgba(53,208,127,0.065), var(--bg) 58%); border-bottom: 1px solid var(--border); }
+    .workspace-demo {
+      width: min(100%, 390px);
+      min-height: 620px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--border-mid);
+      border-radius: 24px;
+      background: #030504;
+      box-shadow: var(--shadow);
+    }
+    .workspace-head { padding: 0.85rem 0.95rem; border-bottom: 1px solid var(--border); background: rgba(7,10,11,0.98); }
+    .workspace-status { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; color: var(--accent); font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; }
+    .workspace-status span:first-child::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 0.45rem; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+    .workspace-finish { color: #fca5a5; border: 1px solid rgba(248,113,113,0.35); border-radius: 7px; padding: 0.38rem 0.52rem; }
+    .workspace-place { display: flex; justify-content: space-between; gap: 0.8rem; margin-top: 0.55rem; color: var(--text); font-size: 0.78rem; font-weight: 850; }
+    .workspace-place span { color: var(--muted); font-weight: 700; }
+    .workspace-map { position: relative; flex: 1; min-height: 460px; overflow: hidden; background: linear-gradient(145deg, #23332a, #101a15 55%, #263528); }
+    .workspace-map::before { content: ""; position: absolute; inset: 0; opacity: 0.35; background: repeating-linear-gradient(72deg, transparent 0 38px, rgba(255,255,255,0.08) 39px 41px), repeating-linear-gradient(-18deg, transparent 0 82px, rgba(255,255,255,0.05) 83px 85px); }
+    .field-boundary { position: absolute; inset: 12% 13% 14% 11%; border: 2px solid rgba(240,180,76,0.75); border-radius: 44% 28% 38% 20%; transform: rotate(-5deg); }
+    .trail-line { position: absolute; left: 18%; top: 12%; width: 56%; height: 70%; border-left: 4px solid var(--accent); border-bottom: 4px solid var(--accent); border-radius: 40% 0 35% 45%; transform: rotate(13deg); filter: drop-shadow(0 0 5px rgba(53,208,127,0.45)); }
+    .trail-line::after { content: ""; position: absolute; width: 68%; height: 42%; right: -18%; bottom: 18%; border-top: 4px solid var(--accent); border-right: 4px solid var(--accent); border-radius: 45%; }
+    .map-chip { position: absolute; top: 1rem; right: 1rem; color: #032017; background: var(--accent); border-radius: 7px; padding: 0.58rem 0.72rem; font-size: 0.68rem; font-weight: 900; }
+    .map-find { position: absolute; right: 1rem; bottom: 1.15rem; display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%; color: #1c1303; background: var(--gold); font-size: 0.7rem; font-weight: 950; box-shadow: 0 10px 28px rgba(0,0,0,0.4); }
+    .map-you { position: absolute; left: 47%; top: 47%; width: 16px; height: 16px; border: 4px solid white; border-radius: 50%; background: var(--blue); box-shadow: 0 0 0 7px rgba(90,183,232,0.2); }
+    .workspace-nav { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--border); background: rgba(7,10,11,0.98); }
+    .workspace-tab { padding: 0.78rem 0.3rem 0.72rem; color: var(--muted); text-align: center; font-size: 0.64rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; }
+    .workspace-tab::before { display: block; margin: 0 auto 0.3rem; color: currentColor; font-size: 1.05rem; line-height: 1; }
+    .workspace-tab:nth-child(1) { color: var(--accent); }
+    .workspace-tab:nth-child(1)::before { content: "◉"; }
+    .workspace-tab:nth-child(2)::before { content: "+"; }
+    .workspace-tab:nth-child(3)::before { content: "◷"; }
+    .workspace-tab:nth-child(4)::before { content: "◇"; }
+
+    .continuity-section { background: var(--bg-soft); border-bottom: 1px solid var(--border); }
+    .continuity-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem; }
+    .continuity-item { padding: 1.25rem 0; border-top: 1px solid var(--border); }
+    .continuity-item b { display: block; margin-bottom: 0.35rem; color: var(--text); font-size: 0.94rem; }
+    .continuity-item span { color: var(--muted); font-size: 0.86rem; line-height: 1.6; }
+
+    .evidence-loop { margin-top: 1.6rem; padding: 1.15rem 1.3rem; border: 1px solid var(--accent-border); border-radius: var(--radius); background: var(--accent-dim); }
+    .evidence-loop b { display: block; color: var(--text); font-size: 1rem; margin-bottom: 0.35rem; }
+    .evidence-loop p { color: var(--muted-bright); font-size: 0.86rem; line-height: 1.6; }
+
+    .permission-quote { margin-top: 1.6rem; padding: 1.25rem 1.35rem; border-left: 3px solid var(--gold); background: var(--gold-dim); }
+    .permission-quote p { color: var(--muted-bright); font-size: 0.92rem; font-style: italic; line-height: 1.65; }
+    .permission-quote cite { display: block; margin-top: 0.65rem; color: var(--gold); font-size: 0.75rem; font-style: normal; font-weight: 850; }
+
+    .backup-box { margin-top: 1rem; border-color: var(--gold-border); background: linear-gradient(145deg, var(--gold-dim), var(--panel) 65%); }
+    .backup-points { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.55rem 1.2rem; margin-top: 1.1rem; color: var(--muted-bright); font-size: 0.78rem; font-weight: 800; }
+    .backup-points span::before { content: "·"; color: var(--gold); margin-right: 0.45rem; font-weight: 950; }
 
     .workflow-section { background: var(--bg-soft); border-bottom: 1px solid var(--border); }
     .workflow-grid {
@@ -849,6 +940,7 @@
       .route-grid { grid-template-columns: repeat(3, 1fr); }
       .privacy-grid { grid-template-columns: repeat(4, 1fr); }
       .fieldwork-media { grid-template-columns: 0.9fr 1.1fr; }
+      .continuity-grid { grid-template-columns: repeat(3, 1fr); }
     }
 
     @media (max-width: 600px) {
@@ -889,6 +981,14 @@
       .section-intro { margin-bottom: 1.45rem; }
       .section-title { font-size: clamp(1.65rem, 8.4vw, 2.25rem); }
       .section-lead { font-size: 0.93rem; line-height: 1.58; }
+      .early-trust-inner { gap: 0.45rem; }
+      .early-trust strong, .early-trust span, .early-trust a { width: 100%; }
+      .story-line { grid-template-columns: 1fr; margin-top: 1.35rem; }
+      .story-step { padding: 0.72rem; }
+      .story-step:not(:last-child) { border-right: 0; border-bottom: 1px solid var(--border); }
+      .story-step:not(:last-child)::after { right: calc(50% - 3px); top: auto; bottom: -4px; }
+      .workspace-demo { width: min(100%, 330px); min-height: 520px; border-radius: var(--radius); }
+      .workspace-map { min-height: 370px; }
       .workflow-grid, .jobs-grid, .route-grid, .privacy-grid { gap: 0.85rem; }
       .step-card, .feature-card, .route-card, .privacy-item, .privacy-box, .club-panel { padding: 1.12rem; }
       .step-number { font-size: 2.2rem; right: 0.9rem; }
@@ -967,7 +1067,7 @@
       </a>
       <div class="nav-links" aria-label="Primary navigation">
         <a href="#fieldguide">FieldGuide</a>
-        <a href="#fieldwork">Fieldwork</a>
+        <a href="#active-detecting">Detecting</a>
         <a href="#permissions">Permissions</a>
         <a class="nav-link-clubs" href="#clubs-rallies">Clubs &amp; Rallies</a>
         <a href="#faq">FAQ</a>
@@ -989,12 +1089,12 @@
               <span class="hero-eyebrow"><span class="hero-eyebrow-dot" aria-hidden="true"></span>Free UK detecting app</span>
               <h1>Don't just detect the land. <span>Understand it.</span></h1>
               <p class="hero-tagline">Understand your permission before you step into the field.</p>
-              <p class="hero-lead">FieldGuide reads the landscape so you can understand your permission before the first swing. Record finds, protect permissions and build a better understanding with every visit &mdash; all privately on your own device.</p>
-                            <div class="hero-actions">
+              <p class="hero-lead">FindSpot builds context around the land every time you use it &mdash; from FieldGuide evidence before a visit to trails, finds and observations recorded in the field.</p>
+              <div class="hero-actions">
                 <a href="https://findspot.uk/app/" class="btn btn-primary">Open FindSpot free</a>
-                <a href="#fieldguide" class="btn btn-outline">See FieldGuide</a>
+                <a href="#fieldguide" class="btn btn-outline">See how it works</a>
               </div>
-              <p class="hero-note">Installs to your home screen in two taps &middot; No app store &middot; No account &middot; No subscriptions</p>
+              <p class="hero-note">No app store &middot; No account &middot; No subscriptions &middot; Works offline in the field</p>
             </div>
             <div class="hero-visual">
               <article class="screen-card hero-shot">
@@ -1013,87 +1113,32 @@
         <div class="proof-strip">
           <div class="container">
             <div class="proof-items" aria-label="FindSpot attributes">
-              <div class="proof-item"><span class="proof-dot"></span><span class="live-count">5,000+</span> detectorists</div>
-              <div class="proof-item"><span class="proof-dot"></span>Free to use</div>
-              <div class="proof-item"><span class="proof-dot"></span>No account</div>
+              <div class="proof-item"><span class="proof-dot"></span>10,000+ detectorists</div>
+              <div class="proof-item"><span class="proof-dot"></span>Everything free</div>
+              <div class="proof-item"><span class="proof-dot"></span>Zero accounts</div>
               <div class="proof-item"><span class="proof-dot"></span>Offline recording</div>
               <div class="proof-item"><span class="proof-dot"></span>Private by default</div>
             </div>
           </div>
         </div>
 
-        <div class="quote-strip">
-          <div class="container quote-inner">
-            <span class="quote-mark" aria-hidden="true">&ldquo;</span>
-            <p class="quote-text">The detailed field reports have helped me build a very good relationship with the council &mdash; and even secure a couple more areas to detect on.</p>
-            <p class="quote-attr">Lee W. &mdash; <span>council park permission</span></p>
+        <div class="early-trust">
+          <div class="container early-trust-inner">
+            <strong>Your exact finds, permissions and trails remain under your control.</strong>
+            <span>Stored locally. No location analytics. No background upload to a FindSpot account.</span>
+            <a href="#privacy">How FindSpot protects your records &rarr;</a>
           </div>
         </div>
 
-        <section class="workflow-section" id="how-it-works">
+        <section class="story-section" id="how-it-works">
           <div class="container">
-            <div class="section-intro">
-              <span class="section-tag">How FindSpot works</span>
-              <h2 class="section-title">Four field jobs. <span>One app.</span></h2>
-              <p class="section-lead">FindSpot is arranged around the jobs detectorists actually do before, during and after a dig.</p>
+            <div class="section-intro" style="margin-bottom:0;">
+              <span class="section-tag">One detecting system</span>
+              <h2 class="section-title">FindSpot remembers the land <span>with you.</span></h2>
+              <p class="section-lead">Understand a permission, work it in the field, preserve what happened and return with more context than you started with.</p>
             </div>
-            <div class="workflow-grid">
-              <article class="step-card">
-                <div class="step-number">1</div>
-                <div class="card-label">Scan land</div>
-                <h3>Understand the landscape first</h3>
-                <p>FieldGuide compares terrain, water, historic routes and landscape context to surface stronger starting points.</p>
-              </article>
-              <article class="step-card">
-                <div class="step-number">2</div>
-                <div class="card-label">Record finds</div>
-                <h3>Log quickly, finish properly</h3>
-                <p>Capture GPS in the field, then add photos, material, period, depth, detector data and notes when you have time.</p>
-              </article>
-              <article class="step-card">
-                <div class="step-number">3</div>
-                <div class="card-label">Manage land</div>
-                <h3>Protect your permissions</h3>
-                <p>Keep boundaries, proof, agreements, landowner details, coverage and visit reports together.</p>
-              </article>
-              <article class="step-card">
-                <div class="step-number">4</div>
-                <div class="card-label">Plan digs</div>
-                <h3>Clubs, rallies and days out</h3>
-                <p>Find nearby events, mark yourself as going, or run a QR-based club day with a combined review.</p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="jobs-section">
-          <div class="container">
-            <div class="section-intro">
-              <span class="section-tag gold">Why it feels different</span>
-              <h2 class="section-title">Less guessing. <span class="gold-text">More understanding.</span></h2>
-              <p class="section-lead">FindSpot is not just a finds notebook. It connects the place, the search, the permission and the record.</p>
-            </div>
-            <div class="jobs-grid">
-              <article class="feature-card">
-                <div class="card-label">Landscape</div>
-                <h3>Evidence before the first signal</h3>
-                <p>Terrain shape, water, old routes and protected-area awareness help you choose where to start.</p>
-              </article>
-              <article class="feature-card gold">
-                <div class="card-label" style="color: var(--gold);">Field use</div>
-                <h3>Fast enough for muddy hands</h3>
-                <p>Quick capture records the location immediately, then lets you complete the record later.</p>
-              </article>
-              <article class="feature-card blue">
-                <div class="card-label" style="color: var(--blue);">Landowners</div>
-                <h3>Proof and reports in one place</h3>
-                <p>Show permission, track coverage and produce field visit reports landowners can understand.</p>
-              </article>
-              <article class="feature-card red">
-                <div class="card-label" style="color: var(--red);">Responsibility</div>
-                <h3>Guidance when context matters</h3>
-                <p>Significant-find workflows help preserve spatial context before details are lost.</p>
-              </article>
+            <div class="story-line" aria-label="FindSpot detecting journey">
+              <div class="story-step">Plan</div><div class="story-step">Detect</div><div class="story-step">Record</div><div class="story-step">Understand</div><div class="story-step">Return</div>
             </div>
           </div>
         </section>
@@ -1114,24 +1159,11 @@
             <div>
               <span class="section-tag">FieldGuide</span>
               <h2 class="section-title">Understand your permission <span>before you arrive.</span></h2>
-              <p class="section-lead">FieldGuide reads terrain, water, routes, historic mapping and recorded archaeology to highlight where past activity is more plausible &mdash; and shows you the evidence behind every interpretation.</p>
+              <p class="section-lead">FieldGuide brings terrain, water, historic routes, mapping and recorded archaeology together to highlight where past activity is more plausible.</p>
               <ul class="feature-list">
-                <li class="feature-item">
-                  <span class="feature-dot"></span>
-                  <span class="feature-text"><b>Shows its working</b><span>Every scan explains itself: what supports the interpretation, what weighs against it, and how confident it is.</span></span>
-                </li>
-                <li class="feature-item">
-                  <span class="feature-dot"></span>
-                  <span class="feature-text"><b>Checked against half a million recorded finds</b><span>Portable Antiquities Scheme data means the recorded history of the wider landscape counts as evidence.</span></span>
-                </li>
-                <li class="feature-item">
-                  <span class="feature-dot"></span>
-                  <span class="feature-text"><b>Reads terrain, water and lost routes</b><span>Surface shape, hydrology and vanished tracks from historic Ordnance Survey mapping are strongest when they point to the same place.</span></span>
-                </li>
-                <li class="feature-item">
-                  <span class="feature-dot"></span>
-                  <span class="feature-text"><b>Includes protected landscape awareness</b><span>Scheduled monument boundaries are visible before you are standing on them.</span></span>
-                </li>
+                <li class="feature-item"><span class="feature-dot"></span><span class="feature-text"><b>Shows its working</b><span>See what supports an interpretation, what weighs against it and how confident it is.</span></span></li>
+                <li class="feature-item"><span class="feature-dot"></span><span class="feature-text"><b>Evidence, not prediction</b><span>Multiple landscape and historic signals are considered together to help focus investigation.</span></span></li>
+                <li class="feature-item"><span class="feature-dot"></span><span class="feature-text"><b>Protected landscape awareness</b><span>Scheduled monument boundaries are visible before you are standing on them.</span></span></li>
               </ul>
               <p class="small-note">FieldGuide highlights potential and helps focus your search. It does not guarantee finds.</p>
             </div>
@@ -1143,19 +1175,55 @@
             <div class="section-intro">
               <span class="section-tag">Evidence in context</span>
               <h2 class="section-title">Every permission <span>has a story.</span></h2>
-              <p class="section-lead">Two views of the same field — one plain, one with FieldGuide's landscape evidence layered in.</p>
+              <p class="section-lead">A plain field becomes more useful when landscape evidence and your own records are viewed together.</p>
             </div>
             <div class="proof-grid">
-              <figure class="proof-panel">
-                <figcaption>Plain field view</figcaption>
-                <img src="proof1.png" alt="A plain field scan showing an isolated target without broader landscape context" loading="lazy" decoding="async" />
-              </figure>
-              <figure class="proof-panel highlight">
-                <figcaption>FieldGuide context</figcaption>
-                <img src="proof2.png" alt="A FieldGuide hotspot card showing multiple signals supporting the same location" loading="lazy" decoding="async" />
-              </figure>
+              <figure class="proof-panel"><figcaption>Plain field view</figcaption><img src="proof1.png" alt="A plain field scan showing an isolated target without broader landscape context" loading="lazy" decoding="async" /></figure>
+              <figure class="proof-panel highlight"><figcaption>FieldGuide context</figcaption><img src="proof2.png" alt="A FieldGuide hotspot card showing multiple signals supporting the same location" loading="lazy" decoding="async" /></figure>
             </div>
-            <p class="small-note" style="text-align:center;">Your own recorded finds become evidence in FieldGuide. Scans near your finds weigh them against the wider recorded landscape &mdash; so the more you record, the sharper your interpretations get.</p>
+            <div class="evidence-loop">
+              <b>Your own recorded finds become evidence in FieldGuide.</b>
+              <p>Use FindSpot, record what happened, build local context and return with better information. Your private find records stay on your device unless you choose to export or share them.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="active-section" id="active-detecting">
+          <div class="container two-col">
+            <div>
+              <span class="section-tag">Active detecting in V5</span>
+              <h2 class="section-title">Start detecting. <span>FindSpot changes with you.</span></h2>
+              <p class="section-lead">Once a visit starts, FindSpot becomes a focused field workspace. Four clear views keep the job simple without losing the context of your session.</p>
+              <ul class="feature-list">
+                <li class="feature-item"><span class="feature-dot"></span><span class="feature-text"><b>Map</b><span>See your position, permission and recorded trail as you work.</span></span></li>
+                <li class="feature-item"><span class="feature-dot"></span><span class="feature-text"><b>Record</b><span>Save a find, useful point, surface observation or undug signal quickly.</span></span></li>
+                <li class="feature-item"><span class="feature-dot"></span><span class="feature-text"><b>Session</b><span>Review the current visit, add notes and finish it clearly.</span></span></li>
+                <li class="feature-item"><span class="feature-dot"></span><span class="feature-text"><b>Guide</b><span>Open FieldGuide without losing the active session around you.</span></span></li>
+              </ul>
+            </div>
+            <figure class="workspace-demo" aria-label="FindSpot V5 active detecting workspace demonstration">
+              <div class="workspace-head">
+                <div class="workspace-status"><span>Trail recording &middot; GPS live</span><span class="workspace-finish">Finish</span></div>
+                <div class="workspace-place">Meadow permission <span>01:24 &middot; 3 finds</span></div>
+              </div>
+              <div class="workspace-map" aria-hidden="true"><div class="field-boundary"></div><div class="trail-line"></div><div class="map-chip">Trail recording</div><div class="map-you"></div><div class="map-find">+ Find</div></div>
+              <div class="workspace-nav" aria-hidden="true"><div class="workspace-tab">Map</div><div class="workspace-tab">Record</div><div class="workspace-tab">Session</div><div class="workspace-tab">Guide</div></div>
+            </figure>
+          </div>
+        </section>
+
+        <section class="continuity-section" id="continuity">
+          <div class="container">
+            <div class="section-intro" style="margin-bottom:0;">
+              <span class="section-tag">Built for returning</span>
+              <h2 class="section-title">Pick up where <span>you left off.</span></h2>
+              <p class="section-lead">Return to a permission and see the context you have already built locally &mdash; previous visits, recorded trails, finds and areas worth another look.</p>
+            </div>
+            <div class="continuity-grid">
+              <div class="continuity-item"><b>Continue the visit</b><span>Reopen an unfinished session and carry on without rebuilding its context.</span></div>
+              <div class="continuity-item"><b>See recorded evidence</b><span>See where you've detected before &mdash; and the gaps between your recorded trails.</span></div>
+              <div class="continuity-item"><b>Build on what you know</b><span>Use finds, observations and earlier visits to decide what deserves attention next.</span></div>
+            </div>
           </div>
         </section>
       </div>
@@ -1163,106 +1231,44 @@
 
     <div class="mob-page" id="mob-page-fieldwork">
       <div class="mob-page-inner">
-        <section class="fieldwork-section" id="fieldwork">
-          <div class="container two-col">
-            <div>
-              <span class="section-tag">Real fieldwork</span>
-              <h2 class="section-title">Mud, rain, gloves on. <span>Still works.</span></h2>
-              <p class="section-lead">FindSpot is built for quick decisions in the field and fuller records when you are back at the car or home.</p>
-              <ul class="feature-list">
-                <li class="feature-item">
-                  <span class="feature-dot"></span>
-                  <span class="feature-text"><b>One-tap Quick Find</b><span>Capture GPS instantly so you never lose the find spot, then complete the details later.</span></span>
-                </li>
-                <li class="feature-item">
-                  <span class="feature-dot"></span>
-                  <span class="feature-text"><b>Coverage tracking</b><span>See where you have walked and where you haven’t.</span></span>
-                </li>
-                <li class="feature-item">
-                  <span class="feature-dot"></span>
-                  <span class="feature-text"><b>Offline first</b><span>Recording, permissions and field tracking work without signal.</span></span>
-                </li>
-              </ul>
-            </div>
-            <article class="screen-card">
-              <div class="screen-media tall fit">
-                <img src="quick-capture.jpg" alt="FindSpot quick capture interface for recording a find in the field" loading="lazy" decoding="async" />
-              </div>
-              <div class="screen-caption">
-                <b>Quick capture</b>
-                <span>Record the point first. Add the full find details when it is practical.</span>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="jobs-section">
-          <div class="container fieldwork-media">
-            <article class="screen-card">
-              <div class="screen-media square">
-                <img src="find-card.jpg" alt="FindSpot find record card with photos and find metadata" loading="lazy" decoding="async" />
-              </div>
-              <div class="screen-caption">
-                <b>Find records</b>
-                <span>Location, depth, material, period, detector context and photos in one structured record.</span>
-              </div>
-            </article>
-            <div>
-              <span class="section-tag">Record like it matters</span>
-              <h2 class="section-title">Your finds deserve <span>better than a notebook.</span></h2>
-              <p class="section-lead">Every find can become a useful record, not just a memory tied to a photo roll or a paper note.</p>
-              <div class="jobs-grid" style="margin-top:1.5rem;">
-                <article class="feature-card">
-                  <h3>Archaeological-quality fields</h3>
-                  <p>Keep grid position, material, depth, period and context together.</p>
-                </article>
-                <article class="feature-card gold">
-                  <h3>Detector metrics</h3>
-                  <p>Store target ID, signal notes and detection context with the find.</p>
-                </article>
-                <article class="feature-card blue">
-                  <h3>Shareable cards</h3>
-                  <p>Generate clean find cards for club sharing, landowner updates or reporting support.</p>
-                </article>
-                <article class="feature-card red">
-                  <h3>Significant finds</h3>
-                  <p>Use guided routes when a discovery needs more care than a standard record.</p>
-                </article>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section class="permissions-section" id="permissions">
           <div class="container two-col">
             <article class="screen-card">
-              <div class="screen-media tall fit">
-                <img src="proof.png" alt="FindSpot digital permission proof screen" loading="lazy" decoding="async" />
-              </div>
-              <div class="screen-caption">
-                <b>Permission proof</b>
-                <span>Clear information when you need to show you are allowed to be there.</span>
-              </div>
+              <div class="screen-media tall fit"><img src="proof.png" alt="FindSpot digital permission proof screen" loading="lazy" decoding="async" /></div>
+              <div class="screen-caption"><b>Permission proof</b><span>Clear information when you need to show you are allowed to be there.</span></div>
             </article>
             <div>
               <span class="section-tag gold">Permissions</span>
               <h2 class="section-title">Protect your permissions. <span class="gold-text">Earn more land.</span></h2>
-              <p class="section-lead">Professional landowner management, from first contact to field visit reports.</p>
+              <p class="section-lead">Keep boundaries, proof, agreements and landowner details together, then turn recorded visits into clear field reports.</p>
               <ul class="feature-list">
-                <li class="feature-item">
-                  <span class="feature-dot gold"></span>
-                  <span class="feature-text"><b>Proof of permission</b><span>Show a clear digital permission screen if challenged in the field.</span></span>
-                </li>
-                <li class="feature-item">
-                  <span class="feature-dot gold"></span>
-                  <span class="feature-text"><b>Agreements and boundaries</b><span>Keep landowner details, signed agreements and mapped fields together.</span></span>
-                </li>
-                <li class="feature-item">
-                  <span class="feature-dot gold"></span>
-                  <span class="feature-text"><b>Field visit reports</b><span>Summarise time on site, area covered and finds recorded for the person who gave permission.</span></span>
-                </li>
+                <li class="feature-item"><span class="feature-dot gold"></span><span class="feature-text"><b>Proof and agreements</b><span>Keep clear permission evidence available in the field.</span></span></li>
+                <li class="feature-item"><span class="feature-dot gold"></span><span class="feature-text"><b>Field visit reports</b><span>Summarise a visit and the records made there for the person who gave permission.</span></span></li>
+              </ul>
+              <blockquote class="permission-quote">
+                <p>&ldquo;The detailed field reports have helped me build a very good relationship with the council &mdash; and even secure a couple more areas to detect on.&rdquo;</p>
+                <cite>Lee W. &mdash; council park permission</cite>
+              </blockquote>
+            </div>
+          </div>
+        </section>
+
+        <section class="fieldwork-section" id="fieldwork">
+          <div class="container two-col">
+            <div>
+              <span class="section-tag">Record in the field</span>
+              <h2 class="section-title">Record the point now. <span>Add detail when it suits you.</span></h2>
+              <p class="section-lead">Quick Find captures the location first. Complete the photos, material, period, depth, detector context and notes when your hands are free.</p>
+              <ul class="feature-list">
+                <li class="feature-item"><span class="feature-dot"></span><span class="feature-text"><b>Fast enough for muddy hands</b><span>Save the essential context without breaking your detecting rhythm.</span></span></li>
+                <li class="feature-item"><span class="feature-dot"></span><span class="feature-text"><b>Useful beyond the record</b><span>Finds can support FieldGuide context, visit reviews and landowner reports.</span></span></li>
+                <li class="feature-item"><span class="feature-dot"></span><span class="feature-text"><b>Works offline</b><span>Find recording, permissions and trail recording keep working without a signal.</span></span></li>
               </ul>
             </div>
+            <article class="screen-card">
+              <div class="screen-media tall fit"><img src="quick-capture.jpg" alt="FindSpot quick capture interface for recording a find in the field" loading="lazy" decoding="async" /></div>
+              <div class="screen-caption"><b>Quick capture</b><span>Record the point first. Add the full find details when it is practical.</span></div>
+            </article>
           </div>
         </section>
       </div>
@@ -1274,25 +1280,13 @@
           <div class="container">
             <div class="section-intro">
               <span class="section-tag">Significant finds</span>
-              <h2 class="section-title">When context matters, <span>choose the right route.</span></h2>
-              <p class="section-lead">Some moments in the field need more than a normal find record. FindSpot keeps the next step clear.</p>
+              <h2 class="section-title">When context matters, <span>keep the next step clear.</span></h2>
+              <p class="section-lead">FindSpot supports responsible handling when a discovery needs more than a normal find record.</p>
             </div>
             <div class="route-grid">
-              <article class="route-card stop">
-                <span class="route-tag">Stop &amp; Secure</span>
-                <h3>Something may still be in the ground</h3>
-                <p>Stop digging, protect the spot, record the position and preserve context before further disturbance.</p>
-              </article>
-              <article class="route-card scatter">
-                <span class="route-tag">Map Scatter</span>
-                <h3>Finds spread across an area</h3>
-                <p>Log each point before the pattern is lost and build a clearer picture of the scatter.</p>
-              </article>
-              <article class="route-card notable">
-                <span class="route-tag">Notable Find</span>
-                <h3>One exceptional object recovered</h3>
-                <p>Record photos, location, context and follow-up details before they are forgotten.</p>
-              </article>
+              <article class="route-card stop"><span class="route-tag">Stop &amp; Secure</span><h3>Protect what may remain</h3><p>Record the position and preserve context before further disturbance.</p></article>
+              <article class="route-card scatter"><span class="route-tag">Map Scatter</span><h3>Preserve the pattern</h3><p>Log separate points before the relationship between them is lost.</p></article>
+              <article class="route-card notable"><span class="route-tag">Notable Find</span><h3>Capture what matters</h3><p>Keep photos, location, context and follow-up details together.</p></article>
             </div>
             <p class="small-note" style="text-align:center;">Supports responsible recording. Does not constitute legal or reporting advice.</p>
           </div>
@@ -1302,32 +1296,12 @@
           <div class="container">
             <div class="section-intro">
               <span class="section-tag blue">Clubs &amp; Rallies</span>
-              <h2 class="section-title">Run a club or rally dig <span>without the admin.</span></h2>
-              <p class="section-lead">One QR code, no accounts, no installs, and a combined review when the day is done.</p>
+              <h2 class="section-title">Detecting with a club? <span>FindSpot does that too.</span></h2>
+              <p class="section-lead"><strong style="color:var(--text);">One QR code. No accounts.</strong> Organisers can open a dig, members can record quickly and the day can be reviewed together afterwards.</p>
             </div>
-            <div class="club-panel">
-              <div class="club-grid">
-                <article class="feature-card blue">
-                  <div class="card-label" style="color: var(--blue);">Organisers</div>
-                  <h3>Create the dig</h3>
-                  <p>Share a single QR code and import members' finds into a full day review.</p>
-                </article>
-                <article class="feature-card">
-                  <div class="card-label">Members</div>
-                  <h3>Scan and record</h3>
-                  <p>Join quickly, record finds and export the session to the organiser in one tap.</p>
-                </article>
-                <article class="feature-card gold">
-                  <div class="card-label" style="color: var(--gold);">Discover</div>
-                  <h3>Find local events</h3>
-                  <p>Browse clubs, rallies and club digs filtered to your area, then plan the session.</p>
-                </article>
-              </div>
-              <p class="small-note" style="margin-top:1.2rem;">Just recording your own day at a club dig or rally? A personal dig record needs no organiser, no join link &mdash; and shares nothing.</p>
-              <div class="hero-actions" style="margin-top:1.6rem;">
-                <a href="register.html" class="btn btn-gold">List your club or rally</a>
-                <a href="https://findspot.uk/app/" class="btn btn-primary">Open FindSpot free</a>
-              </div>
+            <div class="hero-actions" style="justify-content:center; margin-bottom:0;">
+              <a href="register.html" class="btn btn-gold">List your club or rally</a>
+              <a href="https://findspot.uk/app/" class="btn btn-outline">Open FindSpot</a>
             </div>
           </div>
         </section>
@@ -1336,19 +1310,28 @@
 
     <div class="mob-page" id="mob-page-more">
       <div class="mob-page-inner">
-        <section class="privacy-section">
+        <section class="privacy-section" id="privacy">
           <div class="container">
             <div class="privacy-box">
               <div class="section-intro" style="margin-bottom:0;">
                 <span class="section-tag">Privacy</span>
                 <h2 class="section-title">Your data stays yours. <span>Always.</span></h2>
-                <p class="section-lead">Saved finds, GPS coordinates, photos, permissions and landowner details stay on this device unless you choose to export, share or submit them.</p>
+                <p class="section-lead">Exact find locations, productive fields, permissions, GPS trails and notes stay on your device unless you choose to export, share or submit them.</p>
               </div>
               <div class="privacy-grid">
-                <article class="privacy-item"><b>Local-first</b><span>Your private records are stored in your device's own database.</span></article>
-                <article class="privacy-item"><b>No automatic uploads</b><span>Finds are not synced to a FindSpot account in the background.</span></article>
-                <article class="privacy-item"><b>No location analytics</b><span>No advertising trackers or analytics on saved find spots, tracks or permissions.</span></article>
-                <article class="privacy-item"><b>Export control</b><span>Export records as CSV or JSON whenever you need a copy.</span></article>
+                <article class="privacy-item"><b>Local-first</b><span>Private records live in your device's own database.</span></article>
+                <article class="privacy-item"><b>No accounts</b><span>No FindSpot profile or background sync of your finds.</span></article>
+                <article class="privacy-item"><b>No location analytics</b><span>No advertising trackers on saved spots, trails or permissions.</span></article>
+                <article class="privacy-item"><b>You choose what leaves</b><span>Export or share records only when you decide to.</span></article>
+              </div>
+            </div>
+
+            <div class="privacy-box backup-box">
+              <div class="section-intro" style="margin-bottom:0;">
+                <span class="section-tag gold">Backup &amp; recovery</span>
+                <h2 class="section-title">Private doesn't mean <span class="gold-text">fragile.</span></h2>
+                <p class="section-lead">Save a user-controlled FindSpot backup before changing phones or whenever your records have changed. FindSpot validates and stages a backup before restoring it, without requiring your private records to be uploaded to a FindSpot account.</p>
+                <div class="backup-points"><span>Backup reminders</span><span>Validated restore</span><span>Explicit user control</span></div>
               </div>
             </div>
           </div>
@@ -1356,50 +1339,30 @@
 
         <section class="free-section">
           <div class="container">
-            <p class="free-line">No subscriptions.<br>No accounts.<br>No locked features.</p>
+            <p class="free-line">No accounts. No adverts.<br>No subscriptions. No locked features.</p>
             <p class="free-tag">Everything. Free. Always.</p>
+            <p class="section-lead" style="margin:1rem auto 0; font-size:0.88rem;">Free does not mean your locations or detecting records are being monetised. FindSpot is built to put useful field tools in detectorists' hands without trading away their privacy.</p>
           </div>
         </section>
 
         <section class="faq-section" id="faq">
           <div class="container faq-wrap">
-            <div class="section-intro">
-              <span class="section-tag">FAQ</span>
-              <h2 class="section-title">Common <span>questions</span></h2>
-              <p class="section-lead">Everything you need to know before you install.</p>
-            </div>
-
-            <details class="faq-item">
-              <summary class="faq-q">Does it work on iPhone and Android?</summary>
-              <p class="faq-a">Yes. FindSpot is a Progressive Web App, so it works in a modern phone browser. On iPhone, open it in Safari and use Add to Home Screen. On Android, your browser will usually offer to install it.</p>
-            </details>
-            <details class="faq-item">
-              <summary class="faq-q">Do I need to create an account?</summary>
-              <p class="faq-a">No. There is no account, login or email required. You can start using FindSpot immediately.</p>
-            </details>
-            <details class="faq-item">
-              <summary class="faq-q">Does it use mobile data in the field?</summary>
-              <p class="faq-a">Find recording, permission management and coverage tracking work offline. FieldGuide needs a connection to fetch landscape data for a new area, but loaded results and map tiles can be cached.</p>
-            </details>
-            <details class="faq-item">
-              <summary class="faq-q">Is it really free?</summary>
-              <p class="faq-a">Yes. FindSpot is free to use in full, with no subscription, locked tier or account requirement.</p>
-            </details>
-            <details class="faq-item">
-              <summary class="faq-q">What is FieldGuide?</summary>
-              <p class="faq-a">FieldGuide is FindSpot's landscape intelligence engine. It analyses terrain, water features, historic routes and recorded archaeology — including Portable Antiquities Scheme data and your own recorded finds — and shows the evidence for and against every interpretation. It helps focus a search, but it does not guarantee finds.</p>
-            </details>
-            <details class="faq-item">
-              <summary class="faq-q">What if I find something important?</summary>
-              <p class="faq-a">FindSpot includes guided workflows for Stop &amp; Secure, Map Scatter and Notable Find records. They help preserve context and support responsible recording, but they do not replace professional or legal advice.</p>
-            </details>
+            <div class="section-intro"><span class="section-tag">FAQ</span><h2 class="section-title">Common <span>questions</span></h2></div>
+            <details class="faq-item"><summary class="faq-q">Does it work on iPhone and Android?</summary><p class="faq-a">Yes. FindSpot is a Progressive Web App, so it works in a modern phone browser. On iPhone, open it in Safari and use Add to Home Screen. On Android, your browser will usually offer to install it.</p></details>
+            <details class="faq-item"><summary class="faq-q">Do I need to create an account?</summary><p class="faq-a">No. There is no account, login or email required. You can start using FindSpot immediately.</p></details>
+            <details class="faq-item"><summary class="faq-q">Does it use mobile data in the field?</summary><p class="faq-a">Find recording, permission management and trail recording work offline. FieldGuide needs a connection to fetch landscape data for a new area, but loaded results and map tiles can be cached.</p></details>
+            <details class="faq-item"><summary class="faq-q">What if I lose or replace my phone?</summary><p class="faq-a">FindSpot supports explicit, user-controlled backups and reminds you when changing records need protection. Save the backup somewhere safe, then use FindSpot's validated restore tools on your replacement device. Recovery is not automatic cloud sync.</p></details>
+            <details class="faq-item"><summary class="faq-q">Is it really free?</summary><p class="faq-a">Yes. FindSpot is free to use in full, with no adverts, subscription, locked tier or account requirement.</p></details>
+            <details class="faq-item"><summary class="faq-q">What is FieldGuide?</summary><p class="faq-a">FieldGuide analyses terrain, water features, historic routes and recorded archaeology &mdash; including Portable Antiquities Scheme data and your own locally recorded finds &mdash; and shows the evidence behind its interpretations. It helps focus a search, but it does not guarantee finds.</p></details>
+            <details class="faq-item"><summary class="faq-q">What if I find something important?</summary><p class="faq-a">FindSpot includes guided workflows for Stop &amp; Secure, Map Scatter and Notable Find records. They help preserve context and support responsible recording, but they do not replace professional or legal advice.</p></details>
           </div>
         </section>
 
         <section class="cta-section">
           <div class="container">
+            <span class="section-tag">Everything. Free. Always.</span>
             <h2>Don't just detect the land. <span style="color:var(--accent);">Understand it.</span></h2>
-            <p>Open FindSpot on your phone and keep FieldGuide, finds, permissions and club days in one local-first workspace.</p>
+            <p>Open FindSpot on your phone and start building useful context around your permission &mdash; privately, with no account.</p>
             <a href="https://findspot.uk/app/" class="btn btn-primary">Open FindSpot free</a>
           </div>
         </section>
@@ -1458,8 +1421,8 @@
   <footer>
     <div class="container">
       <p>&copy; <span id="year"></span> FindSpot. All rights reserved.</p>
-      <p style="font-size:0.78rem; opacity:0.66; margin-top:0.4rem;">FindSpot&trade; and FieldGuide&trade; are proprietary technologies developed by FindSpot. &middot; v4.0</p>
-      <p style="font-size:0.85rem; opacity:0.8; margin-top:0.8rem;">Join 5,000+ detectorists in the field</p>
+      <p style="font-size:0.78rem; opacity:0.66; margin-top:0.4rem;">FindSpot&trade; and FieldGuide&trade; are proprietary technologies developed by FindSpot.</p>
+      <p style="font-size:0.85rem; opacity:0.8; margin-top:0.8rem;">Join 10,000+ detectorists in the field</p>
       <div class="footer-links">
         <a href="register.html">List your club or rally</a>
         <a href="terms.html">Terms of Use</a>
@@ -1500,17 +1463,21 @@
         '#top': 'overview',
         '#how-it-works': 'overview',
         '#fieldguide': 'fieldguide',
+        '#active-detecting': 'fieldguide',
+        '#continuity': 'fieldguide',
         '#fieldwork': 'fieldwork',
         '#permissions': 'fieldwork',
         '#clubs-rallies': 'clubs',
+        '#privacy': 'more',
         '#faq': 'more'
       };
       document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-        link.addEventListener('click', function () {
+        link.addEventListener('click', function (event) {
           if (!window.matchMedia('(max-width: 600px)').matches) return;
           var hash = link.getAttribute('href');
           var page = anchorMap[hash];
           if (!page) return;
+          event.preventDefault();
           showMobPage(page);
           // Scroll to the target element within the tab (e.g. #permissions inside fieldwork)
           var targetId = hash.replace('#', '');
@@ -1522,7 +1489,7 @@
       });
 
       // On load, switch to the tab matching the URL hash
-      var hashPageMap = { overview: 'overview', fieldguide: 'fieldguide', fieldwork: 'fieldwork', permissions: 'fieldwork', clubs: 'clubs', more: 'more', faq: 'more', 'how-it-works': 'overview', 'clubs-rallies': 'clubs', top: 'overview' };
+      var hashPageMap = { overview: 'overview', fieldguide: 'fieldguide', 'active-detecting': 'fieldguide', continuity: 'fieldguide', fieldwork: 'fieldwork', permissions: 'fieldwork', clubs: 'clubs', more: 'more', privacy: 'more', faq: 'more', 'how-it-works': 'overview', 'clubs-rallies': 'clubs', top: 'overview' };
       var loadHash = location.hash.replace('#', '');
       var loadPage = hashPageMap[loadHash];
       if (loadPage && loadPage !== 'overview') {
@@ -1532,27 +1499,6 @@
       }
     })();
 
-    (function () {
-      function formatCount(n) {
-        var rounded = Math.floor(n / 500) * 500;
-        return rounded.toLocaleString('en-GB') + '+';
-      }
-      var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
-      var timer = setTimeout(function () { if (controller) controller.abort(); }, 5000);
-      fetch('https://findspot-counter.trials-uk.workers.dev/count', controller ? { signal: controller.signal } : {})
-        .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
-        .then(function (text) {
-          clearTimeout(timer);
-          var n = parseInt(text.trim(), 10);
-          if (!isNaN(n) && n > 0) {
-            var label = formatCount(n);
-            document.querySelectorAll('.live-count').forEach(function (el) {
-              el.textContent = label;
-            });
-          }
-        })
-        .catch(function () {});
-    })();
   </script>
 </body>
 </html>
